@@ -42,7 +42,7 @@
 
 
   <div class="col-lg-5">
-    <h3>Carousel Data</h3>
+    <h3>Featured Materials</h3>
     <div class="col-sm-12">
       <form class="" action="<?php echo base_url(); ?>index.php/Cms_controller/changeCarouselData" method="post">
         <div class="col-sm-12">

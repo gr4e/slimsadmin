@@ -527,7 +527,7 @@ class Cms_controller extends CI_Controller {
 
   function upload_banner(){
     //banner upload path change to OPAC directory
-    $config['upload_path']          = '../slims4a/assets/images/banner';
+    $config['upload_path']          = '../slims/assets/images/banner';
     $config['allowed_types']        = 'png';
     $config['max_size']             = 1000;
     $config['max_width']            = 111024;
