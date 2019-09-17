@@ -1,0 +1,189 @@
+Fixed-Length Data Elements-Additional Material Characteristics:
+This refers to books, computer files/electronic resources, maps, music, continuing resources, visual materials, and mixed materials.
+	1-Books
+	2-Serials
+	3-Theses/Dissertations
+	4-Non-Prints
+	5-Vertical Files
+	6-Investigatory Projects
+International Standard Book Number:
+International Standard Book Number (ISBN) assigned to a monographic publication by designated agencies in each country participating in the program. An ISBN consists of ten or thirteen digits.
+Encoding Policy: 020  ##$a0491001304
+ISSN:
+International Standard Serial Number. Valid ISSN for the continuing resource.
+Language Code:
+Languages of the item being catalog. Language code of text/sound track or separate title 
+Broad Classification
+Special Coded Dates
+refers to the date of last update; format  YYYY/MM/DD
+Catalog Date
+Date and Time of Latest Transaction:
+Sixteen characters that indicate the date and time of the latest record transaction and serve as a version identifier for the record.
+Cataloging Source:
+Refers to the name of the organization(s) that created the original bibliographic record
+Encoding Policy: 040 ##$aSTII-DOST
+Call Number - Classification Number
+Call Number - Item Number
+Call Number - Publication Date
+Edition Statement
+Sample Entry:
+250  ##$aSpecial education edition
+Remainder of edition statement 
+Sample Entry:
+250  ##$aFOURTH EDITION /$brevised by J.G. Le Mesurier and E. McIntosh 
+Title:
+Encoding Policy: 245  10$aNineteenth-century bird prints.
+Subtitle:
+Encoding Policy: 245  10$aPrivate eyeballs :$ba golden treasury of bad taste.
+Statement of responsibility, etc.:
+Encoding Policy: 245  0$a : $b /$cKevin Wicker ; with a foreword by David Pritchard ; illustrated by Karel Feuerstein.
+Abbreviated Title:
+Title as abbreviated for indexing or identification.
+Address of the Implementing Agency
+Name of the Implementing Agency
+Year of Completion of the Project
+Physical Extension (300a):
+Number of physical pages, volumes; subfield $a contains all data up to and including the next mark of ISBD punctuation (e.g., a colon (:), a semicolon (;), a plus sign (+)).
+Encoding Policy: 300  ##$a27 leaves of plates,
+Physical Description (300b):
+Physical characteristics such as illustrative matter, coloration, playing speed, groove characteristics, presence and kind of sound, number of channels, 
+motion picture presentation format, etc; subfield $b contains all data following a colon (:) 
+and up to and including the next mark of ISBD punctuation (e.g., a semicolon (;)).
+Encoding Policy: 300  ##$avolumes :$billustrated (some colored) ;$c25 cm 
+Physical Dimensions (300c):
+Expressed in centimeters, millimeters, or inches; may include a parenthetical qualifier giving the format of the item
+Encoding Policy: 300  ##$avolumes :$billustrated (some colored) ;$c25 cm
+Accompanying material:
+May include a parenthetical physical description of the accompanying material.
+Encoding Policy: 300  ##$a271 p. :$bill. ;$c21 cm. +$e1 atlas (37 p., 19 leaves : col. maps ; 37 cm.)
+Playing Time:
+Encoding Policy: 306 ## $a 1 hr, 45 mins.
+Content type term:
+Content type of the work being described;
+Encoding Policy: 336   ##$aperformed music
+Content type code:
+Code representing the content type of the work being described
+Encoding Policy: 366  ##$a, $bprm, $btext
+Source:
+MARC code that identifies the source of the term or code used to record the content type information.  (default)
+Encoding Policy: 336  ##$a, $b,  $2rdacontent
+Media type term:
+Code for the category of media used to convey the content of the resource;
+Encoding Policy: 337  ##$aaudio
+Media type code:
+MARC code that identifies the source of the term or code used to record the media type information;
+Encoding Policy: 337  ##$avideo$bv
+Source:
+MARC code that identifies the source of the term or code used to record the media type information.
+Encoding Policy: 337  ##$avideo$bv$2rdamedia
+Type of Recording:
+The method used to encode audio content for playback (e.g., analog, digital).
+Encoding Policy: 344 ##$aanalog
+Recording Medium:
+The type of medium used to record sound on an audio carrier (e.g., magnetic, optical)
+Encoding Policy: 344 ##$a $boptical
+Playing Speed:
+The speed at which an audio carrier must be operated to produce the sound intended.
+Encoding Policy: 344 ##$a $b $c78 rpm
+Carrier type term:
+Term for the category of carrier used to convey the content of the resource;
+Encoding Policy: 338  ##$avideodisc$bvd$2rdacarrier
+Carrier type code:
+Code for the category of carrier used to convey the content of the resource;
+Encoding Policy: 338  ##$avideodisc$bvd$2rdacarrier
+Source:
+MARC code that identifies the carrier type information
+Dates of Publication and/or Sequential Designation:
+consist of volume number, edition number, issue number, series of volume numbers, 
+or other sequential designations according to the usage of the publisher. 
+The date may consist of the year, month, or day; month or season and year; or year alone, 
+depending upon the frequency of publication and the usage of the publisher.
+Encoding Policy: 362  0#$aVol. 1, no. 1 (Apr. 1981)-
+Time Period of Creation:
+Encoding Policy: 388 1#$a2009-2010
+Series Statement:
+Field 490 does not end with a mark of punctuation unless the field ends with an abbreviation, 
+an initial/letter, or data that ends with a mark of punctuation;  
+no spaces are used in initialisms or personal name initials/letters that appear as part of the series titles
+Encoding Policy: 490   1#$aBulletin / U.S. Department of Labor, Bureau of Labor Statistics
+Series Statement:
+Encoding Policy: Note that in field 490 the names and numbers of parts and sections of a title are not
+separately subfield coded; Repeatable when a subseries is separated from the main series by the numbering
+of the main series in subfield $v or by the ISSN in subfield $x, or when a series has a parallel title. 
+Volume/sequential designation 
+Encoding Policy: Volume number or other sequential designation used in a series statement. 
+Alternate numbering systems, preceded by an equal sign (=), are not placed in separate subfields; 
+preceeded by a semicolon (:)
+General Note
+Sample Entry:
+500  ##$aSubsequent publishers: William M. Swain & Co., 1857-64; George W. Childs, 1864.
+Terms Governing Access:
+Legal, physical, or procedural restrictions imposed on individuals wishing to see the described materials
+Sample Entry:
+506##$a For use of the DOST MANCOM only, any exception will require prior approval of the DOST secretary
+Jurisdiction Name:
+Name of a person, an institution, or a position or function within the institution, 
+by whom or which the terms governing access are imposed and/or enforced, 
+and to whom the restriction may be appealed;
+Sample Entry: 506##$a, $b Office of the DOST secretary; Filipiniana Library Unit Head
+Physical Access Provisions:
+Arrangements required for physical access,
+Sample Entry: 506##$a,$b, $cAccess by appointment only, $c Written permission required
+Type of Report:
+Entire text of the note
+Sample Entry:
+513$a Project report, 513$a Technical report, 513$a Terminal report
+Period Covered:
+Year covering the project period
+Sample Entry:
+513$a ##$b 16 June 2016-31 December 2018
+Bibliography, Etc. Note 
+Sample Entry:
+504  ##$aIncludes bibliographies and index.
+Formatted Contents Note 
+Sample Entry:
+505  0#$apt. 1. Carbon -- pt. 2. Nitrogen -- pt. 3. Sulphur -- pt. 4. Metals
+Dissertation Note:
+Entire text of the note
+Sample Entry:
+502   ##$aThesis (M.A.)--University College, London, 1969.
+Degree Type:
+Degree for which author was candidate; 
+Sample Entry:
+502 ##$bPh.D$cUniversity of Louisville
+Name of Granting Institution
+Sample Entry:
+502   ##$a, $b, $cM.A.$cInternational Faith Theological Seminary, London
+Year Degree Granted:
+Sample Entry:
+502  ##$a, $bM.A.$cMcGill University$d1972
+Name of Source:
+Name of the source in which the reference or citation appears. 
+Follow the rule of what you see is what u get
+Encoding Policy: 510 0#$aScience Direct
+Uniform Resource Identifier:
+Encoding Policy: 510 0#$a$uhttp://lccn.loc.gov
+Scope and Content
+Encoding Policy: Used to generate the display constant Scope and content:.
+Summary, Etc.
+Encoding Policy: Text of the summary, abstract, review, etc. 
+Additional Physical Form Available Note
+Encoding Policy: Information concerning a different physical format in which the described item is available.
+Sample Entry:
+530  ##$aIssued as Beta 1/2 in. or VHS 1/2 in.
+Availability source
+Sample Entry:
+530  ##$aPhotoreproduced facsimile version;$bPublished as Dudley, Cuthbert, ed.
+Availability conditions 
+Sample Entry:
+530  ##$aAvailable in DVD;$b450 East 52nd St., New York, N.Y. 10006;$cBuyers must acquire entire film set
+
+
+
+
+
+
+
+
+
+

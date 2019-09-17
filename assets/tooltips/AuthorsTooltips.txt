@@ -1,0 +1,127 @@
+Author:
+Dropdown list for Author.
+1-Personal
+2-Corporate
+3-Added Personal
+4-Added Corporate
+RDA Element: Main Entry-Personal Name
+Dropdown list for type of Author Entry:
+0 - Forename (Default)
+1 - Surname
+3-  Family Name
+Sample Entry: 
+100  0#$aJohn$cthe Baptist, Saint.  
+100  1#$aMorgan, John Pierpont$d1837-1913,$ecollector.
+100  3#$aFarquhar family. 
+Main Author (100a)
+Personal Author:
+End with a punctuation mark;Include option for Jr., Sr. and punctuation marks.
+Sample Entry:
+100  0#$aMorgan, John Pierpont
+Numeration:
+Example Entry:
+100 1#$aMorgan, John Pierpont$bII 
+Titles and words associated with a name:
+Sample Entry:
+100 1#$aWatson,Jerry$cRev.
+Relator Term:
+Sample Entry:
+100 1#$aMorgan, John Pierpont$eillustrator.
+Dates associated with a name:
+Sample Entry:
+100  1#$aMorgan, John Pierpont$d1837-1913
+Fuller form of name:
+Sample Entry:
+100 1#$aFowler, T. M.$q(Thaddeus Mortimer)$d1842-1922.
+Affiliation:
+Sample Entry:
+100 1#$aBrown, B. F.$uEconomic Department, University of the Philippines 
+Added Personal Author:
+Dropdown list for type of Author Entry:
+0 - Forename (Default)
+1 - Surname
+3-  Family Name
+Personal name:
+Sample Entry:
+700 1#$aWalter, Johannes.
+Numeration:
+Sample Entry:
+700  0#$aJohn Paul$bII
+Titles and words associated with a name:
+Sample Entry:
+700  0#$aVivekananda$cSwami$d1863-1902.
+Relator term:
+Sample Entry:
+700  0#$aVivekananda$cSwami$d1863-1902.
+Dates associated with a name:
+Sample Entry:
+700 1#$aSmith, Elsie,$d1900-1945,$eillustrator.
+Fuller form of name:
+Sample Entry:
+700  1#$aE., Sheila$q(Escovedo),$d1959-
+Affiliation:
+Sample Entry:
+700 1#$aBrown, B. F.$uChemistry Dept., American University.
+RDA Element: Main Entry-Corporate Name
+Conference and meeting names that are entered subordinately to a corporate body are 
+contained in this field rather than in field 111; end with period or parentheses.
+Dropdown list for type of Corporate Author Entry
+0 - Inverted name
+1 - Jurisdiction Name (default)
+2 - Name in direct order 
+Example:
+110   0#$aNewman (Jean and Dorothy) Industrial Relations Library. 
+110   1#$aCyprus (Archdiocese)
+110   2#$aJ.C. Penney Co.
+Main Corporate Author (110a):
+Corporate name or jurisdiction name as entry element:
+Sample Entry:
+110  2#$aScientific Society of San Antonio (1892-1894) 
+Subordinate unit:
+Sample Entry:
+110  1#$aUnited States.$bCongress.$bJoint Committee on the Library.
+Location of meeting:
+Sample Entry:
+110  2#$aAmerican Library Association.$bConference$c(Washington, D.C.; $cLondon, England)
+Date of meeting or treaty signing:
+Sample Entry:
+110 2#$aInternational Labour Organisation.$bEuropean Regional Conference$n(2nd :$d1968 :$cGeneva, Switzerland)
+Number of part/section/meeting:
+Sample Entry:
+110 2#$aInternational Labour Organisation.$bEuropean Regional Conference$n(2nd :$d1968 :$cGeneva, Switzerland)
+Added Corporate Author:
+Sample Entry:
+Dropdown list for type of Corporate Author Entry
+0 - Inverted name
+1 - Jurisdiction Name (default)
+2 - Name in direct order 
+Main Corporate Author (710a)
+Corporate name or jurisdiction name as entry element:
+Sample Entry:
+710  1#$aCanada.$bDept of Agriculture.
+Subordinate unit:
+Sample Entry:
+710  1#$aCanada.$bDept of Agriculture. 
+Location of meeting:
+Sample Entry:
+710  2#$aAmerican Library Association.$bConference$c(Washington, D.C.)
+Date of meeting or treaty signing:
+Sample Entry:
+enclosed in parentheses together with $c. (if with $c $d comes after $c)
+Example:
+710  2#$aCatholic Church.$bConcilium Plenarium Americae Latinae$d(1899 :$cRome, Italy)
+$d also contain the date of treaty signing  
+Example:  
+710 1# $aAlgeria.$tTreaties, etc.$gEnglang,$d 1982 April 20
+
+
+
+
+
+
+
+
+
+
+
+

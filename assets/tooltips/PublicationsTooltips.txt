@@ -1,0 +1,28 @@
+List of Imprint:
+Dropdown list for imprint :
+# - Not Applicable/Not provided/Earliest (default)
+	Used when a resource is first cataloged
+2 - Intervening
+	Used when the place of production, publication, distribution, manufacture 
+	or the name of the producer, publisher, distributor, manufacturer changes
+3 - Current/Latest
+	Used when the name of the producer, publisher, distributor, manufacturer
+	changes, or when the place of production, publication, distribution, 
+	manufacture associated with the earliest statement changes
+List of Type of Imprint
+Dropdown list for type of imprint:
+0 - Production
+	Field contains a statement relating to the inscription, fabrication, 
+	construction, etc., of a resource in an unpublished form
+1 - Publication (default)
+	Field contains a statement relating to the publication, 
+	release, or issuing of a resource.
+Place of production, publication, distribution, manufacture:
+Sample Entry: 
+264   #1$aBoston : $b[publisher not identified], $c2010.
+Name of producer, publisher, distributor, manufacturer:
+Sample Entry:
+264   #1$a[Place of publication not identified] : $bABC Publishers, $c2009.
+Date of production, publication, distribution, manufacture, or copyright notice:
+Sample Entry:
+#4$c©2002

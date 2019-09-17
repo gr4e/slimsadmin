@@ -1,0 +1,35 @@
+Fixed-Length Data Elements-Additional Material Characteristics
+This refers to books, computer files/electronic resources, maps, music, 
+continuing resources, visual materials, and mixed materials.
+Accession Number
+Sample Entry:
+876  ## $a 9-12345
+Circulation Number (Barcode Number)
+Sample Entry:
+876 ##$a9-12345,$bSTI-01-3213
+Cost/Price
+Sample Entry:
+876 ##$a9-12345,$bSTI-01-3212, $c1500.00
+Date of Acquisition
+Sample Entry:
+876 ##$a9-12345,$bSTI-01-3212, $c1500.00$d2015/04/23
+Acquisition Mode
+Mode of acquisition
+Sample Entry:
+876 ##$a9-12345,$bSTI-01-3212, $c1500.00$d2015/04/23$ePurchase
+Donor/Source
+Use restrictions 
+Sample Entry:
+876 ##$a9-12345,$bSTI-01-3212, $c1500.00$d2015/04/23$ePurchase$hFor Room Use Only
+Status
+Item status
+Sample Entry:
+876 33$j Inventoried 
+Temporary location 
+Copy Number
+Sample Entry:
+876 ##$a9-12345,$bSTI-01-3212, $c1500.00$d2015/04/23$ePurchase$hFor Room Use Only$t c.2
+Nonpublic Note 
+
+
+

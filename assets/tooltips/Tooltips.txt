@@ -1,0 +1,162 @@
+Dropdown list for Material Type:
+1 - Books
+2 - Serials
+3 - Thesis
+4 - Non-Print
+5 - Vertical Files
+6 - Investigatory Projects
+7 - Reprints
+8 - Analytics
+International Standard Book Number (ISBN) assigned to a monographic publication by designated agencies in each country participating in the program. An ISBN consists of ten or thirteen digits.
+Encoding Policy: 020  ##$a0491001304
+International Standard Serial Number. Valid ISSN for the continuing resource.
+Encoding Policy: ## $a03764583
+Classification number
+Encoding Policy: 050 ## $a(T) HC79.P6 
+Author number
+Encoding Policy: 050  ##$b M55
+Publication Date/Copyright Date
+Encoding Policy: 050 ## $c2011
+Checkbox for Personal Author Type
+Checkbox for Corporate Author Type
+Dropdown list for type of Author Entry:
+0 - Forename (Default)
+1 - Surname
+3 -  Family Name
+Example Entry: 
+100  0#$aJohn$cthe Baptist, Saint.  
+100  1#$aMorgan, John Pierpont$d1837-1913,$ecollector.
+100  3#$aFarquhar family.  
+Personal name 
+End with a punctuation mark;Include option for Jr., Sr. and punctuation marks.
+Encoding Policy: 100  0#$aMorgan, John Pierpont
+Numeration 
+Encoding Policy: 100 1#$aMorgan, John Pierpont$bII 
+Titles and words associated with a name 
+Encoding Policy: 100 1#$aWatson,Jerry$cRev. 
+Relator term
+Encoding Policy: 100 1#$aMorgan, John Pierpont$eillustrator.
+Dates associated with a name 
+Encoding Policy: 100  1#$aMorgan, John Pierpont,$d1837-1913
+Fuller form of name 
+Encoding Policy: 100 1#$aFowler, T. M.$q(Thaddeus Mortimer),$d1842-1922. 
+Affiliation 
+Encoding Policy: 100 1#$aBrown, B. F.$uEconomic Department, University of the Philippines
+Conference and meeting names that are entered subordinately to a corporate body are contained in this field rather than in field 111; end with period or parentheses.
+Dropdown list for type of Corporate Author Entry
+0 - Inverted name
+1 - Jurisdiction Name (default)
+2 - Name in direct order 
+Example:
+110   0#$aNewman (Jean and Dorothy) Industrial Relations Library. 
+110   1#$aCyprus (Archdiocese)
+110   2#$aJ.C. Penney Co. 
+Corporate name or jurisdiction name as entry element 
+Encoding Policy: 110  2#$aScientific Society of San Antonio (1892-1894) 
+Subordinate unit 
+Encoding Policy: 110  1#$aUnited States.$bCongress.$bJoint Committee on the Library. 
+Location of meeting 
+Encoding Policy: 110  2#$aAmerican Library Association.$bConference$c(Washington, D.C.; $cLondon, England) 
+Date of meeting or treaty signing 
+Encoding Policy: 110 2#$aInternational Labour Organisation.$bEuropean Regional Conference$n(2nd :$d1968 :$cGeneva, Switzerland)
+Number of part/section/meeting 
+Encoding Policy: 110 2#$aInternational Labour Organisation.$bEuropean Regional Conference$n(2nd :$d1968 :$cGeneva, Switzerland)
+Dropdown list for type of Author Entry:
+0 - Forename (Default)
+1 - Surname
+3 - Family Name
+Personal name 
+Encoding Policy: 700 1#$aWalter, Johannes.
+Numeration 
+Encoding Policy: 700  0#$aJohn Paul$bII
+Titles and words associated with a name 
+Encoding Policy: 700  0#$aVivekananda$cSwami$d1863-1902.
+Relator term
+Encoding Policy: 700  0#$aVivekananda$cSwami$d1863-1902.
+Dates associated with a name 
+Encoding Policy: 700 1#$aSmith, Elsie,$d1900-1945,$eillustrator.
+Fuller form of name 
+Encoding Policy: 700  1#$aE., Sheila$q(Escovedo),$d1959- 
+Affiliation 
+Encoding Policy: 700 1#$aBrown, B. F.$uChemistry Dept., American University.
+Dropdown list for type of Corporate Author Entry
+0 - Inverted name
+1 - Jurisdiction Name (default)
+2 - Name in direct order 
+Corporate name or jurisdiction name as entry element 
+Encoding Policy: 710  1#$aCanada.$bDept of Agriculture. 
+Subordinate unit 
+Encoding Policy: 710  1#$aCanada.$bDept of Agriculture. 
+Location of meeting 
+Encoding Policy: 710  2#$aAmerican Library Association.$bConference$c(Washington, D.C.) 
+Date of meeting or treaty signing 
+Enclosed in parentheses together with $c. (if with $c $d comes after $c)
+Encoding Policy: 710  2#$aCatholic Church.$bConcilium Plenarium Americae Latinae$d(1899 :$cRome, Italy)
+$d also contain the date of treaty signing  
+Encoding Policy: 710 1# $aAlgeria.$tTreaties, etc.$gEnglang,$d 1982 April 20
+Title
+Encoding Policy: 245  10$aNineteenth-century bird prints. 
+Remainder of title 
+Encoding Policy: 245  10$aPrivate eyeballs :$ba golden treasury of bad taste.
+Statement of responsibility, etc. 
+Encoding Policy: 245  0$a : $b /$cKevin Wicker ; with a foreword by David Pritchard ; illustrated by Karel Feuerstein. 
+Edition statement
+Encoding Policy: 250  ##$aSpecial education edition
+Remainder of edition statement 
+Encoding Policy: 250  ##$aFOURTH EDITION /$brevised by J.G. Le Mesurier and E. McIntosh
+Dropdown list for Imprint :
+# - Not Applicable/Not provided/Earliest (default)
+2 - Intervening
+3 - Current/Latest
+Dropdown list for type of imprint:
+0 - Production
+1 - Publication (default)
+Name of producer, publisher, distributor, manufacturer 
+Encoding Policy: 264   #1$a[Place of publication not identified] : $bABC Publishers, $c2009.
+Place of production, publication, distribution, manufacture 
+Encoding Policy: 264   #1$aBoston : $b[publisher not identified], $c2010.
+Date of production, publication, distribution, manufacture, or copyright notice 
+Encoding Policy: #4$c©2002
+Extent 
+Number of physical pages, volumes; subfield $a contains all data up to and including the next mark of ISBD punctuation (e.g., a colon (:), a semicolon (;), a plus sign (+)).
+Encoding Policy: 300  ##$a27 leaves of plates,
+Other Physical Details 
+Physical characteristics such as illustrative matter, coloration, playing speed, groove characteristics, presence and kind of sound, number of channels, motion picture presentation format, etc; subfield $b contains all data following a colon (:) and up to and including the next mark of ISBD punctuation (e.g., a semicolon (;)).
+Encoding Policy: 300  ##$avolumes :$billustrated (some colored) ;$c25 cm 
+Dimensions 
+Expressed in centimeters, millimeters, or inches; may include a parenthetical qualifier giving the format of the item
+Encoding Policy: 300  ##$avolumes :$billustrated (some colored) ;$c25 cm 
+Frequency
+Complete statement, exclusive of dates, of the current publication frequency;  
+Encoding Policy:  310  ##$aMonthly 
+Volume
+Issue Date
+Issue Number
+Series Statement
+Note that in field 490 the names and numbers of parts and sections of a title are not separately subfield coded; Repeatable when a subseries is separated from the main series by the numbering of the main series in subfield $v or by the ISSN in subfield $x, or when a series has a parallel title. 
+Encoding Policy: 490   1#$aBulletin / U.S. Department of Labor, Bureau of Labor Statistics
+Bibliography, Etc. Note 
+Encoding Policy: 504  ##$aIncludes bibliographies and index.
+Accession Number
+Encoding Policy: 876  ## $a 9-12345
+Circulation Number
+Encoding Policy: 876 ##$a9-12345,$bSTI-01-3213
+Cost/Price
+Encoding Policy: 876 ##$a9-12345,$bSTI-01-3212, $c1500.00
+Date Acquired
+Encoding Policy: 876 ##$a9-12345,$bSTI-01-3212, $c1500.00$d2015/04/23
+Mode of Acquisition
+Dropdown list for Mode of Acquisition :
+1 - Purchase
+2 - Subscription
+3 - Donation
+4 - Complimentary
+5 - Exchange
+Donor
+Use Restrictions
+Encoding Policy: 876 ##$a9-12345,$bSTI-01-3212, $c1500.00$d2015/04/23$ePurchase$hFor Room Use Only
+Item Status
+Encoding Policy: 876 33$j Inventoried
+Temporary Location 
+Copy Number
+Nonpublic Note 

@@ -1,0 +1,110 @@
+.newNews{
+  width: 50%;
+  height: 100%;
+  margin: auto;
+}
+
+.div-txt-dtr{
+  width: 100%;
+  margin-top: 20px;
+}
+
+.div-submit-dtr{
+  float: left;
+}
+
+.div-tableList{
+  padding: 30px;
+}
+
+.but-news{
+  float: right;
+  margin-left: 10px;
+}
+
+.addNewsDiv{
+  margin-top: 20px;
+  margin-bottom: 50px;
+  padding: 0 50px 0 50px;
+}
+
+.panel{
+  border: none;
+  box-shadow: none;
+}
+
+.sidenav-gallery {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 999;
+    top: 50;
+    right: 0;
+    background-color: #a4b8d8;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-bottom: 100px;
+}
+
+.sidenav-gallery a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav-gallery a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav-gallery .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav-gallery a {font-size: 18px;}
+}
+
+
+
+.form-radio
+{
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+     display: inline-block;
+     position: relative;
+     background-color: #f1f1f1;
+     color: #666;
+     top: 10px;
+     height: 30px;
+     width: 30px;
+     border: 0;
+     border-radius: 50px;
+     cursor: pointer;
+     margin-right: 7px;
+     outline: none;
+}
+.form-radio:checked::before
+{
+     position: absolute;
+     font: 13px/1 'Open Sans', sans-serif;
+     left: 11px;
+     top: 7px;
+     content: '\02143';
+     transform: rotate(40deg);
+}
+.form-radio:hover
+{
+     background-color: #f7f7f7;
+}
+.form-radio:checked
+{
+     background-color: #f1f1f1;
+}

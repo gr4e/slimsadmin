@@ -1,0 +1,240 @@
+public function multimedia_create() 
+{
+
+
+ 		
+if($this->input->post('UploadName')=="")
+
+{
+
+
+	
+
+	  
+//$dir = './upload/';
+$dir = './upload/';
+$without_extension = pathinfo(($_FILES["image_file"]["name"]), PATHINFO_FILENAME);
+$ext = pathinfo(($_FILES["image_file"]["name"]),PATHINFO_EXTENSION);
+$clearString =preg_replace("/[^\w- ]/", '',($without_extension), PATHINFO_FILENAME).'_'.$this->input->post('HoldingsID'); 
+$file = $dir . basename($clearString) .'.' . $ext;
+
+
+$upload = 1; 
+$fileType = strtolower(pathinfo(($without_extension),PATHINFO_EXTENSION));
+
+$_COOKIE['upload1'];
+
+
+
+
+
+if(file_exists($file))
+
+{
+
+
+
+ echo "<script>  
+
+ var r = confirm('File already exists do you still want to upload?');
+ if (r == true)
+
+ {
+ 	document.cookie='upload1=1';
+
+ 	
+ }
+
+ else
+
+ {
+
+ 	document.cookie='upload1=0';
+ }
+
+
+ </script>";
+ $upload = $_COOKIE['upload1'];
+
+
+
+
+  // Encode data
+
+
+
+
+
+
+
+}
+
+
+//MAXIMUM OF 10 MB
+if ($_FILES["image_file"]["size"] > 8e+7)
+
+{
+
+$sizeError ="File is too large";	
+
+echo "<script>  alert('File is too large'); </script>";
+
+ $upload = 0;
+
+}
+
+//Validation of file types
+
+if($ext != "jpg" && $ext != "png" && $ext != "jpeg"
+&& $ext != "pdf" && $ext != "avi" )
+{
+
+echo "<script>  alert('File type is not allowed!'); </script>";
+$upload = 0;
+
+}
+
+
+
+
+if ($upload==1) 
+
+{
+
+	if(move_uploaded_file($_FILES["image_file"]["tmp_name"], $file))
+
+	{
+
+	
+		
+		
+
+
+			$FileName=	$clearString;
+			$FileType=  $ext;
+			$FileLocation= $file;
+			$HoldingsID = $this->input->post('HoldingsID');
+
+
+			if($this->input->post('MultimediaID') != '')
+			{
+				$multimedia_id = $this->input->post('MultimediaID');
+			}
+
+			$multimedia_record = array
+			( 
+				'HoldingsID'      => $HoldingsID,
+									//removing special characters in filename
+				'FileName'        => $FileName,
+				'FileType'        => $FileType,
+				'FileLocation'    => $FileLocation,
+				'Permission'      => $this->input->post('Restriction')
+			);
+
+			if($this->input->post('MultimediaID') == "")
+			{
+				$this->Holdings_model->create_multimedia($multimedia_record);
+			}
+
+
+
+			echo "<script>  alert('File has been uploaded'); </script>";
+	}
+
+	else
+
+	{
+		echo "<script>  alert('Sorry, there was an error uploading your file.'); </script>";
+	}
+
+		
+
+}
+
+
+//redirect('Holdings_controller/multimediaindex');
+}
+
+else
+
+{
+	
+	
+
+$this->Holdings_model->update_multimedia($this->input->post('MultimediaID'),$this->input->post('Restriction'));
+
+	
+
+}  
+
+	  
+	
+}
+public function frontpage_update() 
+{ 
+
+
+
+if(isset($_FILES["FrontPage"]["name"]))  
+{  
+$config['upload_path'] = './frontpage/';  
+$config['allowed_types'] = 'jpg|jpeg|png|gif|pdf'; 
+//$config['max_size']      = 1; 
+$this->load->library('upload', $config);  
+if(!$this->upload->do_upload('FrontPage'))  
+{  
+ echo $this->upload->display_errors();  
+
+
+}  
+else  
+{  
+ $data = $this->upload->data();  
+$HoldingsID = $this->input->post('HoldingsID');
+$FrontPageID = $this->input->post('FrontPageID');
+$FrontPageName=$_FILES["FrontPage"]["name"];
+$FrontPageType=$_FILES["FrontPage"]["type"];
+$FrontPageLocation= $config['upload_path'].$data["file_name"];
+
+
+
+$frontpage_record = array
+( 
+'HoldingsID'           => $HoldingsID,
+'FrontPageName'        => $FrontPageName,
+'FrontPageType'        => $FrontPageType,
+'FrontPageLocation'    => $FrontPageLocation
+
+);
+
+;
+
+$this->load->library('form_validation');
+
+
+if($this->input->post('FrontPageID') == "")
+{
+
+
+$this->Holdings_model->create_frontpage($frontpage_record);
+
+}
+
+else
+{
+
+$this->Holdings_model->update_frontpage($HoldingsID,$frontpage_record);
+}
+
+
+
+redirect('Holdings_controller/frontpageindex');
+                   
+}  
+}  
+
+
+
+
+
+}

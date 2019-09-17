@@ -1,0 +1,125 @@
+@charset "utf-8";
+/* CSS Document */
+.left{ float:left;}
+.right {float:right;}
+.clear {clear:both;}
+	
+	 .cat{height:65px;width:90px;}
+	 .cat1{background-image:url(../img/button/cat1h-s.png);}	
+	 .cat1:hover{background-image:url(../img/button/cat1h2-s.png);}
+	 .cat2{background-image:url(../img/button/cat2h-s.png);}	
+	 .cat2:hover{background-image:url(../img/button/cat2h2-s.png);}
+	 .mT_b{height:67px;width:67px;}
+ 	 .matType_b1{background-image:url(../img/button/c-button1h-s.png);} 
+	 .matType_b1:hover{background-image:url(../img/button/c-button1ha-s.png);}
+	 .matType_b2{background-image:url(../img/button/c-button2h-s.png);}
+	 .matType_b2:hover{background-image:url(../img/button/c-button2ha-s.png);}			
+	 .matType_b3{background-image:url(../img/button/c-button3h-s.png);}		
+	 .matType_b3:hover{background-image:url(../img/button/c-button3ha-s.png);}
+	 .matType_b4{background-image:url(../img/button/c-button4h-s.png);}
+	 .matType_b4:hover{background-image:url(../img/button/c-button4ha-s.png);}
+	 .matType_b5{background-image:url(../img/button/c-button5h-s.png);}
+	 .matType_b5:hover{background-image:url(../img/button/c-button5ha-s.png);}
+	 .matType_b6{background-image:url(../img/button/c-button6h-s.png);}	
+	 .matType_b6:hover{background-image:url(../img/button/c-button6ha-s.png);}	
+	 .matType_b7{background-image:url(../img/button/c-button7h-s.png);}
+	 .matType_b7:hover{background-image:url(../img/button/c-button7ha-s.png);}	
+	 .matType_b8{background-image:url(../img/button/c-button8h-s.png);}
+	 .matType_b8:hover{background-image:url(../img/button/c-button8ha-s.png);}	
+	 .matType_b9{background-image:url(../img/button/c-button9h-s.png);}
+	 .matType_b9:hover{background-image:url(../img/button/c-button9ha-s.png);}
+	
+ 	 .CmatType_b1{background-image:url(../img/button/button1h-s.png);} 
+	 .CmatType_b1:hover{background-image:url(../img/button/c-button1ha-s.png);}
+	 .CmatType_b2{background-image:url(../img/button/button2h-s.png);}
+	 .CmatType_b2:hover{background-image:url(../img/button/c-button2ha-s.png);}			
+	 .CmatType_b3{background-image:url(../img/button/button3h-s.png);}		
+	 .CmatType_b3:hover{background-image:url(../img/button/c-button3ha-s.png);}
+	 .CmatType_b4{background-image:url(../img/button/button4h-s.png);}
+	 .CmatType_b4:hover{background-image:url(../img/button/c-button4ha-s.png);}
+	 .CmatType_b5{background-image:url(../img/button/button5h-s.png);}
+	 .CmatType_b5:hover{background-image:url(../img/button/c-button5ha-s.png);}
+	 .CmatType_b6{background-image:url(../img/button/button6h-s.png);}	
+	 .CmatType_b6:hover{background-image:url(../img/button/c-button6ha-s.png);}	
+	 .CmatType_b7{background-image:url(../img/button/button7h-s.png);}
+	 .CmatType_b7:hover{background-image:url(../img/button/c-button7ha-s.png);}	
+	 .CmatType_b8{background-image:url(../img/button/button8h-s.png);}
+	 .CmatType_b8:hover{background-image:url(../img/button/c-button8ha-s.png);}	
+	 .CmatType_b9{background-image:url(../img/button/button9h-s.png);}
+	 .CmatType_b9:hover{background-image:url(../img/button/c-button9ha-s.png);}	
+
+.matType_desCont{border: 0px solid #CF0; width:95%;; height:auto;  }
+.matType_desc {border: 3px solid  #245ca6; border-radius:8px; height:auto; margin:8px 20px; height:auto; width:100%;}
+.matType_desc table tr td img{margin:auto; width:100px; padding:0}
+.matType_desc table tr td h4{font:Verdana; font-weight:bold; margin:10px; padding:0}
+.matType_desc table tr td p{padding:0; margin:10px;font:Verdana; /*font-size:14px;*/ line-height: auto; text-align:justify; font-weight: 500;/*bold;*/ }
+
+/*.matType_desCont{border: 0px solid #CF0; width:600px; height:auto;  }
+.matType_desc {border: 5px solid #245ca6;  border-radius:8px; height:auto; margin-top:20px; height:auto; width:100%;}
+.matType_desc table tr td img{margin:auto; width:150px;}
+.matType_desc table tr td h4{color:#245ca6; font:Verdana; font-weight:bold; margin:10px;}
+.matType_desc table tr td p{padding:0; margin:10px;font:Verdana; /*font-size:14px;*/ line-height: auto; text-align:justify; font-weight: 500;/*bold;*/ }*/
+
+.CmatType0{border: 5px solid #245ca6;}
+.CmatType0 h4{color: #245ca6;}
+.CmatType1 {border: 5px solid #D95858; }
+.CmatType1 h4{color: #D95858;} 
+.CmatType2 {border: 5px solid #3B4AA9; }
+.CmatType2 h4{color: #3B4AA9;}
+.CmatType3 {border: 5px solid #419D45; }
+.CmatType3 h4{color: #419D45;}
+.CmatType4 {border: 5px solid #245ca6; }
+.CmatType4 h4{color: #245ca6;}
+.CmatType5 {border: 5px solid #FEA352; }
+.CmatType5 h4{color: #FEA352;}
+.CmatType6 {border: 5px solid #3B4AA9; }
+.CmatType6 h4{color: #3B4AA9;}
+.CmatType7 {border: 5px solid #D95858; }
+.CmatType7 h4{color: #D95858;}
+.CmatType8 {border: 5px solid #419D45; }
+.CmatType8 h4{color: #419D45;}
+.CmatType9 {border: 5px solid #FEA352; }
+.CmatType9 h4{color: #FEA352;}
+
+/*
+	  .opt_icon {height:50px;width:50px;}
+	  .opt_icon1{background-image:url(../img/button/icon1-xs.png);}
+  	  .opt_icon2{background-image:url(../img/button/icon2-xs.png);}
+  	  .opt_icon3{background-image:url(../img/button/icon3-xs.png);}
+  	  .opt_icon4{background-image:url(../img/button/icon4-xs.png);}
+  	  .opt_icon5{background-image:url(../img/button/icon5-xs.png);}
+	  .opt_icon1c{background-image:url(../img/button/icon1-c-xs.png);}
+  	  .opt_icon2c{background-image:url(../img/button/icon2-c-xs.png);}
+  	  .opt_icon3c{background-image:url(../img/button/icon3-c-xs.png);}
+  	  .opt_icon4c{background-image:url(../img/button/icon4-c-xs.png);}
+  	  .opt_icon5c{background-image:url(../img/button/icon5-c-xs.png);}
+*/
+
+ 	  .opt_icon {height:30px;width:30px;}
+	  .opt_icon1c{background-image:url(../img/button/icon1-c-xxs.png);}
+  	  .opt_icon2c{background-image:url(../img/button/icon2-c-xxs.png);}
+  	  .opt_icon3c{background-image:url(../img/button/icon3-c-xxs.png);}
+  	  .opt_icon4c{background-image:url(../img/button/icon4-c-xxs.png);}
+  	  .opt_icon5{background-image:url(../img/button/icon5-xxs.png);}
+	  
+	  
+.hideColor{ color:#85c6fb; text-decoration:line-through;}
+
+.recolor {}
+
+.wsp{word-spacing:-10px;}
+
+.texts3 > li >.active>a{
+	background-color: #83C4FB;   }
+	
+.texts3:hover{
+	background-color: #83C4FB;}
+
+
+.sec_li li{padding-top:10px;}
+.sec_li li:hover{color: #83C4FB;}
+
+.sec_li .treeview-menu li a:hover,active{background-color:#def0ff; color:#83C4FB;} /**/
+
+.act_li{background-color:#def0ff; color:#83C4FB;}
+
