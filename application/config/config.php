@@ -23,8 +23,7 @@ date_default_timezone_set('Asia/Manila');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://10.10.140.23/slimsadmin';
-// $config['base_url'] = 'http://localhost/slims2.1';
+$config['base_url'] = 'http://10.10.140.48/slimsadmin';
 
 /*
 |--------------------------------------------------------------------------
