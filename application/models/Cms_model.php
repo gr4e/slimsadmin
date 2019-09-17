@@ -226,19 +226,19 @@ class Cms_model extends CI_Model
 
 
         function UPDATE_AboutUs($insertData){
-          $this->db->query("UPDATE CMS SET contentText = '".$insertData['contentText']."', dateModified = '".$insertData['dateModified']."', ModifiedBy = '".$insertData['ModifiedBy']."'  WHERE id = '1'");
+          $this->db->query("UPDATE cms SET contentText = '".$insertData['contentText']."', dateModified = '".$insertData['dateModified']."', ModifiedBy = '".$insertData['ModifiedBy']."'  WHERE id = '1'");
           return;
         }
 
 
         function UPDATE_ContactUs($insertData){
-          $this->db->query("UPDATE CMS SET contentText = '".$insertData['contentText']."', dateModified = '".$insertData['dateModified']."', ModifiedBy = '".$insertData['ModifiedBy']."'  WHERE id = '2'");
+          $this->db->query("UPDATE cms SET contentText = '".$insertData['contentText']."', dateModified = '".$insertData['dateModified']."', ModifiedBy = '".$insertData['ModifiedBy']."'  WHERE id = '2'");
           return;
         }
 
 
         function UPDATE_Privacy($insertData){
-          $this->db->query("UPDATE CMS SET contentText = '".$insertData['contentText']."', dateModified = '".$insertData['dateModified']."', ModifiedBy = '".$insertData['ModifiedBy']."'  WHERE id = '3'");
+          $this->db->query("UPDATE cms SET contentText = '".$insertData['contentText']."', dateModified = '".$insertData['dateModified']."', ModifiedBy = '".$insertData['ModifiedBy']."'  WHERE id = '3'");
           return;
         }
 
