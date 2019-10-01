@@ -1,11 +1,11 @@
 <?php
-class Accounts_controller extends CI_Controller 
+class Accounts_controller extends CI_Controller
 {
-	public function __construct() 
+	public function __construct()
 	{
-		parent::__construct();   
+		parent::__construct();
 		$this->load->model("Accounts_model");
-	} 
+	}
 
 	public function index()
 	{
@@ -30,7 +30,7 @@ class Accounts_controller extends CI_Controller
 			'user' => $this->Accounts_model->get_session_data('LibrarianName'),
 			'image' => $this->Accounts_model->get_session_data('Image'),
 			'notifs' => $this->Accounts_model->get_notifs()
-		); 
+		);
 
 		$this->load->template('admin/accounts', $data, $page);
 	}
@@ -43,7 +43,7 @@ class Accounts_controller extends CI_Controller
 		}
 
 		$modules = $this->load->disable_modules(explode(',', $this->Accounts_model->get_session_data('ModuleAssignment')), $this->Accounts_model->get_session_data('RoleID'));
-		
+
 		$data['roles'] = $this->Accounts_model->get_roles_dropdown();
 		$data['modules'] = $this->Accounts_model->get_modules_dropdown();
 		$data['consortia'] = $this->Accounts_model->get_consortia_dropdown();
@@ -71,7 +71,7 @@ class Accounts_controller extends CI_Controller
 		}
 
 		$modules = $this->load->disable_modules(explode(',', $this->Accounts_model->get_session_data('ModuleAssignment')), $this->Accounts_model->get_session_data('RoleID'));
-		
+
 		$data['roles'] = $this->Accounts_model->get_roles_dropdown();
 		$data['modules'] = $this->Accounts_model->get_modules_dropdown();
 		$data['consortia'] = $this->Accounts_model->get_consortia_dropdown();
@@ -232,7 +232,7 @@ class Accounts_controller extends CI_Controller
 		}
 
 		$modules = $this->load->disable_modules(explode(',', $this->Accounts_model->get_session_data('ModuleAssignment')), $this->Accounts_model->get_session_data('RoleID'));
-		
+
 		$data['username'] = $this->Accounts_model->get_session_data('UserName');
 		$data['userid'] = $this->Accounts_model->get_session_data('UserID');
 		$data['LibrarianName'] = $this->Accounts_model->get_session_data('LibrarianName');
@@ -267,10 +267,10 @@ class Accounts_controller extends CI_Controller
 
 		$data = array();
 
-		foreach($records as $r) 
+		foreach($records as $r)
 		{
 			$sub_array = array();
-			
+
 			$sub_array[] = $r->Role;
 			$sub_array[] = '<a type="text" onclick="edit_record('."'".$r->UserID."'".')">'."".$r->Username."".'</a>';
 			$sub_array[] = $r->ConsortiumCode;
@@ -294,21 +294,21 @@ class Accounts_controller extends CI_Controller
 
 	public function load_group_table()
 	{
-	    	
+
 		$draw = intval($this->input->get("draw"));
 		$start = intval($this->input->get("start"));
 		$length = intval($this->input->get("length"));
 
-	    	
+
 		$records = $this->Accounts_model->get_groups();
 
 		$data = array();
 
-	    	
-		foreach($records as $r) 
+
+		foreach($records as $r)
 		{
 			$sub_array = array();
-			
+
 			$sub_array[] = '<a type="text" onclick="edit_record('."'".$r->GroupID."'".')">'."".$r->GroupName."".'</a>';
 			$sub_array[] = $r->GroupType;
 			$sub_array[] = $r->ValidDate;
@@ -316,7 +316,7 @@ class Accounts_controller extends CI_Controller
 			$data[] = $sub_array;
 		}
 
-	    	
+
 		$output = array
 		(
 			"draw" => $draw,
@@ -325,7 +325,7 @@ class Accounts_controller extends CI_Controller
 			"data" => $data
 		);
 
-	    	
+
 		echo json_encode($output);
 		exit();
 	}
@@ -340,10 +340,10 @@ class Accounts_controller extends CI_Controller
 
 		$data = array();
 
-		foreach($records as $r) 
+		foreach($records as $r)
 		{
 			$sub_array = array();
-			
+
 			$sub_array[] = '<a type="text" onclick="edit_record('."'".$r->ConsortiumID."'".')">'."".$r->ConsortiumCode."".'</a>';
 			$sub_array[] = $r->ConsortiumName;
 			$data[] = $sub_array;
@@ -371,10 +371,10 @@ class Accounts_controller extends CI_Controller
 
 		$data = array();
 
-		foreach($records as $r) 
+		foreach($records as $r)
 		{
 			$sub_array = array();
-			
+
 			$sub_array[] = '<a type="text" onclick="edit_record('."'".$r->ModuleID."'".')">'."".$r->ModuleID."".'</a>';
 			$sub_array[] = $r->Module;
 			$data[] = $sub_array;
@@ -404,10 +404,10 @@ class Accounts_controller extends CI_Controller
 
 		if($_POST['type'] >= 1 && $_POST['type'] <= 3)
 		{
-			foreach($records as $r) 
+			foreach($records as $r)
 			{
 				$sub_array = array();
-				
+
 				$sub_array['ID'] = '<a type="text" onclick="edit_record('."'".$r->ID."'".')">'."".$r->ID."".'</a>';
 				$sub_array['Description'] = $r->Description;
 				$data[] = $sub_array;
@@ -415,17 +415,17 @@ class Accounts_controller extends CI_Controller
 		}
 		else if ($_POST['type'] >= 4)
 		{
-			foreach($records as $r) 
+			foreach($records as $r)
 			{
 				$sub_array = array();
-				
+
 				$sub_array['ID'] = '<a type="text" onclick="edit_record('."'".$r->ID."'".')">'."".$r->ID."".'</a>';
 				$sub_array['Code'] = $r->Code;
 				$sub_array['Description'] = $r->Description;
 				$data[] = $sub_array;
 			}
 		}
-		
+
 
 		$output = array
 		(
@@ -441,18 +441,18 @@ class Accounts_controller extends CI_Controller
 
 	public function load_tlogs_table()
 	{
-    	
+
 		$draw = intval($this->input->get("draw"));
 		$start = intval($this->input->get("start"));
 		$length = intval($this->input->get("length"));
 
-    	
+
 		$records = $this->Accounts_model->get_tlogs();
 
 		$data = array();
 
-    	
-		foreach($records as $r) 
+
+		foreach($records as $r)
 		{
 			$sub_array = array();
 			$sub_array[] = $r->BackEndLogID;
@@ -467,7 +467,7 @@ class Accounts_controller extends CI_Controller
 			$data[] = $sub_array;
 		}
 
-    	
+
 		$output = array
 		(
 			"draw" => $draw,
@@ -476,7 +476,7 @@ class Accounts_controller extends CI_Controller
 			"data" => $data
 		);
 
-    	
+
 		echo json_encode($output);
 		exit();
 	}
@@ -491,7 +491,7 @@ class Accounts_controller extends CI_Controller
 
 		$data = array();
 
-		foreach($records as $r) 
+		foreach($records as $r)
 		{
 			$sub_array = array();
 			$sub_array[] = $r->LogID;
@@ -530,8 +530,8 @@ class Accounts_controller extends CI_Controller
 			$user_record = array
 			(
 				'Username' => $this->input->post('txtUsername'),
-			        // 'LibrarianName' => $this->input->post('txtLibrarianName'),
-			        // 'Email' => $this->input->post('txtEmail'),
+				// 'LibrarianName' => $this->input->post('txtLibrarianName'),
+				// 'Email' => $this->input->post('txtEmail'),
 				'Password' => $this->input->post('txtPassword'),
 				'RoleID' => $this->input->post('cboRole'),
 				'GroupID' => $this->input->post('cboGroup'),
@@ -637,7 +637,7 @@ class Accounts_controller extends CI_Controller
 				$record = array
 				(
 					'MaterialType' => $this->input->post('txtDescription')
-				);  
+				);
 			}
 			else if($datalib == "2")
 			{
@@ -715,7 +715,7 @@ class Accounts_controller extends CI_Controller
 	public function update_group()
 	{
 		$validation = $this->validate_data('group', null);
-		
+
 		if($validation['status'] == 'validation error')
 		{
 			echo json_encode($validation);
@@ -745,7 +745,7 @@ class Accounts_controller extends CI_Controller
 	public function update_consortium()
 	{
 		$validation = $this->validate_data('consortium', null);
-		
+
 		if($validation['status'] == 'validation error')
 		{
 			echo json_encode($validation);
@@ -774,7 +774,7 @@ class Accounts_controller extends CI_Controller
 	public function update_module()
 	{
 		$validation = $this->validate_data('module', null);
-		
+
 		if($validation['status'] == 'validation error')
 		{
 			echo json_encode($validation);
@@ -799,7 +799,7 @@ class Accounts_controller extends CI_Controller
 		$validation = $this->validate_data('datalibrary', null);
 
 		$datalib = $this->input->post('cboDataLib');
-		
+
 		if($validation['status'] == 'validation error')
 		{
 			echo json_encode($validation);
@@ -812,7 +812,7 @@ class Accounts_controller extends CI_Controller
 				(
 					'MaterialTypeID' => $this->input->post('txtID'),
 					'MaterialType' => $this->input->post('txtDescription')
-				);  
+				);
 			}
 			else if($datalib == "2")
 			{
@@ -898,14 +898,14 @@ class Accounts_controller extends CI_Controller
 
 	public function updateprofile()
 	{
-	    // $validation = $this->validate_data("updateprofile", null);
+		// $validation = $this->validate_data("updateprofile", null);
 
-	    // if($validation['status'] == 'validation error')
-	    // {
-	    //   echo json_encode($validation);
-	    // }
-	    // else
-	    // {
+		// if($validation['status'] == 'validation error')
+		// {
+		//   echo json_encode($validation);
+		// }
+		// else
+		// {
 
 		$config['upload_path'] = './assets/images/';
 		$config['allowed_types'] = 'gif|jpg|png';
@@ -918,7 +918,7 @@ class Accounts_controller extends CI_Controller
 		if($this->upload->do_upload())
 		{
 			$data = array('upload_data' => $this->upload->data());
-			$image = $_FILES['userfile']['name']; 
+			$image = $_FILES['userfile']['name'];
 		}
 		else
 		{
@@ -939,12 +939,12 @@ class Accounts_controller extends CI_Controller
 
 		$this->Accounts_model->update_profile($data);
 		redirect('admin/updateprofile');
-	    	// }
+		// }
 	}
 
 	public function changepassword()
 	{
-	    	// Entry validation
+		// Entry validation
 		$validation = $this->validate_data('changepass', null);
 
 		if($validation['status'] == 'validation error')
@@ -987,107 +987,107 @@ class Accounts_controller extends CI_Controller
 	{
 		$output = array();
 
-	    	// Get recrod via ID
+		// Get recrod via ID
 		$data = $this->Accounts_model->get_user($_POST["id"]);
-		    //print_r($data[0]->Salt);
-		    // Save into array every fields
+		//print_r($data[0]->Salt);
+		// Save into array every fields
 		foreach($data as $row)
 		{
 			$output['UserID'] = $row->UserID;
-			$output['UserName'] = $row->UserName;   
-			$output['LibrarianName'] = $row->LibrarianName;  
+			$output['UserName'] = $row->UserName;
+			$output['LibrarianName'] = $row->LibrarianName;
 			$output['Position'] = $row->Position;
-			$output['Email'] = $row->Email;  
+			$output['Email'] = $row->Email;
 			$output['FaxNo'] = $row->FaxNo;
 			$output['TelNo'] = $row->TelNo;
 			$output['OfficeAddress'] = $row->OfficeAddress;
-			$output['RoleID'] = $row->RoleID; 
-			$output['GroupID'] = $row->GroupID;  
+			$output['RoleID'] = $row->RoleID;
+			$output['GroupID'] = $row->GroupID;
 			$output['Consortium'] = $row->Consortium;
 			$output['Status'] = $row->Status;
 		}
 
-		echo json_encode($output);  
-	} 
+		echo json_encode($output);
+	}
 
 	public function get_group()
 	{
 		$output = array();
 
-	    	// Get recrod via ID
+		// Get recrod via ID
 		$data = $this->Accounts_model->get_group($_POST["id"]);
-		
-	    	// Save into array every fields
+
+		// Save into array every fields
 		foreach($data as $row)
 		{
 			$output['GroupID'] = $row->GroupID;
-			$output['GroupName'] = $row->GroupName;   
-			$output['GroupType'] = $row->GroupType;   
-			$output['Status'] = $row->Status;  
-			$output['ValidDate'] = $row->ValidDate; 
-			$output['ModuleAssignment'] = $row->ModuleAssignment;  
+			$output['GroupName'] = $row->GroupName;
+			$output['GroupType'] = $row->GroupType;
+			$output['Status'] = $row->Status;
+			$output['ValidDate'] = $row->ValidDate;
+			$output['ModuleAssignment'] = $row->ModuleAssignment;
 			$output['Consortium'] = $row->Consortium;
 		}
 
-		echo json_encode($output);  
-	} 
+		echo json_encode($output);
+	}
 
 	public function get_consortium()
 	{
 		$output = array();
 
-	    	// Get recrod via ID
+		// Get recrod via ID
 		$data = $this->Accounts_model->get_consortium($_POST["id"]);
-		
-	    	// Save into array every fields
+
+		// Save into array every fields
 		foreach($data as $row)
 		{
 			$output['ConsortiumID'] = $row->ConsortiumID;
-			$output['ConsortiumCode'] = $row->ConsortiumCode;   
-			$output['ConsortiumName'] = $row->ConsortiumName;   
-			$output['ConsortiumAdd'] = $row->ConsortiumAdd;  
-			$output['HomePage'] = $row->HomePage;  
-			$output['FaxNo'] = $row->FaxNo; 
-			$output['TelNo'] = $row->TelNo;  
+			$output['ConsortiumCode'] = $row->ConsortiumCode;
+			$output['ConsortiumName'] = $row->ConsortiumName;
+			$output['ConsortiumAdd'] = $row->ConsortiumAdd;
+			$output['HomePage'] = $row->HomePage;
+			$output['FaxNo'] = $row->FaxNo;
+			$output['TelNo'] = $row->TelNo;
 			$output['Consortium_ID'] = $row->Consortium_ID;
 		}
 
-		echo json_encode($output);  
+		echo json_encode($output);
 	}
 
 	public function get_module()
 	{
 		$output = array();
 
-	    	// Get recrod via ID
+		// Get recrod via ID
 		$data = $this->Accounts_model->get_module($_POST["id"]);
-		
-	    	// Save into array every fields
+
+		// Save into array every fields
 		foreach($data as $row)
 		{
 			$output['ModuleID'] = $row->ModuleID;
-			$output['Module'] = $row->Module;   
+			$output['Module'] = $row->Module;
 		}
 
-		echo json_encode($output);  
+		echo json_encode($output);
 	}
 
 	public function get_datalibrary()
 	{
 		$output = array();
 
-	    	// Get recrod via ID
+		// Get recrod via ID
 		$data = $this->Accounts_model->get_datalibrary($_POST["id"], $_POST["type"]);
-		
-	    	// Save into array every fields
+
+		// Save into array every fields
 		foreach($data as $row)
 		{
 			$output['ID'] = $row->ID;
-			$output['Description'] = $row->Description; 
-			$output['Code'] = $row->Code;     
+			$output['Description'] = $row->Description;
+			$output['Code'] = $row->Code;
 		}
 
-		echo json_encode($output);  
+		echo json_encode($output);
 	}
 
 	public function validate_data($feature, $requirepass)
@@ -1098,15 +1098,15 @@ class Accounts_controller extends CI_Controller
 		$data['status'] = '';
 
 		$ids = array();
-		$errors = array();   
+		$errors = array();
 
 		if($feature == 'user')
 		{
 			$ids[] = 'txtUsername';
 			$errors[] = 'Username';
 
-				// $ids[] = 'txtEmail';
-				// $errors[] = 'Email';
+			// $ids[] = 'txtEmail';
+			// $errors[] = 'Email';
 
 			if($requirepass == 'yes')
 			{
@@ -1116,7 +1116,7 @@ class Accounts_controller extends CI_Controller
 
 			$ids[] = 'cboConsortium';
 			$errors[] = 'Consortium';
-			
+
 			$ids[] = 'cboRole';
 			$errors[] = 'Role';
 
@@ -1169,11 +1169,11 @@ class Accounts_controller extends CI_Controller
 			$errors[] = 'This field';
 		}
 
-		    // if($feature == 'updateprofile')
-		    // {
-		    //   $ids[] = 'txtFullName';
-		    //   $errors[] = 'Full Name';
-		    // }
+		// if($feature == 'updateprofile')
+		// {
+		//   $ids[] = 'txtFullName';
+		//   $errors[] = 'Full Name';
+		// }
 
 		if($feature == 'changepass')
 		{
@@ -1186,7 +1186,7 @@ class Accounts_controller extends CI_Controller
 			$ids[] = 'txtConfirmPass';
 			$errors[] = 'Password Confirmation';
 		}
-		
+
 		for($x = 0; $x < count($ids); $x++)
 		{
 			if($this->input->post($ids[$x])  == '' || $this->input->post($ids[$x])  == 'null'){
@@ -1214,6 +1214,84 @@ class Accounts_controller extends CI_Controller
 		);
 
 		$this->Accounts_model->create_log($log_record);
+	}
+
+
+
+
+
+	//PATRON MANAGEMENT
+	function PatronAccounts(){
+		$user = $this->Accounts_model->get_session_data('UserName');
+
+		if(!$this->Accounts_model->get_session_data('UserName'))
+		{
+			redirect('');
+		}
+
+		$modules = $this->load->disable_modules(explode(',', $this->Accounts_model->get_session_data('ModuleAssignment')), $this->Accounts_model->get_session_data('RoleID'));
+
+		$data['roles'] = $this->Accounts_model->get_roles_dropdown();
+
+		$page = array(
+			'admin'  => $modules['admin'],
+			'acquisition'  => $modules['acquisition'],
+			'holdings'  => $modules['holdings'],
+			'circulation'  => $modules['circulation'],
+			'accounts' => $modules['accounts'],
+			'others' => $modules['others'],
+			'user' => $this->Accounts_model->get_session_data('LibrarianName'),
+			'image' => $this->Accounts_model->get_session_data('Image'),
+			'notifs' => $this->Accounts_model->get_notifs()
+		);
+
+		$data['ptrnList'] = $this->Accounts_model->GET_patronList();
+
+
+		$this->load->template('admin/PatronMngmnt', $data, $page);
+
+	}
+
+
+	function PatronDetails(){
+		$UserID = $this->input->post('UserID');
+		$output = "";
+
+		$resultPtrnDt = $this->Accounts_model->GET_patronDetail($UserID);
+
+		if ($resultPtrnDt->status == 1) {
+			$AccntStatus = "ONLINE";
+		}else{
+			$AccntStatus = "OFFLINE";
+		}
+
+		$output = "<h3>Account Details</h3><h4>Full Name: <span style='font-weight:700'>".$resultPtrnDt->FullName."</span></h4>
+		<h4>Username: <span style='font-weight:700'>".$resultPtrnDt->Username."</span></h4>
+		<h4>Recovery Question: <span style='font-weight:700'>".$resultPtrnDt->recQuestion."</span></h4>
+		<h4>Recovery Answer: <span style='font-weight:700'>".$resultPtrnDt->recAnswer."</span></h4>
+		<h4>Email: <span style='font-weight:700'>".$resultPtrnDt->Email."</span></h4>
+		<h4>Birthdate: <span style='font-weight:700'>".$resultPtrnDt->Birthdate."</span></h4>
+		<h4>Location: <span style='font-weight:700'>".$resultPtrnDt->Location."</span></h4>
+		<h4>UserCat: <span style='font-weight:700'>".$resultPtrnDt->UserCat."</span></h4>
+		<h4>contactNo: <span style='font-weight:700'>".$resultPtrnDt->contactNo."</span></h4>
+		<h4>affiliation: <span style='font-weight:700'>".$resultPtrnDt->affiliation."</span></h4>
+		<hr />
+		<h4>Last logged IN: <span style='font-weight:700'>".$resultPtrnDt->lastLog_TimeIN."</span></h4>
+		<h4>Last logged OUT: <span style='font-weight:700'>".$resultPtrnDt->lastLog_TimeOUT."</span></h4>
+		<h4>Last IP Used: <span style='font-weight:700'>".$resultPtrnDt->lastLog_IP."</span></h4>
+		<h4>Account status: <span style='font-weight:700'>".$AccntStatus."</span></h4>";
+
+		$data['ptrnDetail'] = $output;
+
+		echo json_encode($data);
+	}
+
+
+	function PtrnAccountDactivate(){
+		$UserID = $this->input->post('UserID');
+
+		$this->Accounts_model->UPDATE_patronStatus($UserID);
+
 	}
 
 	function relax()

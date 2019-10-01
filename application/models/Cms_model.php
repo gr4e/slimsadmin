@@ -164,6 +164,20 @@ class Cms_model extends CI_Model
           return $query->result();
         }
 
+        function GET_pubList(){
+          $query = $this->db->query("SELECT pubListID, pubName FROM publicationlist ORDER BY pubName");
+
+          return $query->result();
+        }
+
+
+        function GET_lastPubID(){
+          $query = $this->db->query("SELECT pubListID FROM publicationlist ORDER BY pubListID DESC LIMIT 1");
+
+          return $query->row();
+        }
+
+
         function GET_carouselList(){
           $query = $this->db->query("SELECT HoldingsID FROM carousel_data");
 
@@ -175,10 +189,21 @@ class Cms_model extends CI_Model
           return;
         }
 
-
         function DELETE_broadClass($id){
           $this->db->where('BroadClassID', $id);
           $this->db->delete('tblbroadclass');
+          return;
+        }
+
+        function INSERT_PubLine($dataPubLine){
+          $this->db->insert('publicationlist', $dataPubLine);
+          return;
+        }
+
+
+        function DELETE_pubLine($id){
+          $this->db->where('pubListID', $id);
+          $this->db->delete('publicationlist');
           return;
         }
 

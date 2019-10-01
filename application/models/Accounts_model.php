@@ -94,11 +94,11 @@ class Accounts_model extends CI_Model
 	public function get_tlogs()
 	{
 		$data = array(
-				'ID' => 'datatable'
-			);
+			'ID' => 'datatable'
+		);
 
-			$this->db->where("ID", "")
-			->update("tbllogs_backend", $data); 
+		$this->db->where("ID", "")
+		->update("tbllogs_backend", $data);
 
 		$sql = 'SELECT BackEndLogID, ID, Username, Module, ModuleFeature, Transaction, DATE_FORMAT(LogDate, "%m/%d/%Y %r") as LogDate, IP FROM tbllogs_backend ORDER BY BackEndLogID DESC';
 
@@ -135,7 +135,7 @@ class Accounts_model extends CI_Model
 		else if($type == 5)
 		{
 			$sql = 'SELECT ContentTypeID as ID, ContentTypeCode as Code, ContentTypeTerm as Description FROM tblcontenttype';
-		} 
+		}
 		else if($type == 6)
 		{
 			$sql = 'SELECT MediaTypeID as ID, MediaTypeCode as Code, MediaTypeTerm as Description FROM tblmediatype';
@@ -166,24 +166,24 @@ class Accounts_model extends CI_Model
 			$groupids = $this->db->get()->row();
 		}
 
-        // Check if user exists
+		// Check if user exists
 		if(isset($result->Salt))
 		{
-            // Hash the input password
+			// Hash the input password
 			$hashed_password = $this->hash($data['Password'], $result->Salt);
 
-            // Check if the password is correct
+			// Check if the password is correct
 			if ($result->Password == $hashed_password)
 			{
 				if($result->ValidDate > $result->today || $result->ValidDate == "")
 				{
-                        // Set session data
+					// Set session data
 					$this->set_session($result->UserID, 1);
 
-                        // Save activity
-                        // $this->log(array(
-                        //     'activity' => 'login'
-                        // ));
+					// Save activity
+					// $this->log(array(
+					//     'activity' => 'login'
+					// ));
 
 					$status = 'success';
 					$message = 'You have successfully logged in.';
@@ -199,7 +199,7 @@ class Accounts_model extends CI_Model
 				}
 				else
 				{
-                        // Set session data
+					// Set session data
 					$this->set_session($result->UserID, 0);
 
 					$status = 'success';
@@ -212,7 +212,7 @@ class Accounts_model extends CI_Model
 			}
 			else
 			{
-				$status = 'error';  
+				$status = 'error';
 				$message = 'Incorrect password.';
 				$module = 0;
 			}
@@ -298,7 +298,7 @@ class Accounts_model extends CI_Model
 				$status = 'error';
 				$message = "Valid Date can't be earlier than current date.";
 			}
-			
+
 		}
 		else
 		{
@@ -357,7 +357,7 @@ class Accounts_model extends CI_Model
 			// );
 
 			// $this->db->where("GroupID", "1")
-			// ->update("tblgroups", $data); 
+			// ->update("tblgroups", $data);
 
 			// $this->set_session("1", 1);
 
@@ -500,19 +500,19 @@ class Accounts_model extends CI_Model
 
 	public function update_user($updated_record, $refresh_session = FALSE)
 	{
-        // Change password if input password is not empty
+		// Change password if input password is not empty
 		if ($updated_record['Password'] != '')
 		{
-         	// Update password
+			// Update password
 			$this->change_password($updated_record);
 		}
 
-       	// Remove password on array to avoid updating column with null or unhashed password
+		// Remove password on array to avoid updating column with null or unhashed password
 		unset($updated_record['Password']);
 		unset($updated_record['ConfirmPass']);
 
 		$result = $this->db->where("UserID", $updated_record['UserID'])
-		->update("tblusers", $updated_record); 
+		->update("tblusers", $updated_record);
 
 		$status = ($result) ? 'success': 'error';
 		$message = ($result)
@@ -532,12 +532,12 @@ class Accounts_model extends CI_Model
 
 	public function update_group($updated_record)
 	{
-        if($this->check_groupname($updated_record['GroupName'], $updated_record['GroupID'], 'update') === FALSE)
-        {
-        	if($this->check_validdate($updated_record['ValidDate']) === FALSE)
+		if($this->check_groupname($updated_record['GroupName'], $updated_record['GroupID'], 'update') === FALSE)
+		{
+			if($this->check_validdate($updated_record['ValidDate']) === FALSE)
 			{
 				$result = $this->db->where("GroupID", $updated_record['GroupID'])
-				->update("tblgroups", $updated_record); 
+				->update("tblgroups", $updated_record);
 
 				$status = ($result) ? 'success': 'error';
 				$message = ($result)
@@ -549,12 +549,12 @@ class Accounts_model extends CI_Model
 				$status = 'error';
 				$message = "Valid Date can't be earlier than current date.";
 			}
-        }
-        else
-        {
-            $status = 'error';
-            $message = 'Group name already exists.';
-        }
+		}
+		else
+		{
+			$status = 'error';
+			$message = 'Group name already exists.';
+		}
 
 		return array(
 			'status'  => $status,
@@ -564,21 +564,21 @@ class Accounts_model extends CI_Model
 
 	public function update_consortium($updated_record)
 	{
-        if($this->check_consortiumid($updated_record['Consortium_ID'], $updated_record['ConsortiumID'], 'update') === FALSE)
-        {
+		if($this->check_consortiumid($updated_record['Consortium_ID'], $updated_record['ConsortiumID'], 'update') === FALSE)
+		{
 			$result = $this->db->where("ConsortiumID", $updated_record['ConsortiumID'])
-			->update("tblconsortia", $updated_record); 
+			->update("tblconsortia", $updated_record);
 
 			$status = ($result) ? 'success': 'error';
 			$message = ($result)
 			? "Consortium: (".$updated_record['ConsortiumName'].") has been successfully updated."
 			: 'Unable to update data.';
-        }
-        else
-        {
-            $status = 'error';
-            $message = 'Consortium ID already exists.';
-        }
+		}
+		else
+		{
+			$status = 'error';
+			$message = 'Consortium ID already exists.';
+		}
 
 		return array(
 			'status'  => $status,
@@ -588,21 +588,21 @@ class Accounts_model extends CI_Model
 
 	public function update_module($updated_record)
 	{
-        if($this->check_modulename($updated_record['Module'], $updated_record['ModuleID'], 'update') === FALSE)
-        {
+		if($this->check_modulename($updated_record['Module'], $updated_record['ModuleID'], 'update') === FALSE)
+		{
 			$result = $this->db->where("ModuleID", $updated_record['ModuleID'])
-			->update("tblmodules", $updated_record); 
+			->update("tblmodules", $updated_record);
 
 			$status = ($result) ? 'success': 'error';
 			$message = ($result)
 			? "Module: (".$updated_record['Module'].") has been successfully updated."
 			: 'Unable to update data.';
-        }
-        else
-        {
-            $status = 'error';
-            $message = 'Module already exists.';
-        }
+		}
+		else
+		{
+			$status = 'error';
+			$message = 'Module already exists.';
+		}
 
 		return array(
 			'status'  => $status,
@@ -615,110 +615,110 @@ class Accounts_model extends CI_Model
 		if($type == "1")
 		{
 			if($this->check_materialname($updated_record['MaterialType'], $updated_record['MaterialTypeID'], 'update') === FALSE)
-	        {
+			{
 				$result = $this->db->where("MaterialTypeID", $updated_record['MaterialTypeID'])
-				->update("tblmaterials", $updated_record); 
+				->update("tblmaterials", $updated_record);
 
 				$status = ($result) ? 'success': 'error';
 				$message = ($result)
 				? "Material Type: (".$updated_record['MaterialType'].") has been successfully updated."
 				: 'Unable to update data.';
 			}
-	        else
-	        {
-	            $status = 'error';
-	            $message = 'Material Type already exists.';
-	        }
+			else
+			{
+				$status = 'error';
+				$message = 'Material Type already exists.';
+			}
 		}
 		else if($type == "2")
 		{
 			if($this->check_sourcename($updated_record['Source'], $updated_record['SourceID'], 'update') === FALSE)
-	        {
+			{
 				$result = $this->db->where("SourceID", $updated_record['SourceID'])
-				->update("tblsources", $updated_record); 
+				->update("tblsources", $updated_record);
 
 				$status = ($result) ? 'success': 'error';
 				$message = ($result)
 				? "Acquisition Mode: (".$updated_record['Source'].") has been successfully updated."
 				: 'Unable to update data.';
 			}
-	        else
-	        {
-	            $status = 'error';
-	            $message = 'Acquisition Mode already exists.';
-	        }
+			else
+			{
+				$status = 'error';
+				$message = 'Acquisition Mode already exists.';
+			}
 		}
 		else if($type == "3")
 		{
 			if($this->check_broadclass($updated_record['BroadClass'], $updated_record['BroadClassID'], 'update') === FALSE)
-	        {
+			{
 				$result = $this->db->where("BroadClassID", $updated_record['BroadClassID'])
-				->update("tblbroadclass", $updated_record); 
+				->update("tblbroadclass", $updated_record);
 
 				$status = ($result) ? 'success': 'error';
 				$message = ($result)
 				? "Broad Class: (".$updated_record['BroadClass'].") has been successfully updated."
 				: 'Unable to update data.';
 			}
-	        else
-	        {
-	            $status = 'error';
-	            $message = 'Broad Class already exists.';
-	        }
+			else
+			{
+				$status = 'error';
+				$message = 'Broad Class already exists.';
+			}
 		}
 		else if($type == "4")
 		{
 			if($this->check_carriercode($updated_record['CarrierTypeCode'], $updated_record['CarrierTypeID'], 'update') === FALSE)
-	        {
+			{
 				$result = $this->db->where("CarrierTypeID", $updated_record['CarrierTypeID'])
-				->update("tblcarriertype", $updated_record); 
+				->update("tblcarriertype", $updated_record);
 
 				$status = ($result) ? 'success': 'error';
 				$message = ($result)
 				? "Carrier Type Code: (".$updated_record['CarrierTypeCode'].") has been successfully updated."
 				: 'Unable to update data.';
 			}
-	        else
-	        {
-	            $status = 'error';
-	            $message = 'Carrier Type Code already exists.';
-	        }
+			else
+			{
+				$status = 'error';
+				$message = 'Carrier Type Code already exists.';
+			}
 		}
 		else if($type == "5")
 		{
 			if($this->check_contentcode($updated_record['ContentTypeCode'], $updated_record['ContentTypeID'], 'update') === FALSE)
-	        {
+			{
 				$result = $this->db->where("ContentTypeID", $updated_record['ContentTypeID'])
-				->update("tblcontenttype", $updated_record); 
+				->update("tblcontenttype", $updated_record);
 
 				$status = ($result) ? 'success': 'error';
 				$message = ($result)
 				? "Content Type Code: (".$updated_record['ContentTypeCode'].") has been successfully updated."
 				: 'Unable to update data.';
 			}
-	        else
-	        {
-	            $status = 'error';
-	            $message = 'Content Type Code already exists.';
-	        }
+			else
+			{
+				$status = 'error';
+				$message = 'Content Type Code already exists.';
+			}
 		}
 		else if($type == "6")
 		{
 			if($this->check_mediacode($updated_record['MediaTypeCode'], $updated_record['MediaTypeID'], 'update') === FALSE)
-	        {
+			{
 				$result = $this->db->where("MediaTypeID", $updated_record['MediaTypeID'])
-				->update("tblmediatype", $updated_record); 
+				->update("tblmediatype", $updated_record);
 
 				$status = ($result) ? 'success': 'error';
 				$message = ($result)
 				? "Media Type Code: (".$updated_record['MediaTypeCode'].") has been successfully updated."
 				: 'Unable to update data.';
 			}
-	        else
-	        {
-	            $status = 'error';
-	            $message = 'Media Type Code already exists.';
-	        }
+			else
+			{
+				$status = 'error';
+				$message = 'Media Type Code already exists.';
+			}
 		}
 
 		return array(
@@ -730,7 +730,7 @@ class Accounts_model extends CI_Model
 	public function delete_user($id, $data)
 	{
 		$result = $this->db->where("UserID", $id)
-		->update("tblusers", $data); 
+		->update("tblusers", $data);
 
 		if($result)
 		{
@@ -752,13 +752,13 @@ class Accounts_model extends CI_Model
 	public function delete_group($id)
 	{
 		$this->db->select('GroupID');
-        $this->db->like('GroupID', $id, 'both');
-        $result0 = $this->db->get('tblusers')->row('GroupID');
+		$this->db->like('GroupID', $id, 'both');
+		$result0 = $this->db->get('tblusers')->row('GroupID');
 
-        if($result0 == "")
-        {
-        	$result = $this->db->where("GroupID", $id) 
-			->delete("tblgroups"); 
+		if($result0 == "")
+		{
+			$result = $this->db->where("GroupID", $id)
+			->delete("tblgroups");
 
 			if($result)
 			{
@@ -770,8 +770,8 @@ class Accounts_model extends CI_Model
 				$status = 'error';
 				$message = 'Unable to delete record.';
 			}
-        }
-        else
+		}
+		else
 		{
 			$status = 'error';
 			$message = 'Unable to delete data. Group is used in another record.';
@@ -786,11 +786,11 @@ class Accounts_model extends CI_Model
 	public function delete_consortium($id)
 	{
 		$result0 = $this->db->get_where('tblusers', array('Consortium' => $id))
-    	->row('Consortium');
+		->row('Consortium');
 
-    	$this->db->select('Consortium');
-        $this->db->like('Consortium', $id, 'both');
-        $result1 = $this->db->get('tblgroups')->row('Consortium');
+		$this->db->select('Consortium');
+		$this->db->like('Consortium', $id, 'both');
+		$result1 = $this->db->get('tblgroups')->row('Consortium');
 
 		if($result0 == "" && $result1 == "")
 		{
@@ -804,7 +804,7 @@ class Accounts_model extends CI_Model
 			{
 				$status = 'error';
 				$message = 'Unable to delete data.';
-			}	
+			}
 		}
 		else
 		{
@@ -821,12 +821,12 @@ class Accounts_model extends CI_Model
 	public function delete_module($id)
 	{
 		$this->db->select('ModuleAssignment');
-        $this->db->like('ModuleAssignment', $id, 'both');
-        $result0 = $this->db->get('tblgroups')->row('ModuleAssignment');
+		$this->db->like('ModuleAssignment', $id, 'both');
+		$result0 = $this->db->get('tblgroups')->row('ModuleAssignment');
 
-        if($result0 == "")
-        {
-        	$result = $this->db->where('ModuleID', $id)->delete('tblmodules');
+		if($result0 == "")
+		{
+			$result = $this->db->where('ModuleID', $id)->delete('tblmodules');
 
 			if($result)
 			{
@@ -838,13 +838,13 @@ class Accounts_model extends CI_Model
 				$status = 'error';
 				$message = 'Unable to delete record.';
 			}
-        }
-     	else
+		}
+		else
 		{
 			$status = 'error';
 			$message = 'Unable to delete data. Module is used in another record.';
 		}
-		
+
 
 		return array(
 			'status'  => $status,
@@ -855,14 +855,14 @@ class Accounts_model extends CI_Model
 	public function delete_datalibrary($id, $type)
 	{
 		if($type == "1")
-		{	
+		{
 			$result0 = $this->db->get_where('tblholdings', array('MaterialTypeID' => $id))
-    	->row('MaterialTypeID');
+			->row('MaterialTypeID');
 
-    		if($result0 == "")
-    		{
-    			$result = $this->db->where('MaterialTypeID', $id)->delete('tblmaterials');
-    			if($result)
+			if($result0 == "")
+			{
+				$result = $this->db->where('MaterialTypeID', $id)->delete('tblmaterials');
+				if($result)
 				{
 					$status = 'success';
 					$message = 'You have successfully deleted this record.';
@@ -872,22 +872,22 @@ class Accounts_model extends CI_Model
 					$status = 'error';
 					$message = 'Unable to delete record.';
 				}
-    		}
-    		else
-    		{
-    			$status = 'error';
+			}
+			else
+			{
+				$status = 'error';
 				$message = 'Unable to delete data. Material Type is used in another record';
-    		}
+			}
 		}
 		else if($type == "2")
 		{
 			$result0 = $this->db->get_where('tblholdingscopy', array('AcquisitionMode' => $id))
-    	->row('AcquisitionMode');
+			->row('AcquisitionMode');
 
-    		if($result0 == "")
-    		{
-    			$result = $this->db->where('SourceID', $id)->delete('tblsources');
-    			if($result)
+			if($result0 == "")
+			{
+				$result = $this->db->where('SourceID', $id)->delete('tblsources');
+				if($result)
 				{
 					$status = 'success';
 					$message = 'You have successfully deleted this record.';
@@ -897,22 +897,22 @@ class Accounts_model extends CI_Model
 					$status = 'error';
 					$message = 'Unable to delete record.';
 				}
-    		}
-    		else
-    		{
-    			$status = 'error';
+			}
+			else
+			{
+				$status = 'error';
 				$message = 'Unable to delete data. Acquisition Mode is used in another record';
-    		}
+			}
 		}
 		else if($type == "3")
 		{
 			$result0 = $this->db->get_where('tblholdings', array('BroadClassID' => $id))
-    	->row('BroadClassID');
+			->row('BroadClassID');
 
-    		if($result0 == "")
-    		{
-    			$result = $this->db->where('BroadClassID', $id)->delete('tblbroadclass');
-    			if($result)
+			if($result0 == "")
+			{
+				$result = $this->db->where('BroadClassID', $id)->delete('tblbroadclass');
+				if($result)
 				{
 					$status = 'success';
 					$message = 'You have successfully deleted this record.';
@@ -922,22 +922,22 @@ class Accounts_model extends CI_Model
 					$status = 'error';
 					$message = 'Unable to delete record.';
 				}
-    		}
-    		else
-    		{
-    			$status = 'error';
+			}
+			else
+			{
+				$status = 'error';
 				$message = 'Unable to delete data. Broad Class is used in another record';
-    		}
+			}
 		}
 		else if($type == "4")
 		{
 			$result0 = $this->db->get_where('tblholdings', array('CarrierTypeID' => $id))
-    	->row('CarrierTypeID');
+			->row('CarrierTypeID');
 
-    		if($result0 == "")
-    		{
-    			$result = $this->db->where('CarrierTypeID', $id)->delete('tblcarriertype');
-    			if($result)
+			if($result0 == "")
+			{
+				$result = $this->db->where('CarrierTypeID', $id)->delete('tblcarriertype');
+				if($result)
 				{
 					$status = 'success';
 					$message = 'You have successfully deleted this record.';
@@ -947,22 +947,22 @@ class Accounts_model extends CI_Model
 					$status = 'error';
 					$message = 'Unable to delete record.';
 				}
-    		}
-    		else
-    		{
-    			$status = 'error';
+			}
+			else
+			{
+				$status = 'error';
 				$message = 'Unable to delete data. Carrier Type is used in another record';
-    		}
+			}
 		}
 		else if($type == "5")
 		{
 			$result0 = $this->db->get_where('tblholdings', array('ContentTypeID' => $id))
-    	->row('ContentTypeID');
+			->row('ContentTypeID');
 
-    		if($result0 == "")
-    		{
-    			$result = $this->db->where('ContentTypeID', $id)->delete('tblcontenttype');
-    			if($result)
+			if($result0 == "")
+			{
+				$result = $this->db->where('ContentTypeID', $id)->delete('tblcontenttype');
+				if($result)
 				{
 					$status = 'success';
 					$message = 'You have successfully deleted this record.';
@@ -972,22 +972,22 @@ class Accounts_model extends CI_Model
 					$status = 'error';
 					$message = 'Unable to delete record.';
 				}
-    		}
-    		else
-    		{
-    			$status = 'error';
+			}
+			else
+			{
+				$status = 'error';
 				$message = 'Unable to delete data. Content Type is used in another record';
-    		}
+			}
 		}
 		else if($type == "6")
 		{
 			$result0 = $this->db->get_where('tblholdings', array('MediaTypeID' => $id))
-    	->row('MediaTypeID');
+			->row('MediaTypeID');
 
-    		if($result0 == "")
-    		{
-    			$result = $this->db->where('MediaTypeID', $id)->delete('tblmediatype');
-    			if($result)
+			if($result0 == "")
+			{
+				$result = $this->db->where('MediaTypeID', $id)->delete('tblmediatype');
+				if($result)
 				{
 					$status = 'success';
 					$message = 'You have successfully deleted this record.';
@@ -997,12 +997,12 @@ class Accounts_model extends CI_Model
 					$status = 'error';
 					$message = 'Unable to delete record.';
 				}
-    		}
-    		else
-    		{
-    			$status = 'error';
+			}
+			else
+			{
+				$status = 'error';
 				$message = 'Unable to delete data. Media Type is used in another record';
-    		}
+			}
 		}
 
 		return array(
@@ -1055,9 +1055,9 @@ class Accounts_model extends CI_Model
 				$status = 'success';
 				$message = 'You have successfully updated your password';
 
-                    // $this->log(array(
-                    //     'activity' => 'change password'
-                    // ));
+				// $this->log(array(
+				//     'activity' => 'change password'
+				// ));
 			}
 			else
 			{
@@ -1103,23 +1103,23 @@ class Accounts_model extends CI_Model
 	public function get_datalibrary($id, $type)
 	{
 		if($type == "1")
-			$sql = 'SELECT MaterialTypeID as ID, MaterialType as Description, "" as Code from tblmaterials WHERE MaterialTypeID = ?';
+		$sql = 'SELECT MaterialTypeID as ID, MaterialType as Description, "" as Code from tblmaterials WHERE MaterialTypeID = ?';
 		else if($type == "2")
-			$sql = 'SELECT SourceID as ID, Source as Description, "" as Code from tblsources WHERE SourceID = ?';
+		$sql = 'SELECT SourceID as ID, Source as Description, "" as Code from tblsources WHERE SourceID = ?';
 		else if($type == "3")
-			$sql = 'SELECT BroadClassID as ID, BroadClass as Description, "" as Code from tblbroadclass WHERE BroadClassID = ?';
+		$sql = 'SELECT BroadClassID as ID, BroadClass as Description, "" as Code from tblbroadclass WHERE BroadClassID = ?';
 		else if($type == "4")
-			$sql = 'SELECT CarrierTypeID as ID, CarrierTypeTerm as Description, CarrierTypeCode as Code from tblcarriertype WHERE CarrierTypeID = ?';
+		$sql = 'SELECT CarrierTypeID as ID, CarrierTypeTerm as Description, CarrierTypeCode as Code from tblcarriertype WHERE CarrierTypeID = ?';
 		else if($type == "5")
-			$sql = 'SELECT ContentTypeID as ID, ContentTypeTerm as Description, ContentTypeCode as Code from tblcontenttype WHERE ContentTypeID = ?';
+		$sql = 'SELECT ContentTypeID as ID, ContentTypeTerm as Description, ContentTypeCode as Code from tblcontenttype WHERE ContentTypeID = ?';
 		else if($type == "6")
-			$sql = 'SELECT MediaTypeID as ID, MediaTypeTerm as Description, MediaTypeCode as Code from tblmediatype WHERE MediaTypeID = ?';
+		$sql = 'SELECT MediaTypeID as ID, MediaTypeTerm as Description, MediaTypeCode as Code from tblmediatype WHERE MediaTypeID = ?';
 		$query = $this->db->query($sql, $id);
 		return $query->result();
 	}
 
 	public function log_login($id, $count, $status)
-	{	
+	{
 		if($status == 1)
 		{
 			$data = array(
@@ -1136,7 +1136,7 @@ class Accounts_model extends CI_Model
 				'IP' => $this->input->ip_address()
 			);
 
-			$this->db->insert('tbluser_logbook', $data2); 
+			$this->db->insert('tbluser_logbook', $data2);
 		}
 		else
 		{
@@ -1151,13 +1151,13 @@ class Accounts_model extends CI_Model
 			$this->db->select('LogID')->from('tbluser_logbook');
 			$this->db->where('CONCAT(Username,LoginTime)', $this->get_session_data('UserName').''.$this->get_session_data('LoginTime'));
 			$result = $this->db->get()->row();
-	        
+
 			$this->db->where("LogID", $result->LogID);
 			$this->db->update("tbluser_logbook", $data2);
 		}
-		
-		$this->db->where("UserID", $id);  
-		$this->db->update("tblusers", $data); 
+
+		$this->db->where("UserID", $id);
+		$this->db->update("tblusers", $data);
 	}
 
 	public function create_log($log_record)
@@ -1170,7 +1170,7 @@ class Accounts_model extends CI_Model
 
 		$log_record['Transaction'] = (string)$result->Transaction;
 
-		return $this->db->insert('tbllogs_backend', $log_record); 
+		return $this->db->insert('tbllogs_backend', $log_record);
 	}
 
 	public function get_session()
@@ -1199,7 +1199,7 @@ class Accounts_model extends CI_Model
 
 		$group == 0 ? $module = 0 : $module = $groupids->ModuleAssignment;
 
-        // Add session data
+		// Add session data
 		$sess_data = array(
 			'UserID'            => $result->UserID,
 			'UserName'          => $result->UserName,
@@ -1217,201 +1217,216 @@ class Accounts_model extends CI_Model
 			'ModuleAssignment'  => $module,
 			'LoginTime'			=> date('h:i:s')
 		);
-            //print_r($sess_data);
-            $this->session->sess_expiration = '86200'; // expires in 1 day
-            $this->session->set_userdata('logged_in', $sess_data);
-    }
+		//print_r($sess_data);
+		$this->session->sess_expiration = '86200'; // expires in 1 day
+		$this->session->set_userdata('logged_in', $sess_data);
+	}
 
-    public function logout()
-    {
-    	$this->log_login($this->get_session_data('UserID'), 0, 0);
+	public function logout()
+	{
+		$this->log_login($this->get_session_data('UserID'), 0, 0);
 
-    	$this->session->sess_destroy();
-    }
+		$this->session->sess_destroy();
+	}
 
-    public function check_username($username)
-    {
-    	$result = $this->db->get_where('tblusers', array('UserName' => $username))
-    	->row('UserName');
-    	return ($result) ? TRUE: FALSE;
-    }
+	public function check_username($username)
+	{
+		$result = $this->db->get_where('tblusers', array('UserName' => $username))
+		->row('UserName');
+		return ($result) ? TRUE: FALSE;
+	}
 
-    public function check_groupname($groupname, $id, $mode)
-    {
-    	if($mode == 'create')
-    	{
-    		$sql = 'SELECT * FROM tblgroups WHERE GroupName = ?'; 
-        	$query = $this->db->query($sql, $groupname);
-    	}
-    	else if($mode == 'update')
-    	{
-    		$sql = 'SELECT * FROM tblgroups WHERE GroupName = ? AND GroupID != ?'; 
-        	$query = $this->db->query($sql, array($groupname, $id));
-    	}
-    	
-        $result = $query->row();
-    	return ($result) ? TRUE: FALSE;
-    }
+	public function check_groupname($groupname, $id, $mode)
+	{
+		if($mode == 'create')
+		{
+			$sql = 'SELECT * FROM tblgroups WHERE GroupName = ?';
+			$query = $this->db->query($sql, $groupname);
+		}
+		else if($mode == 'update')
+		{
+			$sql = 'SELECT * FROM tblgroups WHERE GroupName = ? AND GroupID != ?';
+			$query = $this->db->query($sql, array($groupname, $id));
+		}
 
-    public function check_consortiumid($consortiumid, $id, $mode)
-    {
-    	if($mode == 'create')
-    	{
-    		$sql = 'SELECT * FROM tblconsortia WHERE Consortium_ID = ?'; 
-        	$query = $this->db->query($sql, $consortiumid);
-    	}
-    	else if($mode == 'update')
-    	{
-    		$sql = 'SELECT * FROM tblconsortia WHERE Consortium_ID = ? AND ConsortiumID != ?'; 
-        	$query = $this->db->query($sql, array($consortiumid, $id));
-    	}
-    	
-        $result = $query->row();
-    	return ($result) ? TRUE: FALSE;
-    }
+		$result = $query->row();
+		return ($result) ? TRUE: FALSE;
+	}
 
-    public function check_modulename($modulename, $id, $mode)
-    {
-    	if($mode == 'create')
-    	{
-    		$sql = 'SELECT * FROM tblmodules WHERE Module = ?'; 
-        	$query = $this->db->query($sql, $modulename);
-    	}
-    	else if($mode == 'update')
-    	{
-    		$sql = 'SELECT * FROM tblmodules WHERE Module = ? AND ModuleID != ?'; 
-        	$query = $this->db->query($sql, array($modulename, $id));
-    	}
+	public function check_consortiumid($consortiumid, $id, $mode)
+	{
+		if($mode == 'create')
+		{
+			$sql = 'SELECT * FROM tblconsortia WHERE Consortium_ID = ?';
+			$query = $this->db->query($sql, $consortiumid);
+		}
+		else if($mode == 'update')
+		{
+			$sql = 'SELECT * FROM tblconsortia WHERE Consortium_ID = ? AND ConsortiumID != ?';
+			$query = $this->db->query($sql, array($consortiumid, $id));
+		}
 
-    	$result = $query->row();
-    	return ($result) ? TRUE: FALSE;
-    }
+		$result = $query->row();
+		return ($result) ? TRUE: FALSE;
+	}
 
-    public function check_materialname($materialname, $id, $mode)
-    {
-    	if($mode == 'create')
-    	{
-    		$sql = 'SELECT * FROM tblmaterials WHERE MaterialType = ?'; 
-        	$query = $this->db->query($sql, $materialname);
-    	}
-    	else if($mode == 'update')
-    	{
-    		$sql = 'SELECT * FROM tblmaterials WHERE MaterialType = ? AND MaterialTypeID != ?'; 
-        	$query = $this->db->query($sql, array($materialname, $id));
-    	}
+	public function check_modulename($modulename, $id, $mode)
+	{
+		if($mode == 'create')
+		{
+			$sql = 'SELECT * FROM tblmodules WHERE Module = ?';
+			$query = $this->db->query($sql, $modulename);
+		}
+		else if($mode == 'update')
+		{
+			$sql = 'SELECT * FROM tblmodules WHERE Module = ? AND ModuleID != ?';
+			$query = $this->db->query($sql, array($modulename, $id));
+		}
 
-    	$result = $query->row();
-    	return ($result) ? TRUE: FALSE;
-    }
+		$result = $query->row();
+		return ($result) ? TRUE: FALSE;
+	}
 
-    public function check_sourcename($sourcename, $id, $mode)
-    {
-    	if($mode == 'create')
-    	{
-    		$sql = 'SELECT * FROM tblsources WHERE Source = ?'; 
-        	$query = $this->db->query($sql, $sourcename);
-    	}
-    	else if($mode == 'update')
-    	{
-    		$sql = 'SELECT * FROM tblsources WHERE Source = ? AND SourceID != ?'; 
-        	$query = $this->db->query($sql, array($sourcename, $id));
-    	}
+	public function check_materialname($materialname, $id, $mode)
+	{
+		if($mode == 'create')
+		{
+			$sql = 'SELECT * FROM tblmaterials WHERE MaterialType = ?';
+			$query = $this->db->query($sql, $materialname);
+		}
+		else if($mode == 'update')
+		{
+			$sql = 'SELECT * FROM tblmaterials WHERE MaterialType = ? AND MaterialTypeID != ?';
+			$query = $this->db->query($sql, array($materialname, $id));
+		}
 
-    	$result = $query->row();
-    	return ($result) ? TRUE: FALSE;
-    }
+		$result = $query->row();
+		return ($result) ? TRUE: FALSE;
+	}
 
-    public function check_broadclass($broadclass, $id, $mode)
-    {
-    	if($mode == 'create')
-    	{
-    		$sql = 'SELECT * FROM tblbroadclass WHERE BroadClass = ?'; 
-        	$query = $this->db->query($sql, $broadclass);
-    	}
-    	else if($mode == 'update')
-    	{
-    		$sql = 'SELECT * FROM tblbroadclass WHERE BroadClass = ? AND BroadClassID != ?'; 
-        	$query = $this->db->query($sql, array($broadclass, $id));
-    	}
+	public function check_sourcename($sourcename, $id, $mode)
+	{
+		if($mode == 'create')
+		{
+			$sql = 'SELECT * FROM tblsources WHERE Source = ?';
+			$query = $this->db->query($sql, $sourcename);
+		}
+		else if($mode == 'update')
+		{
+			$sql = 'SELECT * FROM tblsources WHERE Source = ? AND SourceID != ?';
+			$query = $this->db->query($sql, array($sourcename, $id));
+		}
 
-    	$result = $query->row();
-    	return ($result) ? TRUE: FALSE;
-    }
+		$result = $query->row();
+		return ($result) ? TRUE: FALSE;
+	}
 
-    public function check_carriercode($carriercode, $id, $mode)
-    {
-    	if($mode == 'create')
-    	{
-    		$sql = 'SELECT * FROM tblcarriertype WHERE CarrierTypeCode = ?'; 
-        	$query = $this->db->query($sql, $carriercode);
-    	}
-    	else if($mode == 'update')
-    	{
-    		$sql = 'SELECT * FROM tblcarriertype WHERE CarrierTypeCode = ? AND CarrierTypeID != ?'; 
-        	$query = $this->db->query($sql, array($carriercode, $id));
-    	}
+	public function check_broadclass($broadclass, $id, $mode)
+	{
+		if($mode == 'create')
+		{
+			$sql = 'SELECT * FROM tblbroadclass WHERE BroadClass = ?';
+			$query = $this->db->query($sql, $broadclass);
+		}
+		else if($mode == 'update')
+		{
+			$sql = 'SELECT * FROM tblbroadclass WHERE BroadClass = ? AND BroadClassID != ?';
+			$query = $this->db->query($sql, array($broadclass, $id));
+		}
 
-    	$result = $query->row();
-    	return ($result) ? TRUE: FALSE;
-    }
+		$result = $query->row();
+		return ($result) ? TRUE: FALSE;
+	}
 
-    public function check_contentcode($contentcode, $id, $mode)
-    {
-    	if($mode == 'create')
-    	{
-    		$sql = 'SELECT * FROM tblcontenttype WHERE ContentTypeCode = ?'; 
-        	$query = $this->db->query($sql, $contentcode);
-    	}
-    	else if($mode == 'update')
-    	{
-    		$sql = 'SELECT * FROM tblcontenttype WHERE ContentTypeCode = ? AND ContentTypeID != ?'; 
-        	$query = $this->db->query($sql, array($contentcode, $id));
-    	}
+	public function check_carriercode($carriercode, $id, $mode)
+	{
+		if($mode == 'create')
+		{
+			$sql = 'SELECT * FROM tblcarriertype WHERE CarrierTypeCode = ?';
+			$query = $this->db->query($sql, $carriercode);
+		}
+		else if($mode == 'update')
+		{
+			$sql = 'SELECT * FROM tblcarriertype WHERE CarrierTypeCode = ? AND CarrierTypeID != ?';
+			$query = $this->db->query($sql, array($carriercode, $id));
+		}
 
-    	$result = $query->row();
-    	return ($result) ? TRUE: FALSE;
-    }
+		$result = $query->row();
+		return ($result) ? TRUE: FALSE;
+	}
 
-    public function check_mediacode($mediacode, $id, $mode)
-    {
-    	if($mode == 'create')
-    	{
-    		$sql = 'SELECT * FROM tblmediatype WHERE MediaTypeCode = ?'; 
-        	$query = $this->db->query($sql, $mediacode);
-    	}
-    	else if($mode == 'update')
-    	{
-    		$sql = 'SELECT * FROM tblmediatype WHERE MediaTypeCode = ? AND MediaTypeID != ?'; 
-        	$query = $this->db->query($sql, array($mediacode, $id));
-    	}
+	public function check_contentcode($contentcode, $id, $mode)
+	{
+		if($mode == 'create')
+		{
+			$sql = 'SELECT * FROM tblcontenttype WHERE ContentTypeCode = ?';
+			$query = $this->db->query($sql, $contentcode);
+		}
+		else if($mode == 'update')
+		{
+			$sql = 'SELECT * FROM tblcontenttype WHERE ContentTypeCode = ? AND ContentTypeID != ?';
+			$query = $this->db->query($sql, array($contentcode, $id));
+		}
 
-    	$result = $query->row();
-    	return ($result) ? TRUE: FALSE;
-    }
+		$result = $query->row();
+		return ($result) ? TRUE: FALSE;
+	}
 
-    public function check_validdate($validdate)
-    {
-    	$this->db->select('date_format(NOW(), "%Y/%m/%d") AS today');
+	public function check_mediacode($mediacode, $id, $mode)
+	{
+		if($mode == 'create')
+		{
+			$sql = 'SELECT * FROM tblmediatype WHERE MediaTypeCode = ?';
+			$query = $this->db->query($sql, $mediacode);
+		}
+		else if($mode == 'update')
+		{
+			$sql = 'SELECT * FROM tblmediatype WHERE MediaTypeCode = ? AND MediaTypeID != ?';
+			$query = $this->db->query($sql, array($mediacode, $id));
+		}
+
+		$result = $query->row();
+		return ($result) ? TRUE: FALSE;
+	}
+
+	public function check_validdate($validdate)
+	{
+		$this->db->select('date_format(NOW(), "%Y/%m/%d") AS today');
 		$result = $this->db->get()->row();
 
 		// echo $validdate . " " . $result->today;
 
 		if($result->today > $validdate && $validdate != NULL)
-			return TRUE;
+		return TRUE;
 		else
-			return FALSE;
-    }
+		return FALSE;
+	}
 
-    public function generate_salt()
-    {
-    	$this->load->library('encryption');
-    	return bin2hex($this->encryption->create_key(32));
-    }
+	public function generate_salt()
+	{
+		$this->load->library('encryption');
+		return bin2hex($this->encryption->create_key(32));
+	}
 
-    public function hash($password, $salt)
-    {
+	public function hash($password, $salt)
+	{
 
-    	return hash('sha256', $password . $salt);
-    }
-}
-?>
+		return hash('sha256', $password . $salt);
+	}
+
+
+
+	//PATRON LIST
+	function GET_patronList(){
+		$query = $this->db->query("SELECT UserID, Username, FullName FROM users");
+		return $query->result();
+	}
+
+	//PATRON Details
+	function GET_patronDetail($UserID){
+		$query = $this->db->query("SELECT UserID, Username, recQuestion, recAnswer, FullName, Email, Birthdate, Location, UserCat, SecondOp, ThirdOp, contactNo, Sex, affiliation, imgPath, DateReg, lastLog_TimeIN, lastLog_TimeOUT, lastLog_IP, status FROM users
+			WHERE UserID = '".$UserID."'");
+			return $query->row();
+		}
+	}
+	?>

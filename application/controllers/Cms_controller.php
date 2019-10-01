@@ -67,6 +67,7 @@ class Cms_controller extends CI_Controller {
 
 
     $data['topicList'] = $this->Cms_model->GET_topicList();
+    $data['pubList'] = $this->Cms_model->GET_pubList();
     $data['carouselList'] = $this->Cms_model->GET_carouselList();
 
     $this->load->template('CMS/Data_lib', $data, $page);
@@ -466,11 +467,49 @@ class Cms_controller extends CI_Controller {
 
   }
 
-
   function delTopic(){
     $topicID = $this->input->post('topicID');
 
     $this->Cms_model->DELETE_broadClass($topicID);
+
+    $data['msg'] = 'Success';
+
+    echo json_encode($data);
+  }
+
+
+  function addNewPubLine(){
+    $newTopicTxt = $this->input->post('newPubLine');
+
+    $lastPubLineID = $this->Cms_model->GET_lastPubID()->pubListID;
+
+    if (!empty($lastPubLineID)) {
+      $pubLineIDno = substr($lastPubLineID, 4)+1;
+      $pubLineID = 'PUB-' . $pubLineIDno;
+    }else{
+      $pubLineID = 'PUB-0';
+    }
+
+    $dataPubLine = array(
+      'pubListID' => $pubLineID,
+      'pubName' => $newTopicTxt
+    );
+
+    $this->Cms_model->INSERT_PubLine($dataPubLine);
+
+    $data['msg'] = 'Success';
+
+    echo json_encode($data);
+
+  }
+
+
+
+
+  function delPubLine(){
+    $pubListID = $this->input->post('pubListID');
+
+    $this->Cms_model->DELETE_pubLine($pubListID);
 
     $data['msg'] = 'Success';
 
