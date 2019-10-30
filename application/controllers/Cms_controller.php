@@ -481,17 +481,17 @@ class Cms_controller extends CI_Controller {
   function addNewPubLine(){
     $newTopicTxt = $this->input->post('newPubLine');
 
-    $lastPubLineID = $this->Cms_model->GET_lastPubID()->pubListID;
-
-    if (!empty($lastPubLineID)) {
-      $pubLineIDno = substr($lastPubLineID, 4)+1;
-      $pubLineID = 'PUB-' . $pubLineIDno;
-    }else{
-      $pubLineID = 'PUB-0';
-    }
+    // $lastPubLineID = $this->Cms_model->GET_lastPubID()->pubListID;
+    //
+    // if (!empty($lastPubLineID)) {
+    //   $pubLineIDno = substr($lastPubLineID, 4)+1;
+    //   $pubLineID = 'PUB-' . $pubLineIDno;
+    // }else{
+    //   $pubLineID = 'PUB-0';
+    // }
 
     $dataPubLine = array(
-      'pubListID' => $pubLineID,
+      // 'pubListID' => $pubLineID,
       'pubName' => $newTopicTxt
     );
 

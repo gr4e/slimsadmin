@@ -20,7 +20,7 @@ class Circulations_controller extends CI_Controller
 
 		$data['roles'] = $this->Accounts_model->get_roles_dropdown();
 		$data['groups'] = $this->Accounts_model->get_groups_dropdown();
-		$data['agencies'] = $this->Accounts_model->get_agencies_dropdown();
+		// $data['agencies'] = $this->Accounts_model->get_agencies_dropdown();
 
 		$page = array(
 			'admin'  => $modules['admin'],
@@ -189,7 +189,7 @@ class Circulations_controller extends CI_Controller
 
 		$data['roles'] = $this->Accounts_model->get_roles_dropdown();
 		$data['groups'] = $this->Accounts_model->get_groups_dropdown();
-		$data['agencies'] = $this->Accounts_model->get_agencies_dropdown();
+		// $data['agencies'] = $this->Accounts_model->get_agencies_dropdown();
 
 		$page = array(
 			'admin'  => $modules['admin'],

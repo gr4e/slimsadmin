@@ -1,3 +1,4 @@
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/dataTables.checkboxes.min.js"></script>
 <div class="content-wrapper">
 
   <div class="tab">

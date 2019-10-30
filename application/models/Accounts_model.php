@@ -1428,5 +1428,12 @@ class Accounts_model extends CI_Model
 			WHERE UserID = '".$UserID."'");
 			return $query->row();
 		}
+
+	function UPDATE_patronPasswordReset($UserID, $pass){
+		$query = $this->db->query("UPDATE users SET Password = '".$pass."' WHERE UserID = '".$UserID."'");
+		return;
+	}
+
+
 	}
 	?>

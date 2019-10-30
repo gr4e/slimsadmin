@@ -83,10 +83,15 @@ $route['Returns'] = 'Circulations_controller/returns';
 
 $route['Reports/Downloads'] = 'Reports_controller/Downloads_reports';
 $route['Reports/GenerateTrail'] = 'PatronTrail_controller/generatePatronTrail';
+$route['MaterialInventory'] = 'Inventory_controller/material_inventory';
 
 $route['Feedbacks'] = 'Feedback_controller/Feedbacks';
 $route['PatronTrail'] = 'PatronTrail_controller/PatronTrail';
+$route['PatronPassReset'] = 'Accounts_controller/patronResetPass';
 
+
+//dashboard
+$route['SystemOverview'] = 'Dashboard_controller/SystemOverview';
 
 
 $route['default_controller'] = 'login';

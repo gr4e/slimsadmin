@@ -1279,8 +1279,10 @@ class Accounts_controller extends CI_Controller
 		<h4>Last logged IN: <span style='font-weight:700'>".$resultPtrnDt->lastLog_TimeIN."</span></h4>
 		<h4>Last logged OUT: <span style='font-weight:700'>".$resultPtrnDt->lastLog_TimeOUT."</span></h4>
 		<h4>Last IP Used: <span style='font-weight:700'>".$resultPtrnDt->lastLog_IP."</span></h4>
-		<h4>Account status: <span style='font-weight:700'>".$AccntStatus."</span></h4>";
+		<h4>Account status: <span style='font-weight:700'>".$AccntStatus."</span></h4>
+		<button type='button' class='btn btn-danger' data-target='#resetPassModal' data-toggle='modal'>Reset Password</button>";
 
+		$data['patronID'] = $resultPtrnDt->UserID;
 		$data['ptrnDetail'] = $output;
 
 		echo json_encode($data);
@@ -1291,6 +1293,20 @@ class Accounts_controller extends CI_Controller
 		$UserID = $this->input->post('UserID');
 
 		$this->Accounts_model->UPDATE_patronStatus($UserID);
+
+	}
+
+
+	function patronResetPass(){
+
+		$UserID = $this->input->post('patronUserID');
+
+		$pass = password_hash($this->input->post('NewPass'), PASSWORD_BCRYPT);
+
+		$this->Accounts_model->UPDATE_patronPasswordReset($UserID, $pass);
+
+		//$this->session->set_flashdata('alertmsg', 'Success');
+		$this->PatronAccounts();
 
 	}
 

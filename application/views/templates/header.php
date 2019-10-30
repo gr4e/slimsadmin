@@ -142,14 +142,13 @@
 
 	<!-- datatable select js -->
 	<!-- <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
-	<script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.11/js/dataTables.checkboxes.min.js"></script>
+	<!-- <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/dataTables.checkboxes.min.js"></script> -->
 	<!-- <script src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script> -->
 
-
 	<!-- datatable select css -->
 	<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> -->
-	<link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.11/css/dataTables.checkboxes.css" rel="stylesheet" />
+	<link type="text/css" href="<?php echo base_url(); ?>assets/css/dataTables.checkboxes.css" rel="stylesheet" />
 	<!-- <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.0/css/select.dataTables.min.css">
 	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css"> -->
 
@@ -438,6 +437,22 @@
 										</a>
 									</li>
 
+
+									<!-- dashboard -->
+									<li class="treeview <?php echo $holdings ?>">
+										<a href="#">
+											<i class="fa fa-tachometer"></i> <span>Dashboard</span>
+											<span class="pull-right-container">
+												<i class="fa fa-angle-left pull-right"></i>
+											</span>
+										</a>
+										<ul class="treeview-menu">
+											<li><a href="<?php echo base_url()."SystemOverview"; ?>"><i class="fa fa-bar-chart"></i> System Overview</a></li>
+										</ul>
+									</li>
+
+
+
 									<li class="treeview <?php echo $holdings ?>">
 										<a href="#">
 											<i class="fa fa-book"></i> <span>Reports</span>
@@ -446,6 +461,7 @@
 											</span>
 										</a>
 										<ul class="treeview-menu">
+											<li><a href="<?php echo base_url()."MaterialInventory"; ?>"><i class="fa fa-houzz"></i> Material Inventory</a></li>
 											<li><a href="<?php echo base_url()."holdings/reports"; ?>"><i class="fa fa-file-excel-o"></i> Inventory Report</a></li>
 											<li><a href="<?php echo base_url()."holdings/acquireport"; ?>"><i class="fa fa-file-pdf-o"></i> Acquisitions Report</a></li>
 											<li><a href="<?php echo base_url()."holdings/inhousereports"; ?>"><i class="fa fa-file-excel-o"></i> Inhouse Reports</a></li>
