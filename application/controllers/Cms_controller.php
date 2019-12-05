@@ -740,4 +740,74 @@ class Cms_controller extends CI_Controller {
 
 
 
+  //irrelevant words
+
+
+  function SearchOptimization(){
+
+    $user = $this->Accounts_model->get_session_data('UserName');
+
+    if(!$this->Accounts_model->get_session_data('UserName'))
+    {
+      redirect('');
+    }
+
+    $modules = $this->load->disable_modules(explode(',', $this->Accounts_model->get_session_data('ModuleAssignment')), $this->Accounts_model->get_session_data('RoleID'));
+
+    $data['roles'] = $this->Accounts_model->get_roles_dropdown();
+
+    $page = array(
+      'admin'  => $modules['admin'],
+      'acquisition'  => $modules['acquisition'],
+      'holdings'  => $modules['holdings'],
+      'circulation'  => $modules['circulation'],
+      'accounts' => $modules['accounts'],
+      'others' => $modules['others'],
+      'user' => $this->Accounts_model->get_session_data('LibrarianName'),
+      'image' => $this->Accounts_model->get_session_data('Image'),
+      'notifs' => $this->Accounts_model->get_notifs()
+    );
+
+
+    $data['IrrelevantWordsList'] = $this->Cms_model->GET_irrWrdList();
+
+    $this->load->template('CMS/SearchOptimization', $data, $page);
+
+  }
+
+
+  function irrWordsList(){
+    $data['data'] = $this->Cms_model->GET_irrWrdList();
+    echo json_encode($data);
+  }
+
+
+  function addWordFilter(){
+    $newWordFilter = $this->input->post('WordFilter');
+
+    $dataWord = array(
+      'irrWord' => $newWordFilter
+    );
+
+    $this->Cms_model->INSERT_irrWord($dataWord);
+
+    $data['msg'] = 'Success';
+
+    echo json_encode($data);
+
+  }
+
+
+  function DelIrrWrd(){
+    $irrID = $this->input->post('irrID');
+
+    $this->Cms_model->DELETE_irrWord($irrID);
+
+    $data['msg'] = 'Success';
+
+    echo json_encode($data);
+  }
+
+
+
 }?>

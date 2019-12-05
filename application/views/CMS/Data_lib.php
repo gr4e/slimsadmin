@@ -13,8 +13,7 @@
   </div>
 
   <div id="topics" class="tabcontent col-lg-7">
-    <h3>TOPICS</h3>
-    <div class="col-sm-12">
+    <div class="col-sm-12" style="margin-top:20px;">
       <form class="form-inline" style="margin-bottom: 0;">
         <div class="form-group">
           <input type="text" class="form-control" value="" id="newTopicTxt" placeholder="New Broad Class / Subject">

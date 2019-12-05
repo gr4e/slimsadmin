@@ -47,7 +47,7 @@
 
 
               <form action="<?php echo base_url() ?>PatronPassReset" method="post">
-                  <div class="form-group">
+                <div class="form-group">
                   <label for="UserPass">New Password</label>
                   <input type="password" class="form-control" id="NewPass" name="NewPass">
                 </div>
@@ -100,5 +100,35 @@
 
   }
 
+
+
+  function delPatron(id){
+
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+
+        $.ajax({
+          url: "<?php echo base_url(); ?>Patron_controller/deletePatron",
+          method: "POST",
+          data: {patronID: id}
+        });
+
+        swal({
+          text: "Successfully Deleted!",
+          icon: "success",
+        }).then((value) => {
+          window.location.replace('<?php echo base_url(); ?>admin/PatronAccounts');
+        });
+
+      }
+    });
+  }
 
 </script>

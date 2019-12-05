@@ -1418,7 +1418,7 @@ class Accounts_model extends CI_Model
 
 	//PATRON LIST
 	function GET_patronList(){
-		$query = $this->db->query("SELECT UserID, Username, FullName FROM users");
+		$query = $this->db->query("SELECT UserID, Username, FullName FROM users WHERE isDeleted <> '1'");
 		return $query->result();
 	}
 

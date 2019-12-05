@@ -1280,7 +1280,8 @@ class Accounts_controller extends CI_Controller
 		<h4>Last logged OUT: <span style='font-weight:700'>".$resultPtrnDt->lastLog_TimeOUT."</span></h4>
 		<h4>Last IP Used: <span style='font-weight:700'>".$resultPtrnDt->lastLog_IP."</span></h4>
 		<h4>Account status: <span style='font-weight:700'>".$AccntStatus."</span></h4>
-		<button type='button' class='btn btn-danger' data-target='#resetPassModal' data-toggle='modal'>Reset Password</button>";
+		<button type='button' class='btn btn-primary' data-target='#resetPassModal' data-toggle='modal'>Reset Password</button>
+		<button type='button' class='btn btn-danger' style='float:right;' onclick=delPatron('".$resultPtrnDt->UserID."')>Delete Account</button>";
 
 		$data['patronID'] = $resultPtrnDt->UserID;
 		$data['ptrnDetail'] = $output;

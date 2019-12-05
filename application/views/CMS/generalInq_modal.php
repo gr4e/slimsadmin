@@ -26,8 +26,8 @@
           <br class="clear" />
           <hr />
           <!-- textbox reply -->
-          <div class="col-md-12" style="margin-bottom: 20px;">
-            <textarea rows="8" cols="80" id="replyBox" name="replyBox"></textarea>
+          <div class="col-md-12">
+            <textarea  id="replyBox" name="replyBox"></textarea>
           </div>
 
           <br class="clear" />

@@ -489,8 +489,10 @@
 								<ul class="treeview-menu">
 									<li><a href="<?php echo base_url()."CatalogExport"; ?>"><i class="fa fa-exchange"></i>Catalog Import / Export</a></li>
 									<li><a href="<?php echo base_url()."CMS/Gallery"; ?>"><i class="fa fa-picture-o"></i>Gallery</a></li>
-									<li><a href="<?php echo base_url()."CMS/DataLib"; ?>"><i class="fa fa-list"></i>CMS Data Library</a></li>
 									<li><a href="<?php echo base_url()."CMS/news"; ?>"><i class="fa fa-newspaper-o"></i>Manage News</a></li>
+									<li><a href="<?php echo base_url()."CMS/MonitoringIndex"; ?>"><i class="fa fa-inbox"></i>Monitoring Index</a></li>
+									<li><a href="<?php echo base_url()."CMS/DataLib"; ?>"><i class="fa fa-list"></i>CMS Data Library</a></li>
+									<li><a href="<?php echo base_url()."CMS/SearchOptimization"; ?>"><i class="fa fa-search"></i>Search Optimization (OPAC)</a></li>
 									<li><a href="<?php echo base_url()."CMS/readersCorner"; ?>"><i class="fa fa-comments-o"></i>Reader's Corner</a></li>
 									<li><a href="<?php echo base_url()."CMS/AboutUs"; ?>"><i class="fa fa-university"></i>About Us / Contact Us /<br> Privacy Statement</a></li>
 								</ul>

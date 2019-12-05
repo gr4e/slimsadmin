@@ -34,6 +34,7 @@ class Cms_model extends CI_Model
 
   function DELETE_news($id){
     $this->db->query("DELETE FROM opacnews WHERE newsID='".$id."'");
+    return;
   }
 
   function GET_specificNews($id){
@@ -75,8 +76,6 @@ class Cms_model extends CI_Model
     return;
   }
 
-
-  //=============== ASK A LIBRARIAN ===========================
 
   function GET_AALlist(){
     $query = $this->db->get('askalib');
@@ -207,7 +206,7 @@ class Cms_model extends CI_Model
           return;
         }
 
-        //server SETTINGS
+
 
         function GET_serverSettings(){
           $query = $this->db->query("SELECT CurrentServeIP, PublicIP FROM server_settings WHERE ID = '1'");
@@ -226,7 +225,7 @@ class Cms_model extends CI_Model
         }
 
 
-        //carousel data update
+
 
         function UPDATE_caroData($caroData, $id){
           $this->db->query("UPDATE carousel_data SET HoldingsID = '".$caroData."' WHERE caroID = '".$id."'");
@@ -268,5 +267,21 @@ class Cms_model extends CI_Model
         }
 
 
+        function GET_irrWrdList(){
+          $query = $this->db->query("SELECT irrID, irrWord FROM irrlvntwords");
+          return $query->result();
+        }
+
+
+        function INSERT_irrWord($dataWord){
+          $this->db->insert('irrlvntwords', $dataWord);
+          return;
+        }
+
+        function DELETE_irrWord($irrID){
+          $this->db->where('irrID', $irrID);
+          $this->db->delete('irrlvntwords');
+          return;
+        }
 
       }?>

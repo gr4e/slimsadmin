@@ -76,6 +76,11 @@ $route['CMS/readersCorner'] = 'Cms_controller/readCorn';
 $route['CMS/DataLib'] = 'Cms_controller/DataLib';
 $route['CMS/AboutUs'] = 'Cms_controller/AboutUs';
 $route['CMS/Gallery'] = 'Cms_controller/Gallery';
+$route['CMS/SearchOptimization'] = 'Cms_controller/SearchOptimization';
+$route['CMS/MonitoringIndex'] = 'Monitoring_controller/MonitoringIndex';
+
+
+
 $route['CatalogExport'] = 'CatalogExport_controller/CatalogExport';
 
 $route{'Reservations'} = 'Circulations_controller/reservation';
