@@ -141,17 +141,99 @@ class IndexMon_controller extends CI_Controller{
   }
 
 
-function unPinPost(){
+  function unPinPost(){
 
-  $subAalID = $this->input->post('subAalID');
+    $subAalID = $this->input->post('subAalID');
 
-  $this->IndexMon_model->DELETE_unPinPost($subAalID);
+    $this->IndexMon_model->DELETE_unPinPost($subAalID);
 
-  $data['sux'] = '1';
+    $data['sux'] = '1';
 
-  echo json_encode($data);
+    echo json_encode($data);
+
+  }
+
+
+
+
+  //suggested Material
+
+  function GET_suggestedList(){
+
+    $draw = intval($this->input->get("draw"));
+    $start = intval($this->input->get("start"));
+    $length = intval($this->input->get("length"));
+
+    $currentUserID = $this->Accounts_model->get_session_data('UserID');
+
+
+    $records = $this->IndexMon_model->GET_suggestionList($currentUserID);
+
+    $data = array();
+
+
+    foreach($records as $r){
+      $sub_array = array();
+
+      $sub_array[] = substr($r->Title, 0, 40);
+      $sub_array[] = substr($r->FullName, 0, 30);
+      $sub_array[] = substr($r->SuggestedDate, 0, 20);
+      $sub_array[] =  "<button type='button' onclick=suggestionDetails('".$r->subSabID."'); class='btn btn-info' style='float:right; margin: 5px 0 5px 0;'>Details</button>";
+
+      $data[] = $sub_array;
+    }
+
+
+    $output = array(
+      "draw" => $draw,
+      "recordsTotal" => count($records),
+      "recordsFiltered" => count($records),
+      "data" => $data
+    );
+
+
+    echo json_encode($output);
+    exit();
+
+  }
+
+
+
+  function GET_suggestionDetail(){
+
+    $sabID = $this->input->post('sabID');
+
+    $sugDetails = $this->IndexMon_model->GET_sugDetails($sabID);
+
+    $data['sabID'] = $sugDetails->subSabID;
+    $data['Subject'] = $sugDetails->Subject;
+    $data['Title'] = $sugDetails->Title;
+    $data['Author'] = $sugDetails->Author;
+    $data['Publisher'] = $sugDetails->Publisher;
+    $data['About'] = $sugDetails->About;
+    $data['FullName'] = $sugDetails->FullName;
+    $data['SuggestedDate'] = $sugDetails->SuggestedDate;
+    $data['upvotes'] = $sugDetails->upvotes;
+
+    echo json_encode($data);
+
+  }
+
+function availableSuggestion(){
+  $sabID = $this->input->post('sabID');
+  $this->IndexMon_model->UPDATE_availableStatusSuggestMat($sabID);
+  exit();
+}
+
+
+function deleteSuggestion(){
+  $sabID = $this->input->post('sabID');
+  $this->IndexMon_model->UPDATE_deleteStatusSuggestMat($sabID);
+  exit();
 
 }
+
+
 
 
 

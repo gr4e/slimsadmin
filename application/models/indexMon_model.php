@@ -48,4 +48,36 @@ class IndexMon_model extends CI_Model{
 
 
 
-    }
+
+      function GET_suggestionList($userID){
+        $query = $this->db->query("SELECT a.sabID, a.subSabID, a.Subject, a.Title, a.Author, a.Publisher, a.About, a.SuggestedBy, b.FullName, a.SuggestedDate, a.Monitored, a.isAcquired, a.DateTagAcquired, a.statusChngdBy, a.isDeleted
+          FROM suggest a
+          LEFT JOIN users b
+          ON a.SuggestedBy = b.Username
+          WHERE a.isDeleted <> '1' AND a.isAcquired <> '1' AND a.subSabID IN (SELECT subID FROM monitorindex WHERE UserID = '".$userID."')
+          ORDER BY a.SuggestedDate DESC");
+          return $query->result();
+        }
+
+        function GET_sugDetails($sabID){
+          $query = $this->db->query("SELECT a.subSabID, a.Subject, a.Title, a.Author, a.Publisher, a.About, b.FullName, a.SuggestedDate, (SELECT COUNT(suID) FROM suggest_upvote WHERE suggest_upvote.subSabID = a.subSabID) as upvotes
+          FROM suggest a
+          LEFT JOIN users b
+          ON a.SuggestedBy = b.Username
+          WHERE a.subSabID = '".$sabID."'");
+
+          return $query->row();
+        }
+
+        function UPDATE_availableStatusSuggestMat($sabID){
+          $this->db->query("UPDATE suggest SET isAcquired = '1' WHERE subSabID = '".$sabID."'");
+          return;
+        }
+
+        function UPDATE_deleteStatusSuggestMat($sabID){
+          $this->db->query("UPDATE suggest SET isDeleted = '1' WHERE subSabID = '".$sabID."'");
+          return;
+        }
+
+
+      }

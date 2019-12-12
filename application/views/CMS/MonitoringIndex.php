@@ -56,6 +56,58 @@
 
   <div id="SuggestMat" class="tabcontent">
 
+    <div class="col-lg-8">
+      <table id="suggestListTable" class="table table-hover display" style="width:100%">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Suggested By</th>
+            <th>Suggested Date</th>
+            <th></th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+    <div class="col-lg-4" id="suggestionDetailsDiv" style="display:none;">
+      <table class="table table-responsive table-hover">
+        <thead>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Suggested By:</b></td> <td id="SuggestedBy"></td>
+          </tr>
+          <tr>
+            <td><b>Suggested Date:</b></td> <td id="SuggestedDate"></td>
+          </tr>
+          <tr>
+            <td><b>Subject Area:</b></td> <td id="Subject"></td>
+          </tr>
+          <tr>
+            <td><b>Title:</b></td> <td id="Title"></td>
+          </tr>
+          <tr>
+            <td><b>Author:</b></td> <td id="Author"></td>
+          </tr>
+          <tr>
+            <td><b>Publisher:</b></td> <td id="Publisher"></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div id="About" class="col-sm-12"></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="col-sm-12">
+        <span style="float:right;">Upvotes: <span id="upvotes"></span> </span>
+      </div>
+      <div class="col-sm-12" style="margin-top: 10px;">
+        <span id="sabID" style="display:none;"></span>
+        <button type="button" class="btn btn-success" style="float:left;" onclick="suggestAvailable();" >Set as Available</button>
+        <button type="button" class="btn btn-danger" style="float:right;" onclick="suggestDelete();" >Delete</button>
+      </div>
+    </div>
 
 
   </div>
@@ -73,9 +125,8 @@
 </div><!-- end content wrapper -->
 
 
-
-
 <script type="text/javascript">
+
 
 
 $('#GenInqTable').DataTable({
@@ -91,6 +142,156 @@ $('#GenInqTable').DataTable({
   fixedColumns: true,
   "bLengthChange": false
 });
+
+
+$('#suggestListTable').DataTable({
+  "ajax": {
+    url : "<?php echo base_url(); ?>index.php/IndexMon_controller/GET_suggestedList",
+    type : 'POST',
+    dataType:"json"
+  },
+  "columnDefs": [
+    { "width": "18%", "targets": 0 },
+    { "targets": 2, "width": "30%" }
+  ],
+  fixedColumns: true,
+  "bLengthChange": false
+});
+
+
+
+</script>
+
+<!-- suggested material -->
+<script type="text/javascript">
+
+
+function suggestionDetails(id){
+  $.ajax({
+    type: "POST",
+    dataType: "json",
+    data: {sabID: id},
+    url: "<?php echo base_url(); ?>index.php/IndexMon_controller/GET_suggestionDetail"
+  }).done(function(data){
+
+    $("#suggestionDetailsDiv").hide('fast');
+    $("#sabID").text("");
+    $("#Subject").html("");
+    $("#Title").html("");
+    $("#Author").html("");
+    $("#Publisher").html("");
+    $("#About").html("");
+    $("#SuggestedBy").html("");
+    $("#SuggestedDate").html("");
+    $("#upvotes").html("");
+
+
+    $("#sabID").text(data.sabID);
+
+    if (data.Subject != "") {
+      $("#Subject").html(data.Subject);
+    }else{
+      $("#Subject").html("-");
+    }
+
+    if (data.Title != "") {
+      $("#Title").html(data.Title);
+    }else{
+      $("#Title").html("-");
+    }
+
+    if (data.Author != "") {
+      $("#Author").html(data.Author);
+    }else{
+      $("#Author").html("-");
+    }
+
+    if (data.Publisher != "") {
+      $("#Publisher").html(data.Publisher);
+    }else{
+      $("#Publisher").html("-");
+    }
+
+    if (data.About != "") {
+      $("#About").html("<h4><b>More about the material:</b></h4>"+data.About);
+    }
+
+    $("#SuggestedBy").html(data.FullName);
+    $("#SuggestedDate").html(data.SuggestedDate);
+    $("#upvotes").html(data.upvotes);
+
+    $("#suggestionDetailsDiv").show('slow');
+  });
+
+}
+
+function suggestAvailable(){
+  var sabID = $("#sabID").text();
+
+  swal({
+    title: "Available?",
+    text: "Set suggestion as Acquired?",
+    icon: "warning",
+    buttons: true,
+    dangerMode: false,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+
+      $.ajax({
+        type: "POST",
+        data: {sabID: sabID},
+        url: "<?php echo base_url(); ?>index.php/indexMon_controller/availableSuggestion"
+      }).done(function(data){
+        swal('Success!', 'Material set as Acquired!', 'success');
+        $("#suggestionDetailsDiv").hide('slow');
+        $('#suggestListTable').DataTable().ajax.reload(null, false);
+      });
+
+    }
+  });
+}
+
+
+function suggestDelete(){
+  var sabID = $("#sabID").text();
+
+  swal({
+    title: "Delete this suggestion?",
+    text: "",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+
+      $.ajax({
+        type: "POST",
+        data: {sabID: sabID},
+        url: "<?php echo base_url(); ?>index.php/indexMon_controller/deleteSuggestion"
+      }).done(function(data){
+        swal('Success!', 'Material suggestion deleted', 'success');
+        $("#suggestionDetailsDiv").hide('slow');
+        $('#suggestListTable').DataTable().ajax.reload(null, false);
+      });
+
+    }
+  });
+
+
+}
+
+</script>
+
+
+
+
+<!-- ask a Librarian -->
+<script type="text/javascript">
+
+
+
 
 function showDetails(id){
   InqDetails(id);
