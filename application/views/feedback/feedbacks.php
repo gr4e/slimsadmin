@@ -28,9 +28,27 @@
 
   </div>
 
+  <div class="col-lg-8"  style="margin-top:10px;">
+    <table id="ratingsTable" class="table table-bordered table-striped table-hover" style="width:100%">
+      <thead>
+        <tr>
+          <th>Criteria</th>
+          <th>Outstanding</th>
+          <th>Very Satisfactory</th>
+          <th>Satisfactory</th>
+          <th>Unsatisfactory</th>
+          <th>Poor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php echo $ratingsTableData; ?>
+      </tbody>
+    </table>
+  </div>
+
   <div class="col-lg-12">
 
-    <table id="optionalTxtsList" class="table table-bordered table-striped table-hover" style="width:100%">
+    <table id="optionalTxtsList" class="table table-bordered table-striped table-hover" style="width:100%;">
       <thead>
         <tr>
           <th>Patron Full Name</th>
@@ -48,7 +66,7 @@
 
 
 
-<!-- individual Score -->
+  <!-- individual Score -->
   <section>
     <div class="modal fade" tabindex="-1" role="dialog" id="ScoresModal">
       <div class="modal-dialog modal-sm" role="document">
@@ -75,7 +93,7 @@
 
 
 
-<!-- optional suggestion text -->
+  <!-- optional suggestion text -->
   <section>
     <div class="modal fade" tabindex="-1" role="dialog" id="txtsModal">
       <div class="modal-dialog modal-lg" role="document">
@@ -118,12 +136,23 @@
 
 $(document).ready(function(){
 
-  //datatable
+  //optionalText from CSF
   $('#optionalTxtsList').DataTable({
     dom: 'Bfrtip',
     buttons: [
-      'excel', 'pdf'
     ],
+    ordering:  false
+  });
+
+  //ratings table
+  $('#ratingsTable').DataTable({
+    bInfo: false,
+    dom: 'Bfrtip',
+    buttons: [
+      'excel'
+    ],
+    bFilter: false,
+    bPaginate: false,
     ordering:  false
   });
 

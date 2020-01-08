@@ -72,4 +72,31 @@ class Feedback_model extends CI_Model
         }
 
 
+        function GET_ratingsTab(){
+          $query = $this->db->query("SELECT (SELECT COUNT(q1) FROM `feedback` WHERE q1 = '1' GROUP BY q1) as s1q1,
+          (SELECT COUNT(q1) FROM `feedback` WHERE q1 = '2' GROUP BY q1) as s2q1,
+          (SELECT COUNT(q1) FROM `feedback` WHERE q1 = '3' GROUP BY q1) as s3q1,
+          (SELECT COUNT(q1) FROM `feedback` WHERE q1 = '4' GROUP BY q1) as s4q1,
+          (SELECT COUNT(q1) FROM `feedback` WHERE q1 = '5' GROUP BY q1) as s5q1,
+
+          (SELECT COUNT(q2) FROM `feedback` WHERE q2 = '1' GROUP BY q2) as s1q2,
+          (SELECT COUNT(q2) FROM `feedback` WHERE q2 = '2' GROUP BY q2) as s2q2,
+          (SELECT COUNT(q2) FROM `feedback` WHERE q2 = '3' GROUP BY q2) as s3q2,
+          (SELECT COUNT(q2) FROM `feedback` WHERE q2 = '4' GROUP BY q2) as s4q2,
+          (SELECT COUNT(q2) FROM `feedback` WHERE q2 = '5' GROUP BY q2) as s5q2,
+
+          (SELECT COUNT(q3) FROM `feedback` WHERE q3 = '1' GROUP BY q3) as s1q3,
+          (SELECT COUNT(q3) FROM `feedback` WHERE q3 = '2' GROUP BY q3) as s2q3,
+          (SELECT COUNT(q3) FROM `feedback` WHERE q3 = '3' GROUP BY q3) as s3q3,
+          (SELECT COUNT(q3) FROM `feedback` WHERE q3 = '4' GROUP BY q3) as s4q3,
+          (SELECT COUNT(q3) FROM `feedback` WHERE q3 = '5' GROUP BY q3) as s5q3,
+
+          (SELECT COUNT(q4) FROM `feedback` WHERE q4 = '1' GROUP BY q4) as s1q4,
+          (SELECT COUNT(q4) FROM `feedback` WHERE q4 = '2' GROUP BY q4) as s2q4,
+          (SELECT COUNT(q4) FROM `feedback` WHERE q4 = '3' GROUP BY q4) as s3q4,
+          (SELECT COUNT(q4) FROM `feedback` WHERE q4 = '4' GROUP BY q4) as s4q4,
+          (SELECT COUNT(q4) FROM `feedback` WHERE q4 = '5' GROUP BY q4) as s5q4");
+          return $query->row();
+        }
+
       } ?>

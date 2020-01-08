@@ -62,6 +62,13 @@ class Feedback_controller extends CI_Controller {
 
     }
 
+
+    $ratingsTable = $this->Feedback_model->GET_ratingsTab();
+    $data['ratingsTableData'] = "<tr><td>Content</td><td>".$ratingsTable->s5q1."</td><td>".$ratingsTable->s4q1."</td><td>".$ratingsTable->s3q1."</td><td>".$ratingsTable->s2q1."</td><td>".$ratingsTable->s1q1."</td></tr>
+    <tr><td>Usefulness/Significance</td><td>".$ratingsTable->s5q2."</td><td>".$ratingsTable->s4q2."</td><td>".$ratingsTable->s3q2."</td><td>".$ratingsTable->s2q2."</td><td>".$ratingsTable->s1q2."</td></tr>
+    <tr><td>Overall Layout/Design</td><td>".$ratingsTable->s5q3."</td><td>".$ratingsTable->s4q3."</td><td>".$ratingsTable->s3q3."</td><td>".$ratingsTable->s2q3."</td><td>".$ratingsTable->s1q3."</td></tr>
+    <tr><td>Response and Delivery Time</td><td>".$ratingsTable->s5q4."</td><td>".$ratingsTable->s4q4."</td><td>".$ratingsTable->s3q4."</td><td>".$ratingsTable->s2q4."</td><td>".$ratingsTable->s1q4."</td></tr>";
+
     $data['optionalTxtsList'] = $optionalTxtsList;
 
     $data['totalClientFeedback'] = $this->Feedback_model->GET_totalFeedbackCount();
@@ -103,22 +110,22 @@ class Feedback_controller extends CI_Controller {
   }
 
 
-function txtDetails(){
-  $fbID = $this->input->post('fbID');
+  function txtDetails(){
+    $fbID = $this->input->post('fbID');
 
-  $txtDetails = $this->Feedback_model->GET_optionalTxtsDetails($fbID);
-
-
-  $data['suggestedBy'] = (is_null($txtDetails->FullName)) ? $txtDetails->patronName : $txtDetails->FullName;
-  $data['optionalTxt'] = $txtDetails->optionalTxt;
-  $data['patronEmailCon'] = (is_null($txtDetails->email)) ? $txtDetails->patronEmail : $txtDetails->email;
-  $data['patronContactNoCon'] = (is_null($txtDetails->contactNo)) ? $txtDetails->patronContactNo : $txtDetails->contactNo;
+    $txtDetails = $this->Feedback_model->GET_optionalTxtsDetails($fbID);
 
 
-  $data['TxtDetails'] = $fbID;
+    $data['suggestedBy'] = (is_null($txtDetails->FullName)) ? $txtDetails->patronName : $txtDetails->FullName;
+    $data['optionalTxt'] = $txtDetails->optionalTxt;
+    $data['patronEmailCon'] = (is_null($txtDetails->email)) ? $txtDetails->patronEmail : $txtDetails->email;
+    $data['patronContactNoCon'] = (is_null($txtDetails->contactNo)) ? $txtDetails->patronContactNo : $txtDetails->contactNo;
 
-  echo json_encode($data);
-}
+
+    $data['TxtDetails'] = $fbID;
+
+    echo json_encode($data);
+  }
 
 
 
