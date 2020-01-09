@@ -29,6 +29,7 @@
   </div>
 
   <div class="col-lg-8"  style="margin-top:10px;">
+    <h4>Total number of people who rated on: </h4>
     <table id="ratingsTable" class="table table-bordered table-striped table-hover" style="width:100%">
       <thead>
         <tr>

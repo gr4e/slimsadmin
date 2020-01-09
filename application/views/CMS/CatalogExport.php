@@ -13,7 +13,7 @@
 
       <form id="frm-example" action="#" method="post">
 
-        <table id="example" class="table table-bordered table-striped table-hover" style="width:100%">
+        <table id="HoldingsList" class="table table-bordered table-striped table-hover" style="width:100%">
           <thead>
             <tr>
               <th></th>
@@ -94,7 +94,7 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
-  var table = $('#example').DataTable({
+  var table = $('#HoldingsList').DataTable({
     "ajax": {url:"<?php echo base_url(); ?>index.php/CatalogExport_controller/CatalogList" },
     'columnDefs': [
       {
