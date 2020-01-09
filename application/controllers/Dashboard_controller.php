@@ -63,7 +63,12 @@ class Dashboard_controller extends CI_Controller {
     $data['MostSearchWord'] = $this->Dashboard_model->GET_MostSearchWord()->SrchdWord;
 
     $mostDL = $this->Dashboard_model->GET_mostDowloadedFile();
+
+    if (!empty($mostDL)) {
     $data['MostDownloadedFile'] = $mostDL->FileName . " | " . $mostDL->HoldingsID;
+  }else{
+    $data['MostDownloadedFile'] = "No download record.";
+  }
 
 
     $data['TotalRegisteredPatron'] = $this->Dashboard_model->GET_TotalRegisteredPatron();
