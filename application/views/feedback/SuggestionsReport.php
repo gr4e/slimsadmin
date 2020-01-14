@@ -1,6 +1,6 @@
 <div class="content-wrapper">
   <section class="content-header">
-    <h1>Download Statistics</h1>
+    <h1>Client Suggestions</h1>
   </section>
   <div class="box-header with-border">
   </div>
@@ -9,7 +9,7 @@
 
     <div class="col-md-5" style="margin-top:10px;">
 
-      <form action="<?php echo base_url(); ?>DownloadsGenerated" method="post">
+      <form action="<?php echo base_url(); ?>GenerateSuggestionsList" method="post">
         <div class="form-group">
           <div class="input-group">
             <div class="input-group-addon">
@@ -27,20 +27,19 @@
 
   </div>
 
-  <?php if (!empty($DLlist)) { ?>
+  <?php if (!empty($Suggestionlist)) { ?>
   <div class="col-md-10" style="margin-top: 10px; margin-left: 20px;">
 
-    <table id="DLtable" class="table table-bordered table-striped table-hover" style="width:100%">
+    <table id="SuggestionTable" class="table table-bordered table-striped table-hover" style="width:100%">
       <thead>
         <tr>
-          <th>Date Downloaded</th>
-          <th>Title</th>
-          <th>Material Type</th>
-          <th>Call Number</th>
+          <th>Suggested By</th>
+          <th>Suggestion</th>
+          <th>Suggested Date</th>
         </tr>
       </thead>
       <tbody>
-          <?php echo $DLlist; ?>
+          <?php echo $Suggestionlist; ?>
       </tbody>
     </table>
 
@@ -58,10 +57,10 @@ $(document).ready(function(){
 
   //datatable
 
-  $('#DLtable').DataTable({
+  $('#SuggestionTable').DataTable({
     dom: 'Bfrtip',
     buttons: [
-'excel', 'pdf'
+'excel'
     ]
   });
 

@@ -87,17 +87,21 @@ $route{'Reservations'} = 'Circulations_controller/reservation';
 $route['Returns'] = 'Circulations_controller/returns';
 
 $route['Reports/Downloads'] = 'Reports_controller/Downloads_reports';
+$route['DownloadsGenerated'] = 'Reports_controller/generateDownloadsList';
 $route['Reports/GenerateTrail'] = 'PatronTrail_controller/generatePatronTrail';
+$route['Reports/suggestionsReport'] = 'Suggestions_controller/SuggestionsReport';
+
+$route['GenerateSuggestionsList'] = 'Suggestions_controller/GenerateSuggestions';
+
 $route['MaterialInventory'] = 'Inventory_controller/material_inventory';
 
-$route['Feedbacks'] = 'Feedback_controller/Feedbacks';
 $route['PatronTrail'] = 'PatronTrail_controller/PatronTrail';
 $route['PatronPassReset'] = 'Accounts_controller/patronResetPass';
 
 
 //dashboard
 $route['SystemOverview'] = 'Dashboard_controller/SystemOverview';
-
+$route['Feedbacks'] = 'Feedback_controller/Feedbacks';
 
 $route['default_controller'] = 'login';
 $route['404_override'] = '';

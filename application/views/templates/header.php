@@ -448,6 +448,7 @@
 										</a>
 										<ul class="treeview-menu">
 											<li><a href="<?php echo base_url()."SystemOverview"; ?>"><i class="fa fa-bar-chart"></i> System Overview</a></li>
+											<li><a href="<?php echo base_url()."Feedbacks"; ?>"><i class="fa fa-thumbs-o-up"></i> Feedback Overview</a></li>
 										</ul>
 									</li>
 
@@ -466,7 +467,7 @@
 											<li><a href="<?php echo base_url()."holdings/acquireport"; ?>"><i class="fa fa-file-pdf-o"></i> Acquisitions Report</a></li>
 											<li><a href="<?php echo base_url()."holdings/inhousereports"; ?>"><i class="fa fa-file-excel-o"></i> Inhouse Reports</a></li>
 											<li><a href="<?php echo base_url()."Reports/Downloads"; ?>"><i class="fa fa-download"></i> Downloads Report</a></li>
-											<li><a href="<?php echo base_url()."Feedbacks"; ?>"><i class="fa fa-thumbs-o-up"></i> Feedbacks</a></li>
+											<li><a href="<?php echo base_url()."Reports/suggestionsReport"; ?>"><i class="fa fa-handshake-o"></i> Suggestions Report</a></li>
 											<li><a href="<?php echo base_url()."PatronTrail"; ?>"><i class="fa fa-blind"></i> Patron Trails</a></li>
 										</ul>
 									</li>

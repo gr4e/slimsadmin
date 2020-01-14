@@ -8,7 +8,7 @@
 				<div class="col-md-6">
 					<div id="exportContent" class="box box-solid">
 						<!-- <div id="progressbar"><div id="progresslabel"></div></div> -->
-					
+
 					<!-- <button onclick="export_doc('exportContent', 'word-content');">Export as .doc</button> -->
 						<div class="box-header with-border">
 							<i class="fa fa-text-width"></i>
@@ -92,10 +92,10 @@
 							<button onclick="load_pdf();">Generate Report</button>
 						</div>
 					</div>
-					
+
 				</div>
 			</div>
-		</div>	
+		</div>
 	</div>
 
 	<!-- <div class="box-footer">
@@ -108,7 +108,7 @@
 	$("#cboMaterial").prop("selectedIndex", -1);
 
 	$(document).ready(function(){
-  		$('#daterange').inputmask("99/99/9999 - 99/99/9999");  
+  		$('#daterange').inputmask("99/99/9999 - 99/99/9999");
 	});
 
 	$(function() {
@@ -155,19 +155,19 @@
 
 		$.ajax(
 		{
-			url:"<?php echo base_url("Reports_controller/set_params")?>", 
+			url:"<?php echo base_url("Reports_controller/set_params")?>",
 			type: "POST",
-			data:{material:$('#cboMaterial').val(),mode:$('#cboMode').val(),user:$('#cboUser').val(),from:from,to:to}, 
+			data:{material:$('#cboMaterial').val(),mode:$('#cboMode').val(),user:$('#cboUser').val(),from:from,to:to},
 			dataType: "JSON",
-			success:function(data)  
+			success:function(data)
 			{
 			  if(data.status)
 			    window.open('<?php echo base_url() ?>holdings/reports2/acquisitions', '_blank');
-			}  
+			}
 		});
 	}
 
-	$(".chkbox").change(function() 
+	$(".chkbox").change(function()
 	{
 		if(this.id == "chkMaterial")
 		{
@@ -183,7 +183,7 @@
 		{
 			this.checked ? $('#cboUser').select2('destroy').find('option').prop('selected', 'selected').end().select2() : $('#cboUser').select2('destroy').find('option').prop('selected', false).end().select2()
 		}
-		
+
 	});
 
 	// function generate_report()
@@ -229,7 +229,7 @@
 
 	// 				if(aaa[a]['MaterialTypeID'] == 2)
 	// 					$('#appendSerials').append('<dd style="font-family:calibri;">Holdings ID: '+aaa[a]['HoldingsID']+'</dd><dd style="font-family:calibri;">Acquisition ID: '+aaa[a]['AcquisitionID']+'</dd><dd style="font-family:calibri;">Title: '+aaa[a]['Title']+'</dd><dd style="font-family:calibri;">Author: '+aaa[a]['Author']+'</dd><dd style="font-family:calibri;">Copy Number: '+aaa[a]['CopyNumber']+'</dd><dd style="font-family:calibri;">--------------------------------------------------</dd>')
-					
+
 	// 				if(aaa[a]['MaterialTypeID'] == 3)
 	// 					$('#appendTheses').append('<dd style="font-family:calibri;">Holdings ID: '+aaa[a]['HoldingsID']+'</dd><dd style="font-family:calibri;">Acquisition ID: '+aaa[a]['AcquisitionID']+'</dd><dd style="font-family:calibri;">Title: '+aaa[a]['Title']+'</dd><dd style="font-family:calibri;">Author: '+aaa[a]['Author']+'</dd><dd style="font-family:calibri;">Copy Number: '+aaa[a]['CopyNumber']+'</dd><dd style="font-family:calibri;">--------------------------------------------------</dd>')
 
@@ -256,7 +256,7 @@
 	// }
 
 	// function export_doc(element, filename = '')
-	// {	
+	// {
 	// 	var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
 	// 	var postHtml = "</body></html>";
 	// 	var html = preHtml+document.getElementById(element).innerHTML+postHtml;
@@ -267,28 +267,28 @@
 
 	//     // Specify link url
 	//     var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
-	    
+
 	//     // Specify file name
 	//     filename = filename?filename+'.doc':'document.doc';
-	    
+
 	//     // Create download link element
 	//     var downloadLink = document.createElement("a");
 
 	//     document.body.appendChild(downloadLink);
-	    
+
 	//     if(navigator.msSaveOrOpenBlob ){
 	//     	navigator.msSaveOrOpenBlob(blob, filename);
 	//     }else{
 	//         // Create a link to the file
 	//         downloadLink.href = url;
-	        
+
 	//         // Setting the file name
 	//         downloadLink.download = filename;
-	        
+
 	//         //triggering the function
 	//         downloadLink.click();
 	//     }
-	    
+
 	//     document.body.removeChild(downloadLink);
 	// }
 

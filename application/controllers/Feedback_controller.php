@@ -8,6 +8,7 @@ class Feedback_controller extends CI_Controller {
   function __construct() {
     parent::__construct();
     $this->load->model('Feedback_model');
+    $this->load->model("Accounts_model");
   }
 
 

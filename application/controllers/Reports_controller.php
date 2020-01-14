@@ -6,13 +6,13 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
-class Reports_controller extends CI_Controller 
+class Reports_controller extends CI_Controller
 {
-	public function __construct() 
+	public function __construct()
 	{
-		parent::__construct();   
+		parent::__construct();
 		$this->load->model("Reports_model");
-	} 
+	}
 
 	public function index()
 	{
@@ -37,7 +37,7 @@ class Reports_controller extends CI_Controller
 			'user' => $this->Accounts_model->get_session_data('LibrarianName'),
 			'image' => $this->Accounts_model->get_session_data('Image'),
 			'notifs' => $this->Accounts_model->get_notifs()
-		); 
+		);
 
 		$this->load->template('reports/acquireportfilter', $data, $page);
 	}
@@ -66,7 +66,7 @@ class Reports_controller extends CI_Controller
 			'user' => $this->Accounts_model->get_session_data('LibrarianName'),
 			'image' => $this->Accounts_model->get_session_data('Image'),
 			'notifs' => $this->Accounts_model->get_notifs()
-		); 
+		);
 
 		$this->load->template('reports/inventoryfilter', $data, $page);
 	}
@@ -96,7 +96,7 @@ class Reports_controller extends CI_Controller
 			'user' => $this->Accounts_model->get_session_data('LibrarianName'),
 			'image' => $this->Accounts_model->get_session_data('Image'),
 			'notifs' => $this->Accounts_model->get_notifs()
-		); 
+		);
 
 		$this->load->template('reports/inhousereports', $data, $page);
 	}
@@ -119,7 +119,7 @@ class Reports_controller extends CI_Controller
 		$summary =$this->input->post('cboSummary');
 
 		$inventory_record = array
-		( 
+		(
 			'generatedate'     	=> $generatedate,
 			'from'  	=> $from,
 			'to'  	 	=> $to,
@@ -140,11 +140,11 @@ class Reports_controller extends CI_Controller
 		{
 			$data = $this->Reports_model->generate_inventory($generatedate, $from, $to, $user, $material, $sortby, $sortorder);
 		}
-		else 
+		else
 		{
 			$data = $this->Reports_model->generate_summary_report($generatedate, $from, $to, $user, $material, $location, $reportby, $summary);
 
-			
+
 		}
 
 
@@ -193,7 +193,7 @@ class Reports_controller extends CI_Controller
 		$material =$this->input->post('cboMaterial');
 
 		$inhouse_record = array
-		( 
+		(
 			'report'     	=> $report,
 			'series'  	=> $series,
 			'broadclass'    		 	=> $broadclass,
@@ -234,7 +234,7 @@ class Reports_controller extends CI_Controller
 	// public function generate_report()
 	// {
 	// 	$this->load->library('form_validation');
-		
+
 	// 	$generatedate =$this->input->post('generatedate');
 	// 	$from =$this->input->post('txtFrom');
 	// 	$to =$this->input->post('txtTo');
@@ -259,23 +259,23 @@ class Reports_controller extends CI_Controller
 	// 	}
 	// 	else
 	// 	{
-	// 		if($summary == 1)	
+	// 		if($summary == 1)
 	// 		{
 	// 			$this->form_validation->set_rules('cboLocation[]', 'Location', 'required');
 	// 			$this->form_validation->set_rules('cboMaterial[]', 'Material Type', 'required');
 	// 		}
-	// 		else if($summary == 2)	
+	// 		else if($summary == 2)
 	// 		{
 	// 			$this->form_validation->set_rules('cboReportBy', 'Report By', 'required');
 	// 		}
-	// 		else if($summary == 3 || $summary == 4)	
+	// 		else if($summary == 3 || $summary == 4)
 	// 		{
 	// 			$this->form_validation->set_rules('daterange', 'From and To Date', 'required');
 	// 		}
 	// 	}
 
 	// 	$inventory_record = array
-	// 	( 
+	// 	(
 	// 		'generatedate'     	=> $generatedate,
 	// 		'from'  	=> $from,
 	// 		'to'  	 	=> $to,
@@ -303,25 +303,25 @@ class Reports_controller extends CI_Controller
 	// 		{
 	// 			$this->generate_inventory_report($generatedate, $from, $to, $user, $material, $sortby, $sortorder);
 	// 		}
-	// 		else 
+	// 		else
 	// 		{
-	// 			if($summary == 1)	
+	// 			if($summary == 1)
 	// 				$this->generate_summary_report($generatedate, $from, $to, $user, $material, $location, $reportby, $summary);
-	// 			else if($summary == 2)	
+	// 			else if($summary == 2)
 	// 				$this->generate_overallsummary_report($generatedate, $from, $to, $user, $material, $location, $reportby, $summary);
-	// 			else if($summary >= 3)	
+	// 			else if($summary >= 3)
 	// 				$this->generate_summary_reportbrbc($generatedate, $from, $to, $user, $material, $location, $reportby, $summary);
 	// 		}
 
  //        	// redirect(base_url('holdings/reports'));
-			
- //        }		
+
+ //        }
 	// }
 
 	public function generate_inhouse()
 	{
 		$this->load->library('form_validation');
-	
+
 		$report =$this->input->post('cboReport');
 		$series =$this->input->post('cboSeriesTitle');
 		$broadclass =$this->input->post('cboBroadClass');
@@ -346,7 +346,7 @@ class Reports_controller extends CI_Controller
 		}
 
 		$inhouse_record = array
-		( 
+		(
 			'report'     	=> $report,
 			'series'  	=> $series,
 			'broadclass'    		 	=> $broadclass,
@@ -374,7 +374,7 @@ class Reports_controller extends CI_Controller
 				$this->total_number_of_cataloged_cats($status, $material);
 
 			redirect('holdings/inhousereports');
-        }		
+        }
 	}
 
 	// public function generate_inventory_report($generatedate, $from, $to, $user, $material, $sortby, $sortorder)
@@ -392,7 +392,7 @@ class Reports_controller extends CI_Controller
 	// 	$sheet->setCellValue("A1",'STII LIBRARY INVENTORY OF '.$material);
 
 	// 	// add style to the header
-	// 	$styleArray = array( 
+	// 	$styleArray = array(
 	// 		'font' => array(
 	// 			'bold' => true,
 	// 		),
@@ -411,7 +411,7 @@ class Reports_controller extends CI_Controller
 	// 	$spreadsheet->getActiveSheet()->getStyle('A2:O2')->applyFromArray($styleArray);
 
 	// 	// auto fit column to content
-	// 	foreach(range('A','O') as $columnID) 
+	// 	foreach(range('A','O') as $columnID)
 	// 	{
 	// 		// $spreadsheet->getActiveSheet()->getColumnDimension($columnID)
 	// 		// 		->setAutoSize(true);
@@ -450,7 +450,7 @@ class Reports_controller extends CI_Controller
 	// 		->setCellValue("F$x",$d->PublicationYear)
 	// 		->setCellValue("G$x",$d->CopyNumber)
 	// 		->setCellValue("H$x",$d->BroadClass)
-	// 		->setCellValue("I$x",$d->AccessionNumber) 
+	// 		->setCellValue("I$x",$d->AccessionNumber)
 	// 		->setCellValue("J$x",$d->AcquisitionSource)
 	// 		->setCellValue("K$x",$d->AcquisitionDate)
 	// 		->setCellValue("L$x",$d->HoldingsID)
@@ -460,7 +460,7 @@ class Reports_controller extends CI_Controller
 
 	// 		$spreadsheet->getActiveSheet()->getRowDimension("$x")->setRowHeight(40);
 	// 		$x++;
-	// 	} 
+	// 	}
 
 	// 	$styleCells = array(
 	// 		'font' => array(
@@ -475,7 +475,7 @@ class Reports_controller extends CI_Controller
 	// 				'style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
 	// 			),
 	// 		),
-	// 	);  
+	// 	);
 
 	// 	$y= $x-3;
 
@@ -512,13 +512,13 @@ class Reports_controller extends CI_Controller
 	// 	$writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
 	// 	$writer->save('php://output');
 
-	// 	exit;		
+	// 	exit;
 	// }
 
 	// public function generate_summary_report($generatedate, $from, $to, $user, $material, $location, $reportby, $summary)
 	// {
 	// 	$data = $this->Reports_model->generate_summary_report($generatedate, $from, $to, $user, $material, $location, $reportby, $summary);
-		
+
 	// 	// print_r($data);
 
 	// 	$cols = array();
@@ -539,7 +539,7 @@ class Reports_controller extends CI_Controller
 	// 	$spreadsheet->getActiveSheet()->getColumnDimension('A')->setWidth(30);
 
 	// 	// add style to the header
-	// 	$styleArray = array( 
+	// 	$styleArray = array(
 	// 		'font' => array(
 	// 			'bold' => true,
 	// 		),
@@ -556,8 +556,8 @@ class Reports_controller extends CI_Controller
 
 	// 	$spreadsheet->getActiveSheet()->getStyle('A1:B4')->applyFromArray($styleArray);
 
-	
-	
+
+
 	// 	$styleCells = array(
 	// 		'font' => array(
 	// 			'size' => 9,
@@ -572,14 +572,14 @@ class Reports_controller extends CI_Controller
 	// 				'style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
 	// 			),
 	// 		),
-	// 	);  
+	// 	);
 
 	// 	//8
 	// 	$spreadsheet->getActiveSheet()->getStyle('A3:'.$this->getNameFromNumber(count($cols)).(count($data)+9))->applyFromArray($styleCells);
 	// 	$spreadsheet->getActiveSheet()->getStyle('A1:'.$this->getNameFromNumber(count($cols)).(count($data)+9))->getAlignment()->setWrapText(true);
 
 	// 	// auto fit column to content
-	// 	foreach(range('2',count($cols)) as $columnID) 
+	// 	foreach(range('2',count($cols)) as $columnID)
 	// 	{
 	// 		$spreadsheet->getActiveSheet()->getColumnDimensionByColumn($columnID)->setAutoSize(false);
 	// 		$spreadsheet->getActiveSheet()->getColumnDimensionByColumn($columnID)->setWidth(15);
@@ -589,7 +589,7 @@ class Reports_controller extends CI_Controller
 	// 	for($x = 0; $x < count($cols); $x++)
 	// 	{
 	// 		$y = $this->getNameFromNumber($x);
-		
+
 	// 		if($x == 0)
 	// 		{
 	// 			$spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(1 + $x, 4, $cols[$x]);
@@ -617,7 +617,7 @@ class Reports_controller extends CI_Controller
 	// 	    }
 
 	// 		$x++;
-	// 	} 
+	// 	}
 
 	// 	$writer = new Xlsx($spreadsheet);
 	// 	$writer->save('summary.xlsx');
@@ -631,13 +631,13 @@ class Reports_controller extends CI_Controller
 	// 	$writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
 	// 	$writer->save('php://output');
 
-	// 	exit;		
+	// 	exit;
 	// }
 
 	// public function generate_overallsummary_report($generatedate, $from, $to, $user, $material, $location, $reportby, $summary)
 	// {
 	// 	$data = $this->Reports_model->generate_summary_report($generatedate, $from, $to, $user, $material, $location, $reportby, $summary);
-		
+
 	// 	$filedate = date('m-d-Y');
 
 	// 	$cols = array();
@@ -658,7 +658,7 @@ class Reports_controller extends CI_Controller
 	// 	$sheet->setCellValue('A4','as of '.date("F j\, Y"));
 	// 	$spreadsheet->getActiveSheet()->getColumnDimension('A')->setWidth(90);
 
-	// 	$styleArray = array( 
+	// 	$styleArray = array(
 	// 		'font' => array(
 	// 			'bold' => true,
 	// 		),
@@ -673,8 +673,8 @@ class Reports_controller extends CI_Controller
 	// 		),
 	// 	);
 
-	// 	$spreadsheet->getActiveSheet()->getStyle('A1:B4')->applyFromArray($styleArray); 
-	
+	// 	$spreadsheet->getActiveSheet()->getStyle('A1:B4')->applyFromArray($styleArray);
+
 	// 	$styleCells = array(
 	// 		'font' => array(
 	// 			'size' => 9,
@@ -685,18 +685,18 @@ class Reports_controller extends CI_Controller
 	// 				'style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
 	// 			),
 	// 		),
-	// 	);  
+	// 	);
 
 	// 	$spreadsheet->getActiveSheet()->getStyle('A1:'.$this->getNameFromNumber(count($cols)).(count($data)+9))->getAlignment()->setWrapText(true);
 
 	// 	$spreadsheet->getActiveSheet()->getStyle('A6:C'.(count($data)+9))->applyFromArray($styleCells);
-		
+
 	// 	$spreadsheet->getActiveSheet()->getStyle('A6:C7')->getAlignment()->setHorizontal('center');
 	// 	$spreadsheet->getActiveSheet()->getStyle('B6:C'.(count($data)+9))->getAlignment()->setHorizontal('center');
 	// 	$spreadsheet->getActiveSheet()->getStyle('A'.(count($data)+8))->getAlignment()->setHorizontal('right');
 
 
-	// 	foreach(range('2',count($cols)) as $columnID) 
+	// 	foreach(range('2',count($cols)) as $columnID)
 	// 	{
 	// 		$spreadsheet->getActiveSheet()->getColumnDimensionByColumn($columnID)->setAutoSize(false);
 	// 		$spreadsheet->getActiveSheet()->getColumnDimensionByColumn($columnID)->setWidth(15);
@@ -705,7 +705,7 @@ class Reports_controller extends CI_Controller
 	// 	for($x = 0; $x < count($cols); $x++)
 	// 	{
 	// 		$y = $this->getNameFromNumber($x);
-		
+
 	// 		if($x == 0)
 	// 		{
 	// 			$spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(1 + $x, 6, $cols[$x]);
@@ -734,7 +734,7 @@ class Reports_controller extends CI_Controller
 	// 	    }
 
 	// 		$x++;
-	// 	} 
+	// 	}
 
 	// 	$writer = new Xlsx($spreadsheet);
 	// 	$writer->save('overallsummary.xlsx');
@@ -747,7 +747,7 @@ class Reports_controller extends CI_Controller
 	// 	$writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
 	// 	$writer->save('php://output');
 
-	// 	exit;		
+	// 	exit;
 	// }
 
 	// public function generate_summary_reportbrbc($generatedate, $from, $to, $user, $material, $location, $reportby, $summary)
@@ -757,7 +757,7 @@ class Reports_controller extends CI_Controller
 	// 	$bc =  array();
 
 	// 	// foreach($data as $row)
-	// 	// { 
+	// 	// {
 	// 	// 	$sub_array = array();
 	// 	// 	$sub_array['BroadClass'] = strtoupper($row->{'Broad Class'});
 	// 	// 	$bc[] = $sub_array;
@@ -786,7 +786,7 @@ class Reports_controller extends CI_Controller
 	// 	$spreadsheet->getActiveSheet()->getColumnDimension('A')->setWidth(30);
 
 	// 	// add style to the header
-	// 	$styleArray = array( 
+	// 	$styleArray = array(
 	// 		'font' => array(
 	// 			'bold' => true,
 	// 		),
@@ -817,14 +817,14 @@ class Reports_controller extends CI_Controller
 	// 				'style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
 	// 			),
 	// 		),
-	// 	);  
+	// 	);
 
 	// 	//8
 	// 	$spreadsheet->getActiveSheet()->getStyle('A3:'.$this->getNameFromNumber(count($cols)).(count($data)+9))->applyFromArray($styleCells);
 	// 	$spreadsheet->getActiveSheet()->getStyle('A1:'.$this->getNameFromNumber(count($cols)).(count($data)+9))->getAlignment()->setWrapText(true);
 
 	// 	// auto fit column to content
-	// 	foreach(range('2',count($cols)) as $columnID) 
+	// 	foreach(range('2',count($cols)) as $columnID)
 	// 	{
 	// 		$spreadsheet->getActiveSheet()->getColumnDimensionByColumn($columnID)->setAutoSize(false);
 	// 		$spreadsheet->getActiveSheet()->getColumnDimensionByColumn($columnID)->setWidth(20);
@@ -834,7 +834,7 @@ class Reports_controller extends CI_Controller
 	// 	for($x = 0; $x < count($cols); $x++)
 	// 	{
 	// 		$y = $this->getNameFromNumber($x);
-		
+
 	// 		// if($x == 0)
 	// 		// {
 	// 		// 	$spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(1 + $x, 4, $cols[$x]);
@@ -850,7 +850,7 @@ class Reports_controller extends CI_Controller
 	// 	// $spreadsheet->getActiveSheet()->mergeCells('B4:'.$this->getNameFromNumber(count($cols)-2).'4');
 	// 	// $sheet->setCellValue('B4','Year Publication/Copyright Year');
 
-		
+
 	// 	// Add some data
 	// 	$x=5;
 	// 	foreach($data as $d)
@@ -870,11 +870,11 @@ class Reports_controller extends CI_Controller
 
 	// 		   //  echo 'A'.$i.':'.$this->getNameFromNumber(count($cols)-1).(count($cols)-1);
 	// 		   //  // echo $i.$d->$value;
-			    
+
 	//      //  	}
 
 	// 		$x++;
-	// 	} 
+	// 	}
 
 	// 	$writer = new Xlsx($spreadsheet);
 	// 	$writer->save('summary.xlsx');
@@ -892,7 +892,7 @@ class Reports_controller extends CI_Controller
 	// 	$writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
 	// 	$writer->save('php://output');
 
-	// 	exit;		
+	// 	exit;
 	// }
 
 	public function list_of_publication_title_per_series($series)
@@ -924,7 +924,7 @@ class Reports_controller extends CI_Controller
 		$spreadsheet->getActiveSheet()->getDefaultColumnDimension("A1")->setWidth(100);
 
 		$x=3;
-		foreach ($data as $d) 
+		foreach ($data as $d)
 		{
 			$spreadsheet->setActiveSheetIndex(0)
 			->setCellValue("A$x",$d->Title)
@@ -993,7 +993,7 @@ class Reports_controller extends CI_Controller
 		$spreadsheet->getActiveSheet()->getDefaultColumnDimension("A1")->setWidth(50);
 
 		$x=3;
-		foreach ($data as $d) 
+		foreach ($data as $d)
 		{
 			$spreadsheet->setActiveSheetIndex(0)
 			->setCellValue("A$x",$d['BroadClassName'])
@@ -1032,7 +1032,7 @@ class Reports_controller extends CI_Controller
 
 		$status == 0 ? $label ="Uncatalog" : $label ="Cataloged";
 		$data = $this->Reports_model->generate_total_number_of_cats($status, $material);
-	
+
 		$spreadsheet = new Spreadsheet();
 		$sheet = $spreadsheet->getActiveSheet();
 		$sheet->setCellValue('A1', $label)
@@ -1059,7 +1059,7 @@ class Reports_controller extends CI_Controller
 		$spreadsheet->getActiveSheet()->getDefaultColumnDimension("A1")->setWidth(50);
 
 		$x=3;
-		foreach ($data as $d) 
+		foreach ($data as $d)
 		{
 			$spreadsheet->setActiveSheetIndex(0)
 			->setCellValue("A$x",$d['MaterialType'])
@@ -1137,19 +1137,19 @@ class Reports_controller extends CI_Controller
 
 		// Get output html
         $html = $this->output->get_output();
-        
+
         // Load pdf library
         $this->load->library('pdf');
-        
+
         // Load HTML content
         $this->dompdf->loadHtml($html);
-        
+
         // (Optional) Setup the paper size and orientation
         $this->dompdf->setPaper('A4', 'portrait');
-        
+
         // Render the HTML as PDF
         $this->dompdf->render();
-        
+
         // Output the generated PDF (1 = download and 0 = preview)
         $this->dompdf->stream("welcome.pdf", array("Attachment"=>0));
 	}
@@ -1160,14 +1160,14 @@ class Reports_controller extends CI_Controller
 		echo json_encode($data);
 	}
 
-	function getNameFromNumber($num) 
+	function getNameFromNumber($num)
 	{
 	    $numeric = $num % 26;
 	    $letter = chr(65 + $numeric);
 	    $num2 = intval($num / 26);
-	    if ($num2 > 0) 
+	    if ($num2 > 0)
 	        return getNameFromNumber($num2 - 1) . $letter;
-	    else 
+	    else
 	        return $letter;
 	}
 

@@ -31,7 +31,7 @@
 
 
   function GET_mostDowloadedFile(){
-    $query = $this->db->query("SELECT HoldingsID, FileName, COUNT(FileName) as counting FROM stat_dwnldcount GROUP BY FileName ORDER BY counting DESC LIMIT 1");
+    $query = $this->db->query("SELECT HoldingsID, FileName, COUNT(FileName) as counting FROM stat_dwnldcount GROUP BY FileName, HoldingsID ORDER BY counting DESC LIMIT 1");
     return $query->row();
   }
 
