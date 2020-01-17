@@ -115,8 +115,29 @@
 
   <div id="CatInq" class="tabcontent">
 
+    <div class="col-lg-5">
 
+      <table id="catalogInqTable" style="width:100%;" class="table table-responsive table-hover">
+        <thead>
+          <th>HoldingsID</th>
+          <th>Inquiry By</th>
+          <th>Inquired Date</th>
+          <th></th>
+        </thead>
+      </table>
 
+    </div>
+
+    <div class="col-lg-7" id="catInqDetail" style="display: none;">
+      <h4>Material Title: <span id="materialTitle"></span> </h4>
+      <p style="font-size: 18px;">Inital Inquiry: <span id="initalInq"></span> </p>
+      <div style="border: 1px solid"></div>
+
+      <div class="col-sm-12" style="margin: 0; padding: 0; overflow-y: auto; max-height:400px; min-height:400px;" id="catInqReplies"></div>
+      <span id="catalogSubAalID" style="display: none;"></span>
+      <textarea rows="8" cols="80" id="catalogInq_replyBox" name="catalog_replyBox"></textarea>
+      <button type="button" onclick="replyCatInq();" class="btn btn-success" style="margin-top:8px;">Send reply</button>
+    </div>
 
   </div>
 
@@ -152,6 +173,21 @@ $('#suggestListTable').DataTable({
   },
   "columnDefs": [
     { "width": "18%", "targets": 0 },
+    { "targets": 2, "width": "30%" }
+  ],
+  fixedColumns: true,
+  "bLengthChange": false
+});
+
+
+$('#catalogInqTable').DataTable({
+  "ajax": {
+    url : "<?php echo base_url(); ?>index.php/IndexMon_controller/GET_catalogInqList",
+    type : 'POST',
+    dataType:"json"
+  },
+  "columnDefs": [
+    { "width": "20%", "targets": 0 },
     { "targets": 2, "width": "30%" }
   ],
   fixedColumns: true,
@@ -281,6 +317,65 @@ function suggestDelete(){
 
 
 }
+
+
+function CatInq(id){
+  $("#catInqDetail").hide('slow');
+  $("#catInqDetail").show('slow');
+  CatinquiryDetails(id);
+}
+
+
+function CatinquiryDetails(id){
+
+  $.ajax({
+    type: "POST",
+    dataType: "json",
+    data: {catInqID: id},
+    url: "<?php echo base_url(); ?>index.php/IndexMon_controller/catalogInqDetails"
+  }).done(function(data){
+    $("#catalogSubAalID").text(data.CatInqID);
+    $("#materialTitle").text(data.MatTitle);
+    $("#initalInq").text(data.initalInq);
+    $("#catInqReplies").html(data.output);
+    setTimeout(function(){
+      $('#catInqReplies').animate({scrollTop : $('#catInqReplies')[0].scrollHeight} ,'slow');
+    }, 500);
+  });
+
+
+}
+
+
+
+
+function replyCatInq(){
+
+  var subAalID = $("#catalogSubAalID").text();
+  var catalog_replyBox = CKEDITOR.instances['catalogInq_replyBox'].getData();
+
+  $.ajax({
+    type: "POST",
+    dataType: "json",
+    data: {subAalID: subAalID,
+      catalog_replyBox: catalog_replyBox},
+      url: "<?php echo base_url(); ?>index.php/Notif_controller/catInqReply"
+    }).done(function(data){
+      CKEDITOR.instances['catalogInq_replyBox'].setData();
+      CatinquiryDetails(subAalID);
+      toastr.success('Reply sent successfully!');
+    });
+
+  }
+
+
+
+  $(document).ready( function () {
+    CKEDITOR.replace('catalogInq_replyBox',{height:150});
+  });
+
+
+
 
 </script>
 

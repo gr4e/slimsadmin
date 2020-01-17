@@ -274,8 +274,8 @@ class Notif_controller extends CI_Controller {
 
         $sub_array[] = $r->mntrType;
         $sub_array[] = substr($r->Title, 0, 80);
-        $sub_array[] =  "<button class='btn btn-danger' style='float:right; margin: 5px 0 5px 5px' onclick = unMonitor('".$r->mntrIndexID."')>Un-Monitor</button>
-        <button type='button' onclick=lookUpMntr('".$r->subID."'); class='btn btn-info' style='float:right; margin: 5px 0 5px 0;'>Lookup</button>";
+        $sub_array[] =  "<button class='btn btn-danger' style='float:right; margin: 5px 0 5px 5px' onclick = unMonitor('".$r->mntrIndexID."')>Un-Monitor</button>";
+
 
         $data[] = $sub_array;
       }

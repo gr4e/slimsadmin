@@ -101,9 +101,13 @@ class Notif_model extends CI_Model{
               WHEN a.mntrType = 3 THEN (SELECT tblindices.Title FROM inqcat LEFT JOIN tblindices ON inqcat.HoldingsID = tblindices.HoldingsID WHERE a.subID = inqcat.CatInqID)
               END) as Title,
 
-              IF(a.mntrType = 2,
-                (SELECT users.FullName FROM askalib LEFT JOIN users ON askalib.InquiredBy = users.Username WHERE askalib.subAalID = a.subID )
-                , (SELECT users.FullName FROM suggest LEFT JOIN users ON suggest.SuggestedBy = users.Username WHERE suggest.subSabID = a.subID )  ) as ByName,
+              (CASE
+                WHEN a.mntrType = 1 THEN (SELECT users.FullName FROM suggest LEFT JOIN users ON suggest.SuggestedBy = users.UserID WHERE suggest.subSabID = a.subID)
+                WHEN a.mntrType = 2 THEN (SELECT users.FullName FROM askalib LEFT JOIN users ON askalib.InquiredBy = users.UserID WHERE askalib.subAalID = a.subID)
+                WHEN a.mntrType = 3 THEN (SELECT users.FullName FROM inqcat LEFT JOIN users ON inqcat.inqCatBy = users.UserID WHERE inqcat.CatInqID = a.subID)
+                END) as ByName,
+
+
                 b.isAcquired
                 FROM monitorindex a
                 LEFT JOIN suggest b

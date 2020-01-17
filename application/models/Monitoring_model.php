@@ -269,6 +269,26 @@ class Monitoring_model extends CI_Model
 
 
 
+    function GET_inqCatList($UserID){
+      $query = $this->db->query("SELECT a.inqCatID, a.CatInqID, a.HoldingsID, b.FullName, a.inqCatDate FROM inqcat a
+        LEFT JOIN users b
+        ON a.inqCatBy = b.UserID
+        WHERE a.CatInqID IN (SELECT subID FROM monitorindex WHERE UserID = '".$UserID."') AND a.Monitored = '1' AND a.isDeleted = '0'");
+        return $query->result();
+      }
 
 
-  }
+      function GET_catInqDetails($catInqID){
+        $query = $this->db->query("SELECT a.inqCatID, a.CatInqID, (SELECT Title FROM tblindices WHERE HoldingsID = a.HoldingsID) as MatTitle, a.inqCatTxt, c.FullName, a.inqCatDate, b.reply, b.dateReply, b.isPatron FROM inqcat a
+          LEFT JOIN inqcat_reply b
+          ON a.CatInqID = b.CatInqID
+          LEFT JOIN users c
+          on a.inqCatBy = c.UserID
+          WHERE a.CatInqID = '".$catInqID."'
+          AND a.Monitored = '1' AND a.isDeleted = '0'");
+
+          return $query->result();
+        }
+
+
+      }

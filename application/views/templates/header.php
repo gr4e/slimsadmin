@@ -468,6 +468,7 @@
 											<li><a href="<?php echo base_url()."holdings/inhousereports"; ?>"><i class="fa fa-file-excel-o"></i> Inhouse Reports</a></li>
 											<li><a href="<?php echo base_url()."Reports/Downloads"; ?>"><i class="fa fa-download"></i> Downloads Report</a></li>
 											<li><a href="<?php echo base_url()."Reports/suggestionsReport"; ?>"><i class="fa fa-handshake-o"></i> Suggestions Report</a></li>
+											<li><a href="<?php echo base_url()."PatronStatistics"; ?>"><i class="fa fa-bar-chart"></i> Patron Statistics</a></li>
 											<li><a href="<?php echo base_url()."PatronTrail"; ?>"><i class="fa fa-blind"></i> Patron Trails</a></li>
 										</ul>
 									</li>

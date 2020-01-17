@@ -219,19 +219,105 @@ class IndexMon_controller extends CI_Controller{
 
   }
 
-function availableSuggestion(){
-  $sabID = $this->input->post('sabID');
-  $this->IndexMon_model->UPDATE_availableStatusSuggestMat($sabID);
-  exit();
-}
+  function availableSuggestion(){
+    $sabID = $this->input->post('sabID');
+    $this->IndexMon_model->UPDATE_availableStatusSuggestMat($sabID);
+    exit();
+  }
 
 
-function deleteSuggestion(){
-  $sabID = $this->input->post('sabID');
-  $this->IndexMon_model->UPDATE_deleteStatusSuggestMat($sabID);
-  exit();
+  function deleteSuggestion(){
+    $sabID = $this->input->post('sabID');
+    $this->IndexMon_model->UPDATE_deleteStatusSuggestMat($sabID);
+    exit();
 
-}
+  }
+
+
+
+  function GET_catalogInqList(){
+
+    $draw = intval($this->input->get("draw"));
+    $start = intval($this->input->get("start"));
+    $length = intval($this->input->get("length"));
+
+    $currentUserID = $this->Accounts_model->get_session_data('UserID');
+
+
+    $records = $this->Monitoring_model->GET_inqCatList($currentUserID);
+
+    $data = array();
+
+
+    foreach($records as $r){
+      $sub_array = array();
+
+      $sub_array[] = $r->HoldingsID;
+      $sub_array[] = $r->FullName;
+      $sub_array[] = $r->inqCatDate;
+      $sub_array[] =  "<button type='button' onclick=CatInq('".$r->CatInqID."'); class='btn btn-info' style='float:right; margin: 5px 0 5px 0;'>Details</button>";
+
+      $data[] = $sub_array;
+    }
+
+
+    $output = array(
+      "draw" => $draw,
+      "recordsTotal" => count($records),
+      "recordsFiltered" => count($records),
+      "data" => $data
+    );
+
+
+    echo json_encode($output);
+    exit();
+
+  }
+
+
+  function catalogInqDetails(){
+    $catInqID = $this->input->post('catInqID');
+
+    $catInqDetailsArr = $this->Monitoring_model->GET_catInqDetails($catInqID);
+
+    $output = "";
+
+    for ($i=0; $i < count($catInqDetailsArr) ; $i++) {
+
+      if ($catInqDetailsArr[$i]->isPatron == '1') {
+        $styleIfPatron = "border: 1px solid; margin-top: 10px; border-radius:5px; padding:10px 20px; word-break: break-word; background-color:#F2F3F5; float: left;";
+        $patronDateReply = "<br/> <br /><i style= 'color:#828282; font-size:12px; font-weight:300;'  >" . $catInqDetailsArr[$i]->dateReply . "</i>";
+      }else{
+        $styleIfPatron = "border: 1px solid; margin-top: 10px; border-radius:5px; padding:10px 20px; word-break: break-word; background-color:#AAC9FF; float: right;";
+        $patronDateReply = "<br/><i style= 'color:#828282; font-size:12px; font-weight:300;'  >" . $catInqDetailsArr[$i]->dateReply . "</i>";
+      }
+      $output .= "<div style='".$styleIfPatron."' class='col-sm-11'>".$catInqDetailsArr[$i]->reply.$patronDateReply."</div>";
+
+    }
+
+    if ($catInqDetailsArr[0]->reply == NULL) {
+      $output = "<h5> No current conversation.</h5>";
+    }
+
+    $data['CatInqID'] = $catInqDetailsArr[0]->CatInqID;
+    $data['MatTitle'] = $catInqDetailsArr[0]->MatTitle;
+    $data['initalInq'] = $catInqDetailsArr[0]->inqCatTxt;
+    $data['output'] = $output;
+
+
+    echo json_encode($data);
+
+  }
+
+
+
+
+
+
+
+
+
+
 
 
 

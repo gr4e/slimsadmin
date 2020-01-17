@@ -96,6 +96,7 @@ $route['GenerateSuggestionsList'] = 'Suggestions_controller/GenerateSuggestions'
 $route['MaterialInventory'] = 'Inventory_controller/material_inventory';
 
 $route['PatronTrail'] = 'PatronTrail_controller/PatronTrail';
+$route['PatronStatistics'] = 'Patron_controller/PatronStatsReport';
 $route['PatronPassReset'] = 'Accounts_controller/patronResetPass';
 
 
