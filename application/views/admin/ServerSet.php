@@ -20,13 +20,15 @@
     </form>
   </div>
 
+  <div class="box-header with-border">
+  </div>
 
   <div class="col-lg-12">
-    <section class="content-header">
+    <section class="content-header" style="margin-bottom: 30px;">
       <h1>OPAC Banner</h1>
+    <a href="<?php echo $templatePath; ?>"><span>Template download</span></a>
     </section>
-    <div class="box-header with-border">
-    </div>
+
 
     <?php echo form_open_multipart('Cms_controller/upload_banner');?>
 

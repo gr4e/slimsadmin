@@ -49,27 +49,25 @@
 
     <div class="col-lg-12">
 
+      <div class="col-sm-5" id="formContainer" style="margin-top: 20px;">
 
-      <!-- <?php echo form_open_multipart('CatalogExport_controller/do_upload');?>
+        <img src="<?php echo base_url(); ?>assets/img/pulse.gif" alt="" id="loading" style="display: none;">
+        <?php $attributes = array('id' => 'impForm'); echo form_open_multipart('CatalogImport_controller/do_upload', $attributes);?>
 
-      <input type="file" name="userfile" size="20" />
+        <input type="file" name="userfile" id="userfile" size="100" class="form-control-file" />
 
-      <br /><br />
+        <br /><br />
 
-      <input type="submit" value="upload" />
+        <input type="submit" value="upload" class="btn btn-primary" />
 
-    </form> -->
+      </form>
 
-
-    <form id="importForm" action="#" method="post">
-
-      <input type="file" name="userfile" size="20" />
-
-      <input type="submit" name="" value="Upload!">
-
-    </form>
+    </div>
 
 
+    <div id="outputCatalogDetails">
+
+    </div>
 
   </div>
 
@@ -89,6 +87,114 @@
 
 
 </div><!-- end of wrapper -->
+
+
+<script type="text/javascript">
+
+
+$(document).ready(function (e) {
+  $("#impForm").on('submit',(function(e) {
+    e.preventDefault();
+    $.ajax({
+      url: "<?php echo base_url(); ?>index.php/CatalogImport_controller/uploadImpCatTmp",
+      type: "POST",
+      data:  new FormData(this),
+      contentType: false,
+      cache: false,
+      processData:false,
+      dataType: "JSON",
+      beforeSend : function()
+      {
+        $("#formContainer").fadeOut();
+        $("#loading").fadeIn();
+      },
+      success: function(dataImp)
+      {
+        if(dataImp=='invalid')
+        {
+          // invalid file format.
+          // $("#err").html("Invalid File !").fadeIn();
+        }
+        else
+        {
+          // view uploaded file.
+          // $("#preview").html(data).fadeIn();
+          $("#impForm")[0].reset();
+        }
+
+        // $('#importStatusDiv').html(dataImp.fullLine);
+
+        $.ajax({
+          type: "POST",
+          dataType: "json",
+          data: {
+            "txtIsNew": "add",
+            "txtHoldingsID": "",
+            "txtCopyNum": "c1",
+            "txtTitle": dataImp.txtTitle,
+            "txtAccessionNum": dataImp.txtAccessionNum,
+            "txtCirculationNum": dataImp.txtCirculationNum,
+            "txtCost": 0.0,
+
+            "cboMaterialType": dataImp.cboMaterialType,
+            "txtISBN": dataImp.txtISBN,
+            // "txtISBN": "",
+            "txtISSN": dataImp.txtISSN,
+            // "txtISSN": "",
+            "txtSeriesStmnt": "",
+            "txtBibliography": "",
+            "txtIssueDate": "",
+            "txtDateAcquired": "",
+            "txtSeriesStmnt": "",
+
+            "txtEdition": dataImp.txtEdition,
+            "txtOtherPhysical": dataImp.txtOtherPhysical,
+
+            "cboPersonal": "",
+            "txtPersonal": dataImp.txtPersonal,
+            "txtCorporate": dataImp.txtCorporate,
+            "txtClassificationNum": dataImp.txtClassificationNum,
+            "cboAcquiMode": "6",
+            "txtSource": dataImp.txtSource,
+            "txtUseRestrictions": "",
+            "txtItemStatus": "",
+            "txtTempLocation": "",
+            "txtCopyNum": "",
+            "txtNonpublic": "",
+            "txtVolume": "",
+            "txtIssueNum": "",
+            "txtPublicationDate": "",
+            "txtCopyNum": "",
+            "txtYear": ""
+
+
+          },
+          url: "<?php echo base_url(); ?>index.php/Acquisitions_controller/create"
+        }).done(function(DataCreate){
+          $("#loading").hide();
+          $("#formContainer").fadeIn();
+          if (DataCreate.status == 'success') {
+            toastr.success("Catalog imported successfully!");
+          }else if(DataCreate.status == 'error'){
+            toastr.error(DataCreate.message);
+          }else{
+            toastr.error("Import Failed.");
+          }
+
+        });
+
+      },
+      error: function(e)
+      {
+        // $("#err").html(e).fadeIn();
+      }
+    });
+  }));
+});
+
+</script>
+
+
 
 
 <script type="text/javascript">

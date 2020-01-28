@@ -544,6 +544,8 @@ class Cms_controller extends CI_Controller {
       'notifs' => $this->Accounts_model->get_notifs()
     );
 
+    $data['templatePath'] = base_url()."assets/img/banner_template.psd";
+
     $data['serSet'] = $this->Cms_model->GET_serverSettings();
 
     $this->load->template('admin/ServerSet', $data, $page);

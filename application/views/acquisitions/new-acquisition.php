@@ -67,7 +67,7 @@ $ctr = 0;
 										<th rowspan="1">Created By</th>
 										<th rowspan="1">Created Date</th>
 										<!-- <th rowspan="1" style="width:105px";>Action</th>  -->
-									</tr> 
+									</tr>
 
 								</thead>
 								<tbody>
@@ -82,7 +82,7 @@ $ctr = 0;
 			</section>
 		</div>
 		<div class="box-footer">
-		</div>   
+		</div>
 	</div>
 	<!-- End Data Table -->
 
@@ -121,7 +121,7 @@ $ctr = 0;
 										<i class="fa fa-lightbulb-o" style="width: 13px;"></i>
 									</div>
 								</div>
-							</div>  
+							</div>
 							<!-- End Material Type form-goup -->
 
 							<!-- ISBN form-group -->
@@ -191,7 +191,7 @@ $ctr = 0;
 									</div>
 								</div>
 							</div>
-							<!-- End Classification Number form-group --> 
+							<!-- End Classification Number form-group -->
 
 							<!-- Author form-group -->
 							<div class="form-group">
@@ -201,7 +201,7 @@ $ctr = 0;
 									<div class="input-group-addon">
 										<em>100</em>
 									</div>
-									<div class="form-control"><input type="checkbox" class="chkbox" id="chk100" name="chktag[]" value="100"> Personal Author</div> 
+									<div class="form-control"><input type="checkbox" class="chkbox" id="chk100" name="chktag[]" value="100"> Personal Author</div>
 									<div class="input-group-addon recolor" data-html="true" rel="tooltip" title="<?php echo $tooltipArray[$ctr++]; ?>">
 										<i class="fa fa-lightbulb-o" style="width: 13px;"></i>
 									</div>
@@ -229,7 +229,7 @@ $ctr = 0;
 											<option selected="selected" value="0">Forename</option>
 											<option value="1">Surname</option>
 											<option value="3">Family name</option>
-										</select>  
+										</select>
 										<div class="input-group-addon recolor" data-html="true" rel="tooltip" title="<?php echo $tooltipArray[$ctr++].$tooltipArray[$ctr++].$tooltipArray[$ctr++].$tooltipArray[$ctr++].$tooltipArray[$ctr++].$tooltipArray[$ctr++].$tooltipArray[$ctr++].$tooltipArray[$ctr++]; ?>">
 											<i class="fa fa-lightbulb-o" style="width: 13px;"></i>
 										</div>
@@ -323,7 +323,7 @@ $ctr = 0;
 											<em>110a</em>
 										</div>
 										<input type="text" class="form-control authorname" id="txtCorporate" name="txtCorporate" placeholder="Corporate name or jurisdiction name as entry element" data-toggle="tooltip" title="Corporate name or jurisdiction name as entry element">
-										<div class="input-group-addon"><input type="checkbox" class="chkbox" id="chk110optn" name="chk110optn" value="1"> Optional Fields</div> 
+										<div class="input-group-addon"><input type="checkbox" class="chkbox" id="chk110optn" name="chk110optn" value="1"> Optional Fields</div>
 										<div class="input-group-addon recolor" data-html="true" rel="tooltip" title="<?php echo $tooltipArray[$ctr++].$tooltipArray[$ctr++]; ?>">
 											<i class="fa fa-lightbulb-o" style="width: 13px;"></i>
 										</div>
@@ -375,14 +375,14 @@ $ctr = 0;
 										<div class="input-group-addon">
 											<em>700</em>
 										</div>
-										<span class="form-control" style="text-align:left"><input type="checkbox" class="chkbox" id="chkPersonal700" name="chkPersonal700" value="1"> Added Entry (Personal Author)</span> 
+										<span class="form-control" style="text-align:left"><input type="checkbox" class="chkbox" id="chkPersonal700" name="chkPersonal700" value="1"> Added Entry (Personal Author)</span>
 										<div id="divAddedForname" style="display: none">
 											<select class="form-control select2" id="cboPersonal700" name="cboPersonal700" style="width: 100%;" >
 												<option selected="selected" value="0">Forename</option>
 												<option value="1">Surname</option>
 												<option value="3">Family name</option>
 											</select>
-										</div> 
+										</div>
 										<div class="input-group-addon recolor" data-html="true" rel="tooltip" title="<?php echo $tooltipArray[$ctr++].$tooltipArray[$ctr++].$tooltipArray[$ctr++].$tooltipArray[$ctr++]; ?>">
 											<i class="fa fa-lightbulb-o" style="width: 13px;"></i>
 										</div>
@@ -462,7 +462,7 @@ $ctr = 0;
 										<div class="input-group-addon">
 											<em>710</em>
 										</div>
-										<span class="form-control" style="text-align:left"><input type="checkbox" class="chkbox" id="chkCorporate710" name="chkCorporate710" value="1"> Added Entry (Corporate Author)</span> 
+										<span class="form-control" style="text-align:left"><input type="checkbox" class="chkbox" id="chkCorporate710" name="chkCorporate710" value="1"> Added Entry (Corporate Author)</span>
 										<div id="divAddedInverted" style="display: none">
 											<select class="form-control select2" id="cboCorporate710" name="cboCorporate710" style="width: 100%;">
 												<option selected="selected" value="0">Inverted name</option>
@@ -479,7 +479,7 @@ $ctr = 0;
 											<em>710a</em>
 										</div>
 										<input type="text" class="form-control authorname" id="txtCorporate710" name="txtCorporate710" placeholder="Corporate name or jurisdiction name as entry element" data-toggle="tooltip" title="Corporate name or jurisdiction name as entry element">
-										<div class="input-group-addon"><input type="checkbox" class="chkbox" id="chk710optn" name="chk710optn" value="1"> Optional Fields</div> 
+										<div class="input-group-addon"><input type="checkbox" class="chkbox" id="chk710optn" name="chk710optn" value="1"> Optional Fields</div>
 										<div class="input-group-addon recolor" data-html="true" rel="tooltip" title="<?php echo $tooltipArray[$ctr++].$tooltipArray[$ctr++]; ?>">
 											<i class="fa fa-lightbulb-o" style="width: 13px;"></i>
 										</div>
@@ -518,7 +518,7 @@ $ctr = 0;
 							<!-- Title form-group -->
 							<div class="form-group">
 								<label>Title
-								</label>  
+								</label>
 								<div class="input-group">
 									<div class="input-group-addon" style="padding-right: 9; padding-left: 8;">
 										<em>245a</em>
@@ -782,7 +782,7 @@ $ctr = 0;
 							<!-- Issue Date form-group -->
 							<div class="form-group serial" style="display: none;">
 								<label>Issue Date
-								</label>  
+								</label>
 								<div class="input-group date" >
 									<div class="input-group-addon">
 										<i class="fa fa-calendar"></i>
@@ -894,7 +894,7 @@ $ctr = 0;
 							<!-- Date Acquired form-group -->
 							<div class="form-group">
 								<label>Date Acquired
-								</label>  
+								</label>
 								<div class="input-group date">
 									<div class="input-group-addon" style="padding-right: 9; padding-left: 8;">
 										<em>876d</em>
@@ -1028,21 +1028,21 @@ $ctr = 0;
 							<br>
 							<div class="form-group pull-right">
 								<input type="hidden" name="txtIsNew" id="txtIsNew" />
-								<input type="hidden" name="txtAcquisitionID" id="txtAcquisitionID" /> 
-								<input type="hidden" name="txtHoldingsID" id="txtHoldingsID" /> 
+								<input type="hidden" name="txtAcquisitionID" id="txtAcquisitionID" />
+								<input type="hidden" name="txtHoldingsID" id="txtHoldingsID" />
 								<!-- <input type="hidden" name="txtCopyNum" id="txtCopyNum" /> -->
 
 								<button type="button" class="btn btn-info" onclick="save_record()" id="btnSubmit" name="btnSubmit"><label id="lblSubmit">Submit
 								</label></button>
-								<button type="button" class="btn" onclick="clear_fields()" id="btnClear" name="btnClear">Clear</button> 
-								<button type="button" class="btn btn-warning" onclick="delete_record()" id="btnDelete" name="btnDelete">Delete</button> 
+								<button type="button" class="btn" onclick="clear_fields()" id="btnClear" name="btnClear">Clear</button>
+								<button type="button" class="btn btn-warning" onclick="delete_record()" id="btnDelete" name="btnDelete">Delete</button>
 							</div>
 						</div>
 					</div>
 				</div>
 			</form>
 		</div>
-		
+
 		<!-- /.box-body -->
 		<div class="box-footer">
 		</div>
@@ -1076,7 +1076,7 @@ $ctr = 0;
 			success: function(data) {
 				for(var x = 0; x < data.data.length; x++)
 				{
-					$('#tblAcquisition').dataTable().fnAddData( 
+					$('#tblAcquisition').dataTable().fnAddData(
 						[
 						data.data[x].AcquisitionID,
 						data.data[x].Title,
@@ -1090,7 +1090,7 @@ $ctr = 0;
 					// data.data[x].Action
 					]);
 				}
-			}     
+			}
 		});
 
 		table
@@ -1100,26 +1100,26 @@ $ctr = 0;
 	}
 
 	//Load DataTable
-	$(document).ready(function() 
+	$(document).ready(function()
 	{
 		$('#tblAcquisition').DataTable(
 		{
 			"pageLength": 5,
 			"scrollX": true,
-			"ajax": 
+			"ajax":
 			{
 				url : "<?php echo site_url("acquisitions_controller/load_table") ?>",
 				type : 'POST',
 				data:{type:type},
-				dataType:"json" 
+				dataType:"json"
 			},
 			"dom": 'Bfrtip',
 			// "order": [[ 8, "desc" ]],
-			"buttons": 
+			"buttons":
 			[
 			{
 				extend: 'copy',
-				exportOptions: 
+				exportOptions:
 				{
 					columns: [':visible :not(:last-child)']
 				},
@@ -1131,10 +1131,10 @@ $ctr = 0;
 					$.fn.dataTable.ext.buttons.copyHtml5.action.call(this, e, dt, node, config);
 					logThis(5);
 				}
-			}, 
+			},
 			{
 				extend: 'csv',
-				exportOptions: 
+				exportOptions:
 				{
 					columns: [':visible :not(:last-child)']
 				},
@@ -1146,10 +1146,10 @@ $ctr = 0;
 					$.fn.dataTable.ext.buttons.csvHtml5.action.call(this, e, dt, node, config);
 					logThis(6);
 				}
-			},  
+			},
 			{
 				extend: 'excel',
-				exportOptions: 
+				exportOptions:
 				{
 					columns: [':visible :not(:last-child)']
 				},
@@ -1161,10 +1161,10 @@ $ctr = 0;
 					$.fn.dataTable.ext.buttons.excelHtml5.action.call(this, e, dt, node, config);
 					logThis(7);
 				}
-			},  
+			},
 			{
 				extend: 'pdf',
-				exportOptions: 
+				exportOptions:
 				{
 					columns: [':visible :not(:last-child)']
 				},
@@ -1178,10 +1178,10 @@ $ctr = 0;
 					$.fn.dataTable.ext.buttons.pdfHtml5.action.call(this, e, dt, node, config);
 					logThis(8);
 				}
-			},  
+			},
 			{
 				extend: 'print',
-				exportOptions: 
+				exportOptions:
 				{
 					columns: [':visible :not(:last-child)']
 				},
@@ -1194,7 +1194,7 @@ $ctr = 0;
 				}
 			}
 			],
-			"columnDefs": 
+			"columnDefs":
 			[
 			{
 				"targets": [1],
@@ -1223,7 +1223,7 @@ $ctr = 0;
 				url:"<?php echo site_url('acquisitions_controller/authordetails')?>",
 				method:"POST",
 				data:{author:author, id:id },
-				dataType:"json", 
+				dataType:"json",
 				success:function(data)
 				{
 
@@ -1237,11 +1237,11 @@ $ctr = 0;
 							}
 						}
 
-						$('#txtB100').val(data.txtB100);  
-						$('#txtC100').val(data.txtC100);  
-						$('#txtE100').val(data.txtE100);  
-						$('#txtD100').val(data.txtD100);  
-						$('#txtQ100').val(data.txtQ100);  
+						$('#txtB100').val(data.txtB100);
+						$('#txtC100').val(data.txtC100);
+						$('#txtE100').val(data.txtE100);
+						$('#txtD100').val(data.txtD100);
+						$('#txtQ100').val(data.txtQ100);
 						$('#txtU100').val(data.txtU100);
 					}
 
@@ -1255,9 +1255,9 @@ $ctr = 0;
 							}
 						}
 
-						$('#txtB110').val(data.txtB110);  
-						$('#txtC110').val(data.txtC110);  
-						$('#txtD110').val(data.txtD110);  
+						$('#txtB110').val(data.txtB110);
+						$('#txtC110').val(data.txtC110);
+						$('#txtD110').val(data.txtD110);
 						$('#txtN110').val(data.txtN110);
 					}
 
@@ -1272,11 +1272,11 @@ $ctr = 0;
 							}
 						}
 
-						$('#txtB700').val(data.txtB700);  
-						$('#txtC700').val(data.txtC700);  
-						$('#txtE700').val(data.txtE700);  
-						$('#txtD700').val(data.txtD700);  
-						$('#txtQ700').val(data.txtQ700);  
+						$('#txtB700').val(data.txtB700);
+						$('#txtC700').val(data.txtC700);
+						$('#txtE700').val(data.txtE700);
+						$('#txtD700').val(data.txtD700);
+						$('#txtQ700').val(data.txtQ700);
 						$('#txtU700').val(data.txtU700);
 					}
 
@@ -1290,9 +1290,9 @@ $ctr = 0;
 							}
 						}
 
-						$('#txtB710').val(data.txtB710);  
-						$('#txtC710').val(data.txtC710);  
-						$('#txtD710').val(data.txtD710); 
+						$('#txtB710').val(data.txtB710);
+						$('#txtC710').val(data.txtC710);
+						$('#txtD710').val(data.txtD710);
 					}
 				}
 			});
@@ -1315,7 +1315,7 @@ $ctr = 0;
 				url:"<?php echo site_url('acquisitions_controller/autoload_fields')?>",
 				method:"POST",
 				data:{title:title, author:author, pubyear:pubyear},
-				dataType:"json", 
+				dataType:"json",
 				success:function(data)
 				{
 
@@ -1334,14 +1334,14 @@ $ctr = 0;
 					typeof data.txtRmndrEdtnStmnt !== "undefined" ? $('#txtRmndrEdtnStmnt').val(data.txtRmndrEdtnStmnt) : null;
 
 					if(typeof data.cboImprint !== "undefined")
-						$('#cboImprint').val(data.cboImprint).change(); 
+						$('#cboImprint').val(data.cboImprint).change();
 					else
-						$('#cboImprint').val("#").change(); 
+						$('#cboImprint').val("#").change();
 
 					if(typeof data.cboImprintType !== "undefined")
-						$('#cboMaterialTypeImprint').val(data.cboImprintType).change(); 
+						$('#cboMaterialTypeImprint').val(data.cboImprintType).change();
 					else
-						$('#cboMaterialTypeImprint').val("1").change(); 
+						$('#cboMaterialTypeImprint').val("1").change();
 
 					typeof data.txtPublisher !== "undefined" ? $('#txtPublisher').val(data.txtPublisher) : null;
 					typeof data.txtPublicationPlace !== "undefined" ? $('#txtPublicationPlace').val(data.txtPublicationPlace) : null;
@@ -1398,13 +1398,13 @@ $ctr = 0;
 		scroll_top();
 
 		$.ajax(
-		{  
-			url:"<?php echo site_url("acquisitions_controller/load_single_record")?>/"+id,  
-			method:"POST",  
-			data:{id:id},  
-			dataType:"json",  
-			success:function(data)  
-			{   
+		{
+			url:"<?php echo site_url("acquisitions_controller/load_single_record")?>/"+id,
+			method:"POST",
+			data:{id:id},
+			dataType:"json",
+			success:function(data)
+			{
 
 				if(data.author_tag == "100")
 				{
@@ -1426,10 +1426,10 @@ $ctr = 0;
 					}
 					else
 					{
-						hide_author(false, false, true, false); 
+						hide_author(false, false, true, false);
 					}
 
-					hide_author(false, true, false, false); 
+					hide_author(false, true, false, false);
 				}
 
 				if(data.author_tag == "110")
@@ -1449,7 +1449,7 @@ $ctr = 0;
 						{
 							document.getElementById('chk710optn').checked === false ? $("#chk710optn").click() : void 0;
 						}
-					} 
+					}
 					else
 					{
 						hide_author(false, false, false, true);
@@ -1491,7 +1491,7 @@ $ctr = 0;
 						{
 							document.getElementById('chk710optn').checked === false ? $("#chk710optn").click() : void 0;
 						}
-					} 
+					}
 				}
 
 				// if(data.txtAuthorNum != "" || data.txtCopyrightDate != "")
@@ -1535,43 +1535,43 @@ $ctr = 0;
 				// hideFrequency();
 				// showFrequency(data.cboFrequency);
 
-				$('#cboMaterialType').val(data.cboMaterialType).change(); 
+				$('#cboMaterialType').val(data.cboMaterialType).change();
 				$('#txtISBN').val(data.txtISBN);
 				$('#txtISSN').val(data.txtISSN);
 				$('#txtClassificationNum').val(data.txtClassificationNum);
 				$('#txtAuthorNum').val(data.txtAuthorNum);
 				$('#txtCopyrightDate').val(data.txtCopyrightDate);
 
-				$('#cboPersonal').val(data.cboPersonal).change(); 
-				$('#txtPersonal').val(data.txtPersonal);  
-				$('#txtB100').val(data.txtB100);  
-				$('#txtC100').val(data.txtC100);  
-				$('#txtE100').val(data.txtE100);  
-				$('#txtD100').val(data.txtD100);  
-				$('#txtQ100').val(data.txtQ100);  
+				$('#cboPersonal').val(data.cboPersonal).change();
+				$('#txtPersonal').val(data.txtPersonal);
+				$('#txtB100').val(data.txtB100);
+				$('#txtC100').val(data.txtC100);
+				$('#txtE100').val(data.txtE100);
+				$('#txtD100').val(data.txtD100);
+				$('#txtQ100').val(data.txtQ100);
 				$('#txtU100').val(data.txtU100);
 
-				$('#cboCorporate').val(data.cboCorporate).change(); 
-				$('#txtCorporate').val(data.txtCorporate);  
-				$('#txtB110').val(data.txtB110);  
-				$('#txtC110').val(data.txtC110);  
-				$('#txtD110').val(data.txtD110);  
-				$('#txtN110').val(data.txtN110); 
+				$('#cboCorporate').val(data.cboCorporate).change();
+				$('#txtCorporate').val(data.txtCorporate);
+				$('#txtB110').val(data.txtB110);
+				$('#txtC110').val(data.txtC110);
+				$('#txtD110').val(data.txtD110);
+				$('#txtN110').val(data.txtN110);
 
-				$('#cboPersonal700').val(data.cboPersonal700).change(); 
-				$('#txtPersonal700').val(data.txtPersonal700);  
-				$('#txtB700').val(data.txtB700);  
-				$('#txtC700').val(data.txtC700);  
-				$('#txtE700').val(data.txtE700);  
-				$('#txtD700').val(data.txtD700);  
-				$('#txtQ700').val(data.txtQ700);  
+				$('#cboPersonal700').val(data.cboPersonal700).change();
+				$('#txtPersonal700').val(data.txtPersonal700);
+				$('#txtB700').val(data.txtB700);
+				$('#txtC700').val(data.txtC700);
+				$('#txtE700').val(data.txtE700);
+				$('#txtD700').val(data.txtD700);
+				$('#txtQ700').val(data.txtQ700);
 				$('#txtU700').val(data.txtU700);
 
-				$('#cboCorporate710').val(data.cboCorporate710).change(); 
-				$('#txtCorporate710').val(data.txtCorporate710);  
-				$('#txtB710').val(data.txtB710);  
-				$('#txtC710').val(data.txtC710);  
-				$('#txtD710').val(data.txtD710);  
+				$('#cboCorporate710').val(data.cboCorporate710).change();
+				$('#txtCorporate710').val(data.txtCorporate710);
+				$('#txtB710').val(data.txtB710);
+				$('#txtC710').val(data.txtC710);
+				$('#txtD710').val(data.txtD710);
 
 				$('#txtTitle').val(data.txtTitle);
 				$('#txtRmndrTitle').val(data.txtRmndrTitle);
@@ -1580,8 +1580,8 @@ $ctr = 0;
 				$('#txtEdition').val(data.txtEdition);
 				$('#txtRmndrEdtnStmnt').val(data.btxtRmndrEdtnStmnt_250);
 
-				$('#cboImprint').val(data.cboImprint).change(); 
-				$('#cboMaterialTypeImprint').val(data.cboImprintType).change(); 
+				$('#cboImprint').val(data.cboImprint).change();
+				$('#cboMaterialTypeImprint').val(data.cboImprintType).change();
 
 				$('#txtPublisher').val(data.txtPublisher);
 				$('#txtPublicationPlace').val(data.txtPublicationPlace);
@@ -1616,12 +1616,12 @@ $ctr = 0;
 				$('#txtNonpublic').val(data.txtNonpublic);
 
 				$('#txtCopyNum').val(data.txtCopyNum);
-				$('#txtHoldingsID').val(data.txtHoldingsID);  
+				$('#txtHoldingsID').val(data.txtHoldingsID);
 				$('#txtAcquisitionID').val(data.txtAcquisitionID);
 
 				$('#lblSubmit').text("Save");
 				//onMaterialTypeChange();
-			}  
+			}
 		});
 	}
 	//End load record to edit
@@ -1634,12 +1634,12 @@ $ctr = 0;
 
 		//var formData = new FormData($('#form')[0]);
 		$.ajax(
-		{  
+		{
 			url : url,
 			type: "POST",
 			data: $('#form').serialize(),
 			dataType: "JSON",
-			success:function(data)  
+			success:function(data)
 			{
 				if(data.status == 'success')
 				{
@@ -1652,14 +1652,14 @@ $ctr = 0;
 					//$('input').removeAttr('placeholder');
 					$('#txtIsNew').val('add');
 					save_method = 'add';
-				} 
+				}
 				else if(data.status == 'error')
 				{
 					toastr.error(data.message);
 				}
-				else 
+				else
 				{
-					for (var i = 0; i < data.inputerror.length; i++) 
+					for (var i = 0; i < data.inputerror.length; i++)
 					{
 						// $('[id="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error'); //select parent twice to select div form-group class and add has-error class
 
@@ -1686,7 +1686,7 @@ $ctr = 0;
 
 					scroll_top();
 				}
-			}  
+			}
 		});
 	}
 	//End save new or updated record
@@ -1722,18 +1722,18 @@ $ctr = 0;
 		if(id != 1)
 		{
 			$.ajax(
-			{  
+			{
 				url : "<?php echo site_url('acquisitions_controller/create_log')?>/"+id+"/"+blank,
 				type: "POST",
 				data: $('#form').serialize(),
 				dataType: "JSON",
-				success:function(data)  
+				success:function(data)
 				{
 
-				}  
+				}
 			});
 		}
-	} 
+	}
 
 	function AddAcquisition()
 	{
@@ -1793,12 +1793,12 @@ $ctr = 0;
 	//Function to show and hide fields related to Acquisition Mode
 	function onAcquiModeChange()
 	{
-		if ($('#cboAcquiMode').val() <= 2) 
+		if ($('#cboAcquiMode').val() <= 2)
 		{
 			$('#cost').show('1000');
 			$('#source').hide('1000');
 			$('#txtSource').val("");
-		} 
+		}
 		else if($('#cboAcquiMode').val() >= 3)
 		{
 			$('#source').show('1000');
@@ -1840,10 +1840,10 @@ $ctr = 0;
 			{
 				$('#cboFrequency').val('Daily').change();
 				hideFrequency();
-				
-				
+
+
 				showFrequency('Daily');
-			}		
+			}
 			$('.serial').show('1000');
 			$('.frequency').show('1000');
 		}
@@ -1863,18 +1863,18 @@ $ctr = 0;
 	//End Function to show and hide fields related to Material Type
 
 	//Function to show, hide clear fields related to Author & Title
-	$(".chkbox").change(function() 
+	$(".chkbox").change(function()
 	{
-		if(this.checked) 
+		if(this.checked)
 		{
 			//Show Classification Number optional fields
-			if(this.id == "chkClassificationNum") 
+			if(this.id == "chkClassificationNum")
 			{
 				$('#optnlClassNum').show('slow');
 			}
 
 			//Show Tag 100 required fields and checkbox to Added Entry
-			if(this.id == "chk100") 
+			if(this.id == "chk100")
 			{
 				$('#personal').show('1000');
 				$('#addedPersonal').show('1000');
@@ -1904,45 +1904,45 @@ $ctr = 0;
 			// }
 
 			//Show Tag 100 Added Entry required fields
-			if(this.id == "chkPersonal700") 
+			if(this.id == "chkPersonal700")
 			{
 				$('#divAddedForname').show('1000');
 				$('.addedPersonal').show('1000');
 			}
 			//Show Tag 110 Added Entry required fields
-			if(this.id == "chkCorporate710") 
+			if(this.id == "chkCorporate710")
 			{
 				$('#divAddedInverted').show('1000');
 				$('.addedCorporate').show('1000');
 			}
 
 			//Show Tag 100 Added Entry optional fields
-			if(this.id == "chk700optn") 
+			if(this.id == "chk700optn")
 			{
 				$('.optn700').show('1000');
 			}
 			//Show Tag 110 Added Entry optional fields
-			if(this.id == "chk710optn") 
+			if(this.id == "chk710optn")
 			{
 				$('.optn710').show('1000');
 			}
 
 			//Show Title optional fields
-			if(this.id == "chkTitle") 
+			if(this.id == "chkTitle")
 			{
 				$('.optnlTitle').show('slow');
 			}
 
 			//Show Title optional fields
-			if(this.id == "chkEdition") 
+			if(this.id == "chkEdition")
 			{
 				$('#optnlEdition').show('1000');
 			}
-		} 
-		else 
+		}
+		else
 		{
 			//Hide and Clear Classification Number optional fields
-			if(this.id == "chkClassificationNum") 
+			if(this.id == "chkClassificationNum")
 			{
 				if(confirm("Unchecking Classification Number Optional Fields will clear all its fields. Continue?"))
 				{
@@ -1953,7 +1953,7 @@ $ctr = 0;
 				else
 				{
 					$('#chkClassificationNum').prop('checked', true);
-				}          
+				}
 			}
 
 			//Hide and Clear Tag 100 Required & Optional fields
@@ -2023,7 +2023,7 @@ $ctr = 0;
 			// }
 
 			//Hide and Clear Tag 100 Added Entry Required & Optional fields
-			if(this.id == "chkPersonal700") 
+			if(this.id == "chkPersonal700")
 			{
 				if(confirm("Unchecking Added Entry (Personal Author) will clear all its fields. Continue?"))
 				{
@@ -2043,7 +2043,7 @@ $ctr = 0;
 			}
 
 			//Hide and Clear Tag 110 Added Entry Required & Optional fields
-			if(this.id == "chkCorporate710") 
+			if(this.id == "chkCorporate710")
 			{
 				if(confirm("Unchecking Added Entry (Corporate Author) will clear all its fields. Continue?"))
 				{
@@ -2063,7 +2063,7 @@ $ctr = 0;
 			}
 
 			//Hide and Clear Tag 100 Added Entry Optional fields
-			if(this.id == "chk700optn") 
+			if(this.id == "chk700optn")
 			{
 				if(confirm("Unchecking Added Entry (Personal Author) Optional Fields will clear all its fields. Continue?"))
 				{
@@ -2077,7 +2077,7 @@ $ctr = 0;
 			}
 
 			//Hide and Clear Tag 110 Added Entry Optional fields
-			if(this.id == "chk710optn") 
+			if(this.id == "chk710optn")
 			{
 				if(confirm("Unchecking Added Entry (Corporate Author) Optional Fields will clear all its fields. Continue?"))
 				{
@@ -2091,7 +2091,7 @@ $ctr = 0;
 			}
 
 			//Hide and Clear Title optional fields
-			if(this.id == "chkTitle") 
+			if(this.id == "chkTitle")
 			{
 				if(confirm("Unchecking Title Optional Fields will clear all its fields. Continue?"))
 				{
@@ -2102,11 +2102,11 @@ $ctr = 0;
 				else
 				{
 					$('#chkTitle').prop('checked', true);
-				}          
+				}
 			}
 
 			//Hide and Clear Edition optional fields
-			if(this.id == "chkEdition") 
+			if(this.id == "chkEdition")
 			{
 				if(confirm("Unchecking Edition Optional Fields will clear all its fields. Continue?"))
 				{
@@ -2116,7 +2116,7 @@ $ctr = 0;
 				else
 				{
 					$('#chkEdition').prop('checked', true);
-				}    
+				}
 			}
 		}
 	});
@@ -2127,7 +2127,7 @@ $ctr = 0;
 	{
 		$("#txtPersonal").autocomplete(
 		{
-			source: '<?php echo site_url("acquisitions_controller/autocomplete_personal"); ?>' 
+			source: '<?php echo site_url("acquisitions_controller/autocomplete_personal"); ?>'
 		});
 	});
 	//End function for txtPersonal autocomplete
@@ -2169,7 +2169,7 @@ $ctr = 0;
 		{
 			source: '<?php echo site_url("acquisitions_controller/autocomplete_title"); ?>'
 		});
-	}); 
+	});
 	//End function for txtTitle autocomplete
 
 	//Clear fields
@@ -2340,7 +2340,7 @@ $ctr = 0;
 			$('#divAddedInverted').hide('1000');
 			$('.addedCorporate').hide('1000');
 			$('#chk710optn').prop('checked', false);
-			$('.optn710').hide('1000'); 
+			$('.optn710').hide('1000');
 		}
 
 		if(tag700)
@@ -2360,7 +2360,7 @@ $ctr = 0;
 			$('#divAddedInverted').hide('1000');
 			$('.addedCorporate').hide('1000');
 			$('#chk710optn').prop('checked', false);
-			$('.optn710').hide('1000'); 
+			$('.optn710').hide('1000');
 		}
 	}
 	//End Function to show Author related stuffs
@@ -2462,8 +2462,8 @@ $ctr = 0;
 
 	$(function(){
 		var datepicker = $.fn.datepicker.noConflict();
-		$.fn.bootstrapDP = datepicker;  
-		$("#txtDateAcquired").bootstrapDP();    
+		$.fn.bootstrapDP = datepicker;
+		$("#txtDateAcquired").bootstrapDP();
 	});
 
 	$('.dpyear').datepicker({
