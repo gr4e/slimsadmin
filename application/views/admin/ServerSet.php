@@ -20,8 +20,6 @@
     </form>
   </div>
 
-  <div class="box-header with-border">
-  </div>
 
   <div class="col-lg-12">
     <section class="content-header" style="margin-bottom: 30px;">

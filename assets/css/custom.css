@@ -113,3 +113,9 @@
 .SO_indents{
   margin-left: 20px;
 }
+
+
+#rsrvtnHistTable tr.group,
+#rsrvtnHistTable tr.group:hover {
+    background-color: #ddd !important;
+}

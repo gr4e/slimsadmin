@@ -278,9 +278,9 @@ class Cms_controller extends CI_Controller {
   function uploadImg(){
     $config['upload_path']          = 'Gallery/';
     $config['allowed_types']        = 'gif|jpg|png';
-    $config['max_size']             = 10048;
-    $config['max_width']            = 1920;
-    $config['max_height']           = 1080;
+    $config['max_size']             = 0;
+    $config['max_width']            = 0;
+    $config['max_height']           = 0;
 
     $this->load->library('upload', $config);
 
@@ -570,9 +570,9 @@ class Cms_controller extends CI_Controller {
     //banner upload path change to OPAC directory
     $config['upload_path']          = '../slims/assets/images/banner';
     $config['allowed_types']        = 'png';
-    $config['max_size']             = 1000;
-    $config['max_width']            = 111024;
-    $config['max_height']           = 11768;
+    $config['max_size']             = 0;
+    $config['max_width']            = 0;
+    $config['max_height']           = 0;
 
     $this->load->library('upload', $config);
 

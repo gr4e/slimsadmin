@@ -510,6 +510,7 @@
 								</a>
 								<ul class="treeview-menu">
 									<li><a href="<?php echo base_url()."Reservations"; ?>"><i class="fa fa-calendar-check-o"></i>Reservations</a></li>
+									<li><a href="<?php echo base_url()."ReservationHistory"; ?>"><i class="fa fa-calendar"></i>Reservations History</a></li>
 									<li><a href="<?php echo base_url()."Returns"; ?>"><i class="fa fa fa-history"></i>Returns</a></li>
 								</ul>
 							</li>

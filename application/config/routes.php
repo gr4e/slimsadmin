@@ -86,6 +86,9 @@ $route['CatalogExport'] = 'CatalogExport_controller/CatalogExport';
 $route{'Reservations'} = 'Circulations_controller/reservation';
 $route['Returns'] = 'Circulations_controller/returns';
 
+$route['ReservationHistory'] = 'ReservationHist_controller/ReservationHistory';
+$route['ReservationHistory/GenerateRsvHst'] = 'ReservationHist_controller/GenerateReservationHistory';
+
 $route['Reports/Downloads'] = 'Reports_controller/Downloads_reports';
 $route['DownloadsGenerated'] = 'Reports_controller/generateDownloadsList';
 $route['Reports/GenerateTrail'] = 'PatronTrail_controller/generatePatronTrail';
